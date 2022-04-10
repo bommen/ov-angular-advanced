@@ -1,0 +1,19 @@
+:host {
+  display: block;
+}
+
+span {
+  overflow: hidden;
+  display: -webkit-box;
+  -webkit-line-clamp: 3;
+  -webkit-box-orient: vertical;
+  font-weight: bold;
+  font-size: 1em;
+  margin-bottom: 8px;
+  cursor: pointer;
+  color: black;
+
+  &:hover {
+    text-decoration: underline;
+  }
+}

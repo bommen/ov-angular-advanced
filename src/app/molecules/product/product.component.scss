@@ -13,11 +13,11 @@
 
 .info {
   padding-left: 16px;
+  flex: 1;
 }
 
-.category {
-  font-size: 0.8em;
-  color: gray;
+ov-sub-title,
+ov-price {
   margin-bottom: 8px;
 }
 
@@ -38,7 +38,8 @@
 
 .description {
   overflow: hidden;
-  display: -webkit-box;
+
+  display: none;
   -webkit-line-clamp: 2;
   -webkit-box-orient: vertical;
   font-size: 0.8em;
@@ -58,12 +59,13 @@
 
 .star {
   color: orange;
+  font-size: 0.8em;
 }
 
-.square-image {
-  width: 168px;
-  min-width: 168px;
-  height: 156px;
-  max-height: 156px;
-  object-fit: contain;
+.details {
+  display: flex;
+
+  div {
+    flex: 1;
+  }
 }

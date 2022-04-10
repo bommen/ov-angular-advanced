@@ -1,0 +1,29 @@
+<section class="product">
+  <a>
+    <ov-thumbnail [src]="product.image" [alt]="product.title"></ov-thumbnail>
+  </a>
+  <div class="info">
+    <ov-sub-title class="category">{{ product.category }}</ov-sub-title>
+    <ov-title>{{ product.title }}</ov-title>
+    <section class="details">
+      <div>
+        <p class="rating">
+          <span class="fa fa-star star"></span>
+          <span class="fa fa-star star"></span>
+          <span class="fa fa-star star"></span>
+          <span class="fa fa-star star"></span>
+          <span class="fa fa-star-o star"></span>
+          <span class="count">(120)</span>
+        </p>
+        <p class="description">
+          {{ product.description }}
+        </p>
+        <ov-price [amount]="product.price"></ov-price>
+      </div>
+      <div>
+        <ng-content select="[actions]"></ng-content>
+      </div>
+    </section>
+    <ng-content select="[footer]"></ng-content>
+  </div>
+</section>
