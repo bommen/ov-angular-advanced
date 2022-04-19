@@ -1,4 +1,5 @@
 import { Meta, moduleMetadata, Story } from '@storybook/angular';
+import { ThumbnailComponent } from '../thumbnail/thumbnail.component';
 import { SubTitleComponent } from './sub-title.component';
 import { SubTitleModule } from './sub-title.module';
 
@@ -12,9 +13,9 @@ export default {
   ],
 } as Meta;
 
-const Template: Story = (args) => ({
+const Template: Story<ThumbnailComponent> = (args) => ({
   props: args,
-  template: `<ov-sub-title>Example</ov-sub-title>`,
+  template: `<ov-sub-title>Lorem ipsum</ov-sub-title>`,
 });
 
 export const Primary = Template.bind({});

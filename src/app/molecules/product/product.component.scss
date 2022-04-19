@@ -1,39 +1,36 @@
-.products {
-  list-style: none;
-  width: 512px;
-  padding: 8px;
-  box-sizing: border-box;
+@import "../../_styles/breakpoint.scss";
+
+:host {
+  display: block;
 }
 
 .product {
-  border-bottom: 1px solid gray;
   display: flex;
-  padding: 8px;
+  height: var(--product-height);
+  overflow: hidden;
+
+  padding: calc(var(--product-padding) * 0.5);
+
+  @include breakpoint-sm {
+    padding: var(--product-padding);
+  }
 }
 
 .info {
-  padding-left: 16px;
-  flex: 1;
+  width: 100%;
+  padding-left: var(--space-xs);
+  display: flex;
+  flex-direction: column;
 }
 
 ov-sub-title,
-ov-price {
-  margin-bottom: 8px;
+ov-rating {
+  margin-bottom: var(--space-xs);
 }
 
-.title {
-  overflow: hidden;
-  display: -webkit-box;
-  -webkit-line-clamp: 3;
-  -webkit-box-orient: vertical;
-  font-weight: bold;
-  font-size: 1em;
-  margin-bottom: 8px;
-  cursor: pointer;
-
-  &:hover {
-    text-decoration: underline;
-  }
+ov-thumbnail {
+  width: 86px;
+  height: 100%;
 }
 
 .description {
@@ -45,27 +42,16 @@ ov-price {
   font-size: 0.8em;
 }
 
-.rating {
-  margin-bottom: 8px;
-  vertical-align: middle;
-  display: flex;
-  align-items: center;
-  .count {
-    font-size: 0.6em;
-    padding-left: 4px;
-    color: gray;
-  }
-}
-
-.star {
-  color: orange;
-  font-size: 0.8em;
-}
-
 .details {
   display: flex;
+  margin-bottom: var(--space-xs);
+  width: 100%;
 
   div {
     flex: 1;
   }
+}
+
+.footer {
+  flex: 1;
 }

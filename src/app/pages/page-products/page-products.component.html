@@ -1,0 +1,21 @@
+<ov-template-default>
+  <section main>
+    <h2>Products</h2>
+    <ul>
+      <li *ngFor="let product of products" [ngSwitch]="product.type">
+        <ov-product-out-of-stock
+          *ngSwitchCase="'product-out-of-stock'"
+          [product]="asProductOutOfStock(product)!"
+        ></ov-product-out-of-stock>
+        <ov-product-replaced
+          *ngSwitchCase="'product-replaced'"
+          [product]="asProductReplaced(product)!"
+        ></ov-product-replaced>
+        <ov-product-default
+          *ngSwitchDefault
+          [product]="asProduct(product)!"
+        ></ov-product-default>
+      </li>
+    </ul>
+  </section>
+</ov-template-default>

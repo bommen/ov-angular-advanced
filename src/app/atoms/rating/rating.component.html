@@ -1,0 +1,10 @@
+<p class="rating">
+  <ov-icon
+    *ngFor="let star of rate | stars"
+    [icon]="star === 1 ? 'star' : star === 0 ? 'star-o' : 'star-half-o'"
+    color="none"
+    [style.color]="'orange'"
+    size="xs"
+  ></ov-icon>
+  <span class="count">({{ count }})</span>
+</p>

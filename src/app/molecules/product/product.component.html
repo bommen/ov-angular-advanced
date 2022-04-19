@@ -3,18 +3,14 @@
     <ov-thumbnail [src]="product.image" [alt]="product.title"></ov-thumbnail>
   </a>
   <div class="info">
-    <ov-sub-title class="category">{{ product.category }}</ov-sub-title>
+    <ov-sub-title>{{ product.category }}</ov-sub-title>
     <ov-title>{{ product.title }}</ov-title>
-    <section class="details">
+    <div class="details">
       <div>
-        <p class="rating">
-          <span class="fa fa-star star"></span>
-          <span class="fa fa-star star"></span>
-          <span class="fa fa-star star"></span>
-          <span class="fa fa-star star"></span>
-          <span class="fa fa-star-o star"></span>
-          <span class="count">(120)</span>
-        </p>
+        <ov-rating
+          [rate]="product.rating.rate"
+          [count]="product.rating.count"
+        ></ov-rating>
         <p class="description">
           {{ product.description }}
         </p>
@@ -23,7 +19,9 @@
       <div>
         <ng-content select="[actions]"></ng-content>
       </div>
-    </section>
-    <ng-content select="[footer]"></ng-content>
+    </div>
+    <div class="footer">
+      <ng-content select="[footer]"></ng-content>
+    </div>
   </div>
 </section>

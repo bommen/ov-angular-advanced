@@ -1,0 +1,24 @@
+$quantity-width: 42px;
+
+:host {
+  display: flex;
+
+  select,
+  input {
+    font-size: 0.8em;
+    margin-right: 8px;
+  }
+
+  input {
+    width: calc($quantity-width - 8px);
+  }
+
+  select {
+    width: $quantity-width;
+    cursor: pointer;
+  }
+
+  ov-button {
+    width: 40px;
+  }
+}

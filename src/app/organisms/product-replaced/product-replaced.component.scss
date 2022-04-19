@@ -1,0 +1,24 @@
+section {
+  width: 100%;
+  height: 181px;
+  background-color: rgba($color: white, $alpha: 0.8);
+  box-sizing: border-box;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  padding: var(--product-padding);
+  height: var(--product-height);
+
+  ov-message {
+    margin-bottom: var(--space-xs);
+  }
+}
+
+ov-button {
+  width: auto;
+}
+
+.old-title {
+  opacity: 0.6;
+}

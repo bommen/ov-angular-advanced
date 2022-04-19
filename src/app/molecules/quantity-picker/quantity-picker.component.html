@@ -1,0 +1,26 @@
+<select
+  *ngIf="!showInput; else inputTemplate"
+  (change)="selectChangeQuantity($event)"
+  [disabled]="quantity.min === quantity.max"
+  aria-label="quantity"
+>
+  <option value="" selected disabled hidden>
+    {{ quantity.min }}
+  </option>
+  <option *ngFor="let option of quantity | toQuantityOptions">
+    {{ option }}
+  </option>
+</select>
+<ng-template #inputTemplate>
+  <input
+    aria-label="quantity"
+    #input
+    type="number"
+    [step]="quantity.step"
+    [value]="value"
+    (change)="inputChangeQuantity($event)"
+  />
+</ng-template>
+<ov-button type="primary" (click)="submitQuantity()" ariaLabel="add to cart">
+  <ov-icon icon="cart-plus" color="white" size="md"></ov-icon>
+</ov-button>

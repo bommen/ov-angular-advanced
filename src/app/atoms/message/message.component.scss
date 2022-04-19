@@ -1,0 +1,25 @@
+:host {
+  display: block;
+}
+
+p {
+  padding: var(--space-xxs);
+  border-radius: 4px;
+  font-size: 0.8em;
+  width: fit-content;
+}
+
+.ok {
+  color: var(--color-ok);
+  background-color: var(--color-ok-background);
+}
+
+.error {
+  color: var(--color-error);
+  background-color: var(--color-error-background);
+}
+
+.warn {
+  color: var(--color-warn);
+  background-color: var(--color-warn-background);
+}

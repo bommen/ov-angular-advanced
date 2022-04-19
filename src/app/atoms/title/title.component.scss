@@ -5,11 +5,10 @@
 span {
   overflow: hidden;
   display: -webkit-box;
-  -webkit-line-clamp: 3;
   -webkit-box-orient: vertical;
   font-weight: bold;
-  font-size: 1em;
   margin-bottom: 8px;
+  line-height: 1.2em;
   cursor: pointer;
   color: black;
 

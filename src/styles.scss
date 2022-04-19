@@ -5,3 +5,45 @@
 body {
   font-family: "Roboto", sans-serif;
 }
+
+:root {
+  /**
+   * Colors
+   */
+  --color-primary: #6200ee;
+  --color-primary-dark: #3700b3;
+  --color-secondary: #03dac6;
+  --color-secondary-dark: #018786;
+  --color-ok: rgb(65, 152, 48);
+  --color-ok-background: rgb(224, 255, 217);
+  --color-warn: rgb(237, 149, 2);
+  --color-warn-background: rgb(254, 248, 233);
+  --color-error: rgb(206, 26, 24);
+  --color-error-background: rgb(255, 216, 217);
+
+  /**
+   * Icon sizes
+   */
+  --icon-xxs: 10px;
+  --icon-xs: 12px;
+  --icon-sm: 14px;
+  --icon-md: 18px;
+  --icon-lg: 20px;
+  --icon-xl: 24px;
+  --icon-xxl: 32px;
+
+  /**
+    * Spacing units sizes
+    */
+  --space-unit: 16px;
+  --space-xxs: calc(0.25 * var(--space-unit)); // 4px
+  --space-xs: calc(0.5 * var(--space-unit)); // 8px
+  --space-sm: calc(0.75 * var(--space-unit)); // 12px
+  --space-md: calc(1.25 * var(--space-unit)); // 20px
+  --space-lg: calc(2 * var(--space-unit)); // 32px
+  --space-xl: calc(3.25 * var(--space-unit)); // 52px
+  --space-xxl: calc(5.25 * var(--space-unit)); // 84px
+
+  --product-padding: var(--space-xs);
+  --product-height: 181px;
+}

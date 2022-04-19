@@ -1,0 +1,15 @@
+:host {
+  display: block;
+}
+
+.rating {
+  vertical-align: middle;
+  display: flex;
+  align-items: center;
+}
+
+.count {
+  font-size: 0.6em;
+  padding-left: 4px;
+  color: black;
+}

@@ -13,11 +13,21 @@ export default {
   ],
 } as Meta;
 
-const Template: Story = (args) => ({
+const Template: Story<PriceComponent> = (args) => ({
   props: args,
 });
 
 export const Primary = Template.bind({});
 Primary.args = {
   amount: 10,
+};
+
+export const Min = Template.bind({});
+Min.args = {
+  amount: 0.01,
+};
+
+export const Max = Template.bind({});
+Max.args = {
+  amount: 10000,
 };
