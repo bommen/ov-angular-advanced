@@ -13,8 +13,6 @@ type ProductUnion = ProductDefault | ProductOutOfStock | ProductReplaced;
 export class PageProductsComponent implements OnInit {
   @Input() products!: ProductUnion[];
 
-  constructor() {}
-
   ngOnInit(): void {}
 
   asProduct(product: ProductUnion): ProductDefault | undefined {

@@ -88,12 +88,12 @@
     "interfaces": [
         {
             "name": "Product",
-            "id": "interface-Product-29a13079c58c25ea126f5f4bb3de97d0f6f20c1470a81a2a2291c6261eb9ff7ab60929ae21db2fe3ce09a4fcc40fdac9469bd0cd447ec34241b738d8b22bfd31",
+            "id": "interface-Product-c8dd78e66aa1c4a7c2023b6d6a4617a9ef6930c076faa54229691c8827cee4c65f4c742d97dcb40bba93b7b896a2974c4237a6b2afef5197e96f44eeb5ff7365",
             "file": "src/app/molecules/product/product.component.ts",
             "deprecated": false,
             "deprecationMessage": "",
             "type": "interface",
-            "sourceCode": "import { Component, ContentChild, Input, OnInit } from '@angular/core';\nimport { QuantityPickerComponent } from '../quantity-picker/quantity-picker.component';\n\nexport interface Product {\n  id: number;\n  title: string;\n  price: number;\n  description: string;\n  category: string;\n  image: string;\n  rating: Rating;\n}\nexport interface Rating {\n  rate: number;\n  count: number;\n}\n\n@Component({\n  selector: 'ov-product',\n  templateUrl: './product.component.html',\n  styleUrls: ['./product.component.scss'],\n})\nexport class ProductComponent implements OnInit {\n  @Input() product!: Product;\n\n  @ContentChild(QuantityPickerComponent) test: any;\n\n  ngAfterContentInit() {\n    console.log(this.test);\n  }\n\n  ngOnInit(): void {}\n}\n",
+            "sourceCode": "import { Component, Input, OnInit } from '@angular/core';\n\nexport interface Product {\n  id: number;\n  title: string;\n  price: number;\n  description: string;\n  category: string;\n  image: string;\n  rating: Rating;\n}\nexport interface Rating {\n  rate: number;\n  count: number;\n}\n\n@Component({\n  selector: 'ov-product',\n  templateUrl: './product.component.html',\n  styleUrls: ['./product.component.scss'],\n})\nexport class ProductComponent implements OnInit {\n  @Input() product!: Product;\n\n  ngOnInit(): void {}\n}\n",
             "properties": [
                 {
                     "name": "category",
@@ -102,7 +102,7 @@
                     "type": "string",
                     "optional": false,
                     "description": "",
-                    "line": 9
+                    "line": 8
                 },
                 {
                     "name": "description",
@@ -111,7 +111,7 @@
                     "type": "string",
                     "optional": false,
                     "description": "",
-                    "line": 8
+                    "line": 7
                 },
                 {
                     "name": "id",
@@ -120,7 +120,7 @@
                     "type": "number",
                     "optional": false,
                     "description": "",
-                    "line": 5
+                    "line": 4
                 },
                 {
                     "name": "image",
@@ -129,7 +129,7 @@
                     "type": "string",
                     "optional": false,
                     "description": "",
-                    "line": 10
+                    "line": 9
                 },
                 {
                     "name": "price",
@@ -138,7 +138,7 @@
                     "type": "number",
                     "optional": false,
                     "description": "",
-                    "line": 7
+                    "line": 6
                 },
                 {
                     "name": "rating",
@@ -147,7 +147,7 @@
                     "type": "Rating",
                     "optional": false,
                     "description": "",
-                    "line": 11
+                    "line": 10
                 },
                 {
                     "name": "title",
@@ -156,7 +156,7 @@
                     "type": "string",
                     "optional": false,
                     "description": "",
-                    "line": 6
+                    "line": 5
                 }
             ],
             "indexSignatures": [],
@@ -305,12 +305,12 @@
         },
         {
             "name": "Rating",
-            "id": "interface-Rating-29a13079c58c25ea126f5f4bb3de97d0f6f20c1470a81a2a2291c6261eb9ff7ab60929ae21db2fe3ce09a4fcc40fdac9469bd0cd447ec34241b738d8b22bfd31",
+            "id": "interface-Rating-c8dd78e66aa1c4a7c2023b6d6a4617a9ef6930c076faa54229691c8827cee4c65f4c742d97dcb40bba93b7b896a2974c4237a6b2afef5197e96f44eeb5ff7365",
             "file": "src/app/molecules/product/product.component.ts",
             "deprecated": false,
             "deprecationMessage": "",
             "type": "interface",
-            "sourceCode": "import { Component, ContentChild, Input, OnInit } from '@angular/core';\nimport { QuantityPickerComponent } from '../quantity-picker/quantity-picker.component';\n\nexport interface Product {\n  id: number;\n  title: string;\n  price: number;\n  description: string;\n  category: string;\n  image: string;\n  rating: Rating;\n}\nexport interface Rating {\n  rate: number;\n  count: number;\n}\n\n@Component({\n  selector: 'ov-product',\n  templateUrl: './product.component.html',\n  styleUrls: ['./product.component.scss'],\n})\nexport class ProductComponent implements OnInit {\n  @Input() product!: Product;\n\n  @ContentChild(QuantityPickerComponent) test: any;\n\n  ngAfterContentInit() {\n    console.log(this.test);\n  }\n\n  ngOnInit(): void {}\n}\n",
+            "sourceCode": "import { Component, Input, OnInit } from '@angular/core';\n\nexport interface Product {\n  id: number;\n  title: string;\n  price: number;\n  description: string;\n  category: string;\n  image: string;\n  rating: Rating;\n}\nexport interface Rating {\n  rate: number;\n  count: number;\n}\n\n@Component({\n  selector: 'ov-product',\n  templateUrl: './product.component.html',\n  styleUrls: ['./product.component.scss'],\n})\nexport class ProductComponent implements OnInit {\n  @Input() product!: Product;\n\n  ngOnInit(): void {}\n}\n",
             "properties": [
                 {
                     "name": "count",
@@ -319,7 +319,7 @@
                     "type": "number",
                     "optional": false,
                     "description": "",
-                    "line": 15
+                    "line": 14
                 },
                 {
                     "name": "rate",
@@ -328,7 +328,39 @@
                     "type": "number",
                     "optional": false,
                     "description": "",
-                    "line": 14
+                    "line": 13
+                }
+            ],
+            "indexSignatures": [],
+            "kind": 165,
+            "methods": []
+        },
+        {
+            "name": "ResizeEvent",
+            "id": "interface-ResizeEvent-6fa614a30911167f595189190a3297da70768590c10fde110f458e7670f0ed8fb649c92e6c7941438ca105774d252e27f77624928233da7695e1892d889740f2",
+            "file": "src/app/utils/resize/resize.service.ts",
+            "deprecated": false,
+            "deprecationMessage": "",
+            "type": "interface",
+            "sourceCode": "import { Injectable } from '@angular/core';\nimport {\n  EMPTY,\n  fromEvent,\n  map,\n  Observable,\n  shareReplay,\n  startWith,\n} from 'rxjs';\n\ninterface ResizeEvent {\n  width: number;\n  height: number;\n}\n\n@Injectable({\n  providedIn: 'root',\n})\nexport class ResizeService {\n  resize$: Observable<ResizeEvent> = EMPTY;\n\n  constructor() {\n    this.resize$ = fromEvent(window, 'resize').pipe(\n      map((event) => event.target as Window),\n      startWith(window),\n      map(({ innerHeight, innerWidth }) => ({\n        width: innerWidth,\n        height: innerHeight,\n      })),\n      /**\n       * Execute the preceding logic only once per change for N amount of subscribers.\n       */\n      shareReplay(1)\n    );\n  }\n}\n",
+            "properties": [
+                {
+                    "name": "height",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "type": "number",
+                    "optional": false,
+                    "description": "",
+                    "line": 13
+                },
+                {
+                    "name": "width",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "type": "number",
+                    "optional": false,
+                    "description": "",
+                    "line": 12
                 }
             ],
             "indexSignatures": [],
@@ -337,6 +369,129 @@
         }
     ],
     "injectables": [
+        {
+            "name": "BreakpointService",
+            "id": "injectable-BreakpointService-2c5c1356607b40ec2b6be3ba8a6d33c78a327d95157af6b9e240efd19da25a528ceec6bd553f3a8e381c73c6e773eec40ddaa14b2e02a686e6e56db6e0118bcd",
+            "file": "src/app/utils/breakpoint/breakpoint.service.ts",
+            "properties": [
+                {
+                    "name": "breakpoint$",
+                    "defaultValue": "EMPTY",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "type": "Observable<Breakpoint>",
+                    "optional": false,
+                    "description": "",
+                    "line": 32
+                }
+            ],
+            "methods": [
+                {
+                    "name": "getConfig",
+                    "args": [],
+                    "optional": false,
+                    "returnType": "BreakpointConfig",
+                    "typeParameters": [],
+                    "line": 66,
+                    "deprecated": false,
+                    "deprecationMessage": ""
+                }
+            ],
+            "deprecated": false,
+            "deprecationMessage": "",
+            "description": "",
+            "rawdescription": "\n",
+            "sourceCode": "import { isPlatformBrowser } from '@angular/common';\nimport {\n  Inject,\n  Injectable,\n  InjectionToken,\n  Optional,\n  PLATFORM_ID,\n} from '@angular/core';\nimport { EMPTY, map, Observable, shareReplay } from 'rxjs';\nimport { ResizeService } from '../resize/resize.service';\n\nexport const BREAKPOINT_CONFIG = new InjectionToken(\n  'Config of breakpoint widths'\n);\n\nexport type Breakpoint = 'xs' | 'sm' | 'md' | 'lg' | 'xl';\n\nexport type BreakpointConfig = Record<Breakpoint, number>;\n\nconst DEFAULT_CONFIG: BreakpointConfig = {\n  xs: 0,\n  sm: 576,\n  md: 768,\n  lg: 992,\n  xl: 1200,\n};\n\n@Injectable({\n  providedIn: 'root',\n})\nexport class BreakpointService {\n  breakpoint$: Observable<Breakpoint> = EMPTY;\n\n  constructor(\n    @Optional()\n    @Inject(BREAKPOINT_CONFIG)\n    private config: BreakpointConfig,\n    @Inject(PLATFORM_ID) platformId: string,\n    private resizeService: ResizeService\n  ) {\n    this.config = this.config ?? DEFAULT_CONFIG;\n\n    if (isPlatformBrowser(platformId)) {\n      const { xs, sm, md, lg } = this.config;\n\n      this.breakpoint$ = this.resizeService.resize$.pipe(\n        map(({ width }) =>\n          width <= xs\n            ? 'xs'\n            : width <= sm\n            ? 'sm'\n            : width <= md\n            ? 'md'\n            : width <= lg\n            ? 'lg'\n            : 'xl'\n        ),\n        /**\n         * Execute the preceding logic only once per change for N amount of subscribers.\n         */\n        shareReplay(1)\n      );\n    }\n  }\n\n  getConfig(): BreakpointConfig {\n    return this.config;\n  }\n}\n",
+            "constructorObj": {
+                "name": "constructor",
+                "description": "",
+                "deprecated": false,
+                "deprecationMessage": "",
+                "args": [
+                    {
+                        "name": "config",
+                        "type": "BreakpointConfig",
+                        "deprecated": false,
+                        "deprecationMessage": ""
+                    },
+                    {
+                        "name": "platformId",
+                        "type": "string",
+                        "deprecated": false,
+                        "deprecationMessage": ""
+                    },
+                    {
+                        "name": "resizeService",
+                        "type": "ResizeService",
+                        "deprecated": false,
+                        "deprecationMessage": ""
+                    }
+                ],
+                "line": 32,
+                "jsdoctags": [
+                    {
+                        "name": "config",
+                        "type": "BreakpointConfig",
+                        "deprecated": false,
+                        "deprecationMessage": "",
+                        "tagName": {
+                            "text": "param"
+                        }
+                    },
+                    {
+                        "name": "platformId",
+                        "type": "string",
+                        "deprecated": false,
+                        "deprecationMessage": "",
+                        "tagName": {
+                            "text": "param"
+                        }
+                    },
+                    {
+                        "name": "resizeService",
+                        "type": "ResizeService",
+                        "deprecated": false,
+                        "deprecationMessage": "",
+                        "tagName": {
+                            "text": "param"
+                        }
+                    }
+                ]
+            },
+            "type": "injectable"
+        },
+        {
+            "name": "ResizeService",
+            "id": "injectable-ResizeService-6fa614a30911167f595189190a3297da70768590c10fde110f458e7670f0ed8fb649c92e6c7941438ca105774d252e27f77624928233da7695e1892d889740f2",
+            "file": "src/app/utils/resize/resize.service.ts",
+            "properties": [
+                {
+                    "name": "resize$",
+                    "defaultValue": "EMPTY",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "type": "Observable<ResizeEvent>",
+                    "optional": false,
+                    "description": "",
+                    "line": 20
+                }
+            ],
+            "methods": [],
+            "deprecated": false,
+            "deprecationMessage": "",
+            "description": "",
+            "rawdescription": "\n",
+            "sourceCode": "import { Injectable } from '@angular/core';\nimport {\n  EMPTY,\n  fromEvent,\n  map,\n  Observable,\n  shareReplay,\n  startWith,\n} from 'rxjs';\n\ninterface ResizeEvent {\n  width: number;\n  height: number;\n}\n\n@Injectable({\n  providedIn: 'root',\n})\nexport class ResizeService {\n  resize$: Observable<ResizeEvent> = EMPTY;\n\n  constructor() {\n    this.resize$ = fromEvent(window, 'resize').pipe(\n      map((event) => event.target as Window),\n      startWith(window),\n      map(({ innerHeight, innerWidth }) => ({\n        width: innerWidth,\n        height: innerHeight,\n      })),\n      /**\n       * Execute the preceding logic only once per change for N amount of subscribers.\n       */\n      shareReplay(1)\n    );\n  }\n}\n",
+            "constructorObj": {
+                "name": "constructor",
+                "description": "",
+                "deprecated": false,
+                "deprecationMessage": "",
+                "args": [],
+                "line": 20
+            },
+            "type": "injectable"
+        },
         {
             "name": "StarService",
             "id": "injectable-StarService-16d33890fe8feffb8fb6ee627cab93533e42fa592374e6f57d045ac33e6725a73496dce8519f7c5008d2f9a83691e4620b6ad27fbc32d2c8c912453466c992a6",
@@ -429,7 +584,277 @@
     "guards": [],
     "interceptors": [],
     "classes": [],
-    "directives": [],
+    "directives": [
+        {
+            "name": "IfBreakpointDirective",
+            "id": "directive-IfBreakpointDirective-e4d3805a1f7adba2cb697962d2d662df08ef6eb7acd6fafdcda78ee4486ad9a6102022ed7a8b1212f002129553d04de2e2e081e112b8bc294d16b5c693a6d65d",
+            "file": "src/app/utils/if-breakpoint/if-breakpoint.directive.ts",
+            "type": "directive",
+            "description": "<p>Structural directive that shows/hides element based on breakpoint config.\nUsage:</p>\n<p>show on xs\n*ovIfBreakpoint=&quot;&#39;xs&#39;&quot;</p>\n<p>show on xs, sm and md\n*ovIfBreakpoint=&quot;&#39;xs&#39;; to: &#39;md&#39;&quot;</p>\n<p>show on xs, sm and md else show another template\n*ovIfBreakpoint=&quot;&#39;xs&#39;; to: &#39;md&#39;; else: otherRef;&quot;</p>\n",
+            "rawdescription": "\n\nStructural directive that shows/hides element based on breakpoint config.\nUsage:\n\nshow on xs\n*ovIfBreakpoint=\"'xs'\"\n\nshow on xs, sm and md\n*ovIfBreakpoint=\"'xs'; to: 'md'\"\n\nshow on xs, sm and md else show another template\n*ovIfBreakpoint=\"'xs'; to: 'md'; else: otherRef;\"\n",
+            "sourceCode": "import {\n  Directive,\n  Input,\n  OnDestroy,\n  TemplateRef,\n  ViewContainerRef,\n} from '@angular/core';\n\nimport { Subscription } from 'rxjs';\nimport {\n  Breakpoint,\n  BreakpointService,\n} from '../breakpoint/breakpoint.service';\n\n/**\n * Structural directive that shows/hides element based on breakpoint config.\n * Usage:\n *\n * show on xs\n * *ovIfBreakpoint=\"'xs'\"\n *\n * show on xs, sm and md\n * *ovIfBreakpoint=\"'xs'; to: 'md'\"\n *\n * show on xs, sm and md else show another template\n * *ovIfBreakpoint=\"'xs'; to: 'md'; else: otherRef;\"\n */\n@Directive({\n  selector: '[ovIfBreakpoint]',\n})\nexport class IfBreakpointDirective implements OnDestroy {\n  @Input()\n  ovIfBreakpoint!: Breakpoint;\n  @Input()\n  ovIfBreakpointTo?: Breakpoint;\n  @Input()\n  ovIfBreakpointElse?: TemplateRef<any>;\n\n  private subscription!: Subscription;\n  private currentTemplate?: TemplateRef<any>;\n\n  constructor(\n    private templateRef: TemplateRef<any>,\n    private viewContainerRef: ViewContainerRef,\n    private breakpointService: BreakpointService\n  ) {}\n\n  ngOnInit() {\n    this.subscription = this.breakpointService.breakpoint$.subscribe(\n      (breakpoint) => {\n        const shouldDisplay = this.shouldDisplay(breakpoint);\n        if (shouldDisplay) {\n          /**\n           * Return if template is already shown\n           */\n          if (this.currentTemplate === this.templateRef) {\n            return;\n          }\n          /**\n           * Clear 'else' template if shown\n           */\n          if (this.viewContainerRef.length > 0) {\n            this.viewContainerRef.clear();\n          }\n          /**\n           * Show template\n           */\n          this.viewContainerRef.createEmbeddedView(this.templateRef);\n          this.currentTemplate = this.templateRef;\n        } else {\n          /**\n           * Return if 'else' template is already shown\n           */\n          if (\n            this.currentTemplate !== undefined &&\n            this.currentTemplate === this.ovIfBreakpointElse\n          ) {\n            return;\n          }\n          /**\n           * Clear template if shown\n           */\n          if (this.viewContainerRef.length > 0) {\n            this.viewContainerRef.clear();\n            this.currentTemplate = undefined;\n          }\n          /**\n           * Show 'else' template if defined\n           */\n          if (this.ovIfBreakpointElse) {\n            this.viewContainerRef.createEmbeddedView(this.ovIfBreakpointElse);\n            this.currentTemplate = this.ovIfBreakpointElse;\n          }\n        }\n      }\n    );\n  }\n  private shouldDisplay(breakpoint: Breakpoint) {\n    return (\n      breakpoint === this.ovIfBreakpoint ||\n      (this.ovIfBreakpointTo && this.isBetweenBreakpoints(breakpoint))\n    );\n  }\n  private isBetweenBreakpoints(breakpoint: Breakpoint) {\n    const keys = Object.keys(this.breakpointService.getConfig());\n    return (\n      keys.indexOf(breakpoint) >= keys.indexOf(this.ovIfBreakpoint) &&\n      keys.indexOf(breakpoint) <= keys.indexOf(this.ovIfBreakpoint)\n    );\n  }\n  ngOnDestroy(): void {\n    this.subscription.unsubscribe();\n  }\n}\n",
+            "selector": "[ovIfBreakpoint]",
+            "providers": [],
+            "inputsClass": [
+                {
+                    "name": "ovIfBreakpoint",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "line": 33,
+                    "type": "Breakpoint",
+                    "decorators": []
+                },
+                {
+                    "name": "ovIfBreakpointElse",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "line": 37,
+                    "type": "TemplateRef<any>",
+                    "decorators": []
+                },
+                {
+                    "name": "ovIfBreakpointTo",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "line": 35,
+                    "type": "Breakpoint",
+                    "decorators": []
+                }
+            ],
+            "outputsClass": [],
+            "deprecated": false,
+            "deprecationMessage": "",
+            "hostBindings": [],
+            "hostListeners": [],
+            "propertiesClass": [
+                {
+                    "name": "currentTemplate",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "type": "TemplateRef<any>",
+                    "optional": true,
+                    "description": "",
+                    "line": 40,
+                    "modifierKind": [
+                        121
+                    ]
+                },
+                {
+                    "name": "subscription",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "type": "Subscription",
+                    "optional": false,
+                    "description": "",
+                    "line": 39,
+                    "modifierKind": [
+                        121
+                    ]
+                }
+            ],
+            "methodsClass": [
+                {
+                    "name": "isBetweenBreakpoints",
+                    "args": [
+                        {
+                            "name": "breakpoint",
+                            "type": "Breakpoint",
+                            "deprecated": false,
+                            "deprecationMessage": ""
+                        }
+                    ],
+                    "optional": false,
+                    "returnType": "boolean",
+                    "typeParameters": [],
+                    "line": 104,
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "modifierKind": [
+                        121
+                    ],
+                    "jsdoctags": [
+                        {
+                            "name": "breakpoint",
+                            "type": "Breakpoint",
+                            "deprecated": false,
+                            "deprecationMessage": "",
+                            "tagName": {
+                                "text": "param"
+                            }
+                        }
+                    ]
+                },
+                {
+                    "name": "ngOnDestroy",
+                    "args": [],
+                    "optional": false,
+                    "returnType": "void",
+                    "typeParameters": [],
+                    "line": 111,
+                    "deprecated": false,
+                    "deprecationMessage": ""
+                },
+                {
+                    "name": "ngOnInit",
+                    "args": [],
+                    "optional": false,
+                    "returnType": "void",
+                    "typeParameters": [],
+                    "line": 48,
+                    "deprecated": false,
+                    "deprecationMessage": ""
+                },
+                {
+                    "name": "shouldDisplay",
+                    "args": [
+                        {
+                            "name": "breakpoint",
+                            "type": "Breakpoint",
+                            "deprecated": false,
+                            "deprecationMessage": ""
+                        }
+                    ],
+                    "optional": false,
+                    "returnType": "boolean",
+                    "typeParameters": [],
+                    "line": 98,
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "modifierKind": [
+                        121
+                    ],
+                    "jsdoctags": [
+                        {
+                            "name": "breakpoint",
+                            "type": "Breakpoint",
+                            "deprecated": false,
+                            "deprecationMessage": "",
+                            "tagName": {
+                                "text": "param"
+                            }
+                        }
+                    ]
+                }
+            ],
+            "implements": [
+                "OnDestroy"
+            ],
+            "constructorObj": {
+                "name": "constructor",
+                "description": "",
+                "deprecated": false,
+                "deprecationMessage": "",
+                "args": [
+                    {
+                        "name": "templateRef",
+                        "type": "TemplateRef<any>",
+                        "deprecated": false,
+                        "deprecationMessage": ""
+                    },
+                    {
+                        "name": "viewContainerRef",
+                        "type": "ViewContainerRef",
+                        "deprecated": false,
+                        "deprecationMessage": ""
+                    },
+                    {
+                        "name": "breakpointService",
+                        "type": "BreakpointService",
+                        "deprecated": false,
+                        "deprecationMessage": ""
+                    }
+                ],
+                "line": 40,
+                "jsdoctags": [
+                    {
+                        "name": "templateRef",
+                        "type": "TemplateRef<any>",
+                        "deprecated": false,
+                        "deprecationMessage": "",
+                        "tagName": {
+                            "text": "param"
+                        }
+                    },
+                    {
+                        "name": "viewContainerRef",
+                        "type": "ViewContainerRef",
+                        "deprecated": false,
+                        "deprecationMessage": "",
+                        "tagName": {
+                            "text": "param"
+                        }
+                    },
+                    {
+                        "name": "breakpointService",
+                        "type": "BreakpointService",
+                        "deprecated": false,
+                        "deprecationMessage": "",
+                        "tagName": {
+                            "text": "param"
+                        }
+                    }
+                ]
+            }
+        },
+        {
+            "name": "SideDirective",
+            "id": "directive-SideDirective-323ad53c049dbecf1e9445876179112cee6259002712434a85faa7f90e6c654660144122362c5edb82d88c49db33c2058e9ac186cb6125100c08467d616efd81",
+            "file": "src/app/templates/template-default/shared/side.directive.ts",
+            "type": "directive",
+            "description": "",
+            "rawdescription": "\n",
+            "sourceCode": "import { Directive, TemplateRef } from '@angular/core';\n\n@Directive({\n  selector: '[ovSide]',\n})\nexport class SideDirective {\n  constructor(public templateRef: TemplateRef<unknown>) {}\n}\n",
+            "selector": "[ovSide]",
+            "providers": [],
+            "inputsClass": [],
+            "outputsClass": [],
+            "deprecated": false,
+            "deprecationMessage": "",
+            "hostBindings": [],
+            "hostListeners": [],
+            "propertiesClass": [
+                {
+                    "name": "templateRef",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "type": "TemplateRef<>",
+                    "optional": false,
+                    "description": "",
+                    "line": 7,
+                    "modifierKind": [
+                        123
+                    ]
+                }
+            ],
+            "methodsClass": [],
+            "constructorObj": {
+                "name": "constructor",
+                "description": "",
+                "deprecated": false,
+                "deprecationMessage": "",
+                "args": [
+                    {
+                        "name": "templateRef",
+                        "type": "TemplateRef<>",
+                        "deprecated": false,
+                        "deprecationMessage": ""
+                    }
+                ],
+                "line": 6,
+                "jsdoctags": [
+                    {
+                        "name": "templateRef",
+                        "type": "TemplateRef<>",
+                        "deprecated": false,
+                        "deprecationMessage": "",
+                        "tagName": {
+                            "text": "param"
+                        }
+                    }
+                ]
+            }
+        }
+    ],
     "components": [
         {
             "name": "AppComponent",
@@ -724,7 +1149,7 @@
         },
         {
             "name": "PageProductsComponent",
-            "id": "component-PageProductsComponent-8d3102dbca4c6c2aacb1bf3b602e6e35f2ba47a8c4830501204591ac9984a28086f59395ad54202e869c495f522b3af585479a23fd91ed893ccb64ff13789495",
+            "id": "component-PageProductsComponent-55512fc03ff262c47c37b3ce0aa765ffb46d7b4e91528268fdb938fbb64135b269bd0148bff641bcf8ddaa08bb57344278beee6ae101cc4bb27ef47465e255bc",
             "file": "src/app/pages/page-products/page-products.component.ts",
             "encapsulation": [],
             "entryComponents": [],
@@ -745,7 +1170,7 @@
                     "name": "products",
                     "deprecated": false,
                     "deprecationMessage": "",
-                    "line": 14,
+                    "line": 16,
                     "type": "ProductUnion[]",
                     "decorators": []
                 }
@@ -855,7 +1280,7 @@
             "description": "",
             "rawdescription": "\n",
             "type": "component",
-            "sourceCode": "import { Component, Input, OnInit } from '@angular/core';\nimport { ProductReplaced } from '../../organisms/product-replaced/product-replaced.component';\nimport { ProductDefault } from '../../organisms/product-default/product-default.component';\nimport { ProductOutOfStock } from '../../organisms/product-out-of-stock/product-out-of-stock.component';\n\ntype ProductUnion = ProductDefault | ProductOutOfStock | ProductReplaced;\n\n@Component({\n  selector: 'ov-page-products',\n  templateUrl: './page-products.component.html',\n  styleUrls: ['./page-products.component.scss'],\n})\nexport class PageProductsComponent implements OnInit {\n  @Input() products!: ProductUnion[];\n\n  constructor() {}\n\n  ngOnInit(): void {}\n\n  asProduct(product: ProductUnion): ProductDefault | undefined {\n    return product.type === 'product' ? product : undefined;\n  }\n\n  asProductOutOfStock(product: ProductUnion): ProductOutOfStock | undefined {\n    return product.type === 'product-out-of-stock' ? product : undefined;\n  }\n\n  asProductReplaced(product: ProductUnion): ProductReplaced | undefined {\n    return product.type === 'product-replaced' ? product : undefined;\n  }\n}\n",
+            "sourceCode": "import { Component, Input, OnInit } from '@angular/core';\nimport { ProductReplaced } from '../../organisms/product-replaced/product-replaced.component';\nimport { ProductDefault } from '../../organisms/product-default/product-default.component';\nimport { ProductOutOfStock } from '../../organisms/product-out-of-stock/product-out-of-stock.component';\nimport { BreakpointService } from 'src/app/utils/breakpoint/breakpoint.service';\nimport { Subscription } from 'rxjs';\n\ntype ProductUnion = ProductDefault | ProductOutOfStock | ProductReplaced;\n\n@Component({\n  selector: 'ov-page-products',\n  templateUrl: './page-products.component.html',\n  styleUrls: ['./page-products.component.scss'],\n})\nexport class PageProductsComponent implements OnInit {\n  @Input() products!: ProductUnion[];\n\n  ngOnInit(): void {}\n\n  asProduct(product: ProductUnion): ProductDefault | undefined {\n    return product.type === 'product' ? product : undefined;\n  }\n\n  asProductOutOfStock(product: ProductUnion): ProductOutOfStock | undefined {\n    return product.type === 'product-out-of-stock' ? product : undefined;\n  }\n\n  asProductReplaced(product: ProductUnion): ProductReplaced | undefined {\n    return product.type === 'product-replaced' ? product : undefined;\n  }\n}\n",
             "assetsDirs": [],
             "styleUrlsData": [
                 {
@@ -864,18 +1289,10 @@
                 }
             ],
             "stylesData": "",
-            "constructorObj": {
-                "name": "constructor",
-                "description": "",
-                "deprecated": false,
-                "deprecationMessage": "",
-                "args": [],
-                "line": 14
-            },
             "implements": [
                 "OnInit"
             ],
-            "templateData": "<ov-template-default>\n  <section main>\n    <h2>Products</h2>\n    <ul>\n      <li *ngFor=\"let product of products\" [ngSwitch]=\"product.type\">\n        <ov-product-out-of-stock\n          *ngSwitchCase=\"'product-out-of-stock'\"\n          [product]=\"asProductOutOfStock(product)!\"\n        ></ov-product-out-of-stock>\n        <ov-product-replaced\n          *ngSwitchCase=\"'product-replaced'\"\n          [product]=\"asProductReplaced(product)!\"\n        ></ov-product-replaced>\n        <ov-product-default\n          *ngSwitchDefault\n          [product]=\"asProduct(product)!\"\n        ></ov-product-default>\n      </li>\n    </ul>\n  </section>\n</ov-template-default>\n"
+            "templateData": "<ov-template-default>\n  <ng-template ovSide>Some side shit</ng-template>\n  <section main>\n    <h2 *ovIfBreakpoint=\"'sm'\">Products</h2>\n    <ul>\n      <li *ngFor=\"let product of products\" [ngSwitch]=\"product.type\">\n        <ov-product-out-of-stock\n          *ngSwitchCase=\"'product-out-of-stock'\"\n          [product]=\"asProductOutOfStock(product)!\"\n        ></ov-product-out-of-stock>\n        <ov-product-replaced\n          *ngSwitchCase=\"'product-replaced'\"\n          [product]=\"asProductReplaced(product)!\"\n        ></ov-product-replaced>\n        <ov-product-default\n          *ngSwitchDefault\n          [product]=\"asProduct(product)!\"\n        ></ov-product-default>\n      </li>\n    </ul>\n  </section>\n</ov-template-default>\n"
         },
         {
             "name": "PriceComponent",
@@ -950,7 +1367,7 @@
         },
         {
             "name": "ProductComponent",
-            "id": "component-ProductComponent-29a13079c58c25ea126f5f4bb3de97d0f6f20c1470a81a2a2291c6261eb9ff7ab60929ae21db2fe3ce09a4fcc40fdac9469bd0cd447ec34241b738d8b22bfd31",
+            "id": "component-ProductComponent-c8dd78e66aa1c4a7c2023b6d6a4617a9ef6930c076faa54229691c8827cee4c65f4c742d97dcb40bba93b7b896a2974c4237a6b2afef5197e96f44eeb5ff7365",
             "file": "src/app/molecules/product/product.component.ts",
             "encapsulation": [],
             "entryComponents": [],
@@ -971,47 +1388,21 @@
                     "name": "product",
                     "deprecated": false,
                     "deprecationMessage": "",
-                    "line": 24,
+                    "line": 23,
                     "type": "Product",
                     "decorators": []
                 }
             ],
             "outputsClass": [],
-            "propertiesClass": [
-                {
-                    "name": "test",
-                    "deprecated": false,
-                    "deprecationMessage": "",
-                    "type": "any",
-                    "optional": false,
-                    "description": "",
-                    "line": 26,
-                    "decorators": [
-                        {
-                            "name": "ContentChild",
-                            "stringifiedArguments": "QuantityPickerComponent"
-                        }
-                    ]
-                }
-            ],
+            "propertiesClass": [],
             "methodsClass": [
-                {
-                    "name": "ngAfterContentInit",
-                    "args": [],
-                    "optional": false,
-                    "returnType": "void",
-                    "typeParameters": [],
-                    "line": 28,
-                    "deprecated": false,
-                    "deprecationMessage": ""
-                },
                 {
                     "name": "ngOnInit",
                     "args": [],
                     "optional": false,
                     "returnType": "void",
                     "typeParameters": [],
-                    "line": 32,
+                    "line": 25,
                     "deprecated": false,
                     "deprecationMessage": ""
                 }
@@ -1023,7 +1414,7 @@
             "description": "",
             "rawdescription": "\n",
             "type": "component",
-            "sourceCode": "import { Component, ContentChild, Input, OnInit } from '@angular/core';\nimport { QuantityPickerComponent } from '../quantity-picker/quantity-picker.component';\n\nexport interface Product {\n  id: number;\n  title: string;\n  price: number;\n  description: string;\n  category: string;\n  image: string;\n  rating: Rating;\n}\nexport interface Rating {\n  rate: number;\n  count: number;\n}\n\n@Component({\n  selector: 'ov-product',\n  templateUrl: './product.component.html',\n  styleUrls: ['./product.component.scss'],\n})\nexport class ProductComponent implements OnInit {\n  @Input() product!: Product;\n\n  @ContentChild(QuantityPickerComponent) test: any;\n\n  ngAfterContentInit() {\n    console.log(this.test);\n  }\n\n  ngOnInit(): void {}\n}\n",
+            "sourceCode": "import { Component, Input, OnInit } from '@angular/core';\n\nexport interface Product {\n  id: number;\n  title: string;\n  price: number;\n  description: string;\n  category: string;\n  image: string;\n  rating: Rating;\n}\nexport interface Rating {\n  rate: number;\n  count: number;\n}\n\n@Component({\n  selector: 'ov-product',\n  templateUrl: './product.component.html',\n  styleUrls: ['./product.component.scss'],\n})\nexport class ProductComponent implements OnInit {\n  @Input() product!: Product;\n\n  ngOnInit(): void {}\n}\n",
             "assetsDirs": [],
             "styleUrlsData": [
                 {
@@ -1600,7 +1991,7 @@
         },
         {
             "name": "TemplateDefaultComponent",
-            "id": "component-TemplateDefaultComponent-89233d24024ac7e4cbd63a985336f6c7dd0dba938a0fc7b03f5f795c112beb6130d26cdacf2525e3d1ebea99bdae3b4a8bd1eb5d3c671e462773fe656e8a6abd",
+            "id": "component-TemplateDefaultComponent-19c217d999fd34fe70a49c09605be9d23ed32299a6831ae15fa644976b5c22e47f4489bdbe43496eb12f000c6a4534f0df150424bb12c91b86a53035ac2bd6b4",
             "file": "src/app/templates/template-default/template-default.component.ts",
             "encapsulation": [],
             "entryComponents": [],
@@ -1618,15 +2009,41 @@
             "viewProviders": [],
             "inputsClass": [],
             "outputsClass": [],
-            "propertiesClass": [],
+            "propertiesClass": [
+                {
+                    "name": "side",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "type": "SideDirective",
+                    "optional": true,
+                    "description": "",
+                    "line": 15,
+                    "decorators": [
+                        {
+                            "name": "ContentChild",
+                            "stringifiedArguments": "SideDirective"
+                        }
+                    ]
+                }
+            ],
             "methodsClass": [
+                {
+                    "name": "ngAfterContentInit",
+                    "args": [],
+                    "optional": false,
+                    "returnType": "void",
+                    "typeParameters": [],
+                    "line": 21,
+                    "deprecated": false,
+                    "deprecationMessage": ""
+                },
                 {
                     "name": "ngOnInit",
                     "args": [],
                     "optional": false,
                     "returnType": "void",
                     "typeParameters": [],
-                    "line": 12,
+                    "line": 19,
                     "deprecated": false,
                     "deprecationMessage": ""
                 }
@@ -1638,11 +2055,11 @@
             "description": "",
             "rawdescription": "\n",
             "type": "component",
-            "sourceCode": "import { Component, OnInit } from '@angular/core';\n\n@Component({\n  selector: 'ov-template-default',\n  templateUrl: './template-default.component.html',\n  styleUrls: ['./template-default.component.scss']\n})\nexport class TemplateDefaultComponent implements OnInit {\n\n  constructor() { }\n\n  ngOnInit(): void {\n  }\n\n}\n",
+            "sourceCode": "import {\n  AfterContentInit,\n  Component,\n  ContentChild,\n  OnInit,\n} from '@angular/core';\nimport { SideDirective } from './shared/side.directive';\n\n@Component({\n  selector: 'ov-template-default',\n  templateUrl: './template-default.component.html',\n  styleUrls: ['./template-default.component.scss'],\n})\nexport class TemplateDefaultComponent implements OnInit, AfterContentInit {\n  @ContentChild(SideDirective) side?: SideDirective;\n\n  constructor() {}\n\n  ngOnInit(): void {}\n\n  ngAfterContentInit() {\n    console.log(this.side);\n  }\n}\n",
             "assetsDirs": [],
             "styleUrlsData": [
                 {
-                    "data": "@import \"../../_styles/breakpoint.scss\";\n\n.header {\n  min-height: 84px;\n}\n\n.content {\n  padding: var(--space-sm);\n  display: flex;\n  flex-direction: column;\n  gap: var(--space-sm);\n\n  @include breakpoint-lg {\n    flex-direction: row;\n  }\n}\n.side {\n  display: none;\n  @include breakpoint-lg {\n    min-width: 340px;\n    display: block;\n  }\n}\n\n.footer {\n  min-height: 84px;\n}\n",
+                    "data": "@import \"../../_styles/breakpoint.scss\";\n\n.header {\n  min-height: 84px;\n}\n\n.content {\n  padding: var(--space-sm);\n  display: flex;\n  flex-direction: column;\n  gap: var(--space-sm);\n\n  @include breakpoint-lg {\n    flex-direction: row;\n  }\n}\n.side {\n  display: none;\n  @include breakpoint-lg {\n    min-width: 340px;\n    display: block;\n  }\n}\n\n.footer {\n  min-height: 84px;\n}\n\n.main {\n  width: 100%;\n}\n\n.content.without-side {\n  justify-content: center;\n\n  .main {\n    @include breakpoint-lg {\n      max-width: 80%;\n    }\n  }\n}\n",
                     "styleUrl": "./template-default.component.scss"
                 }
             ],
@@ -1653,12 +2070,13 @@
                 "deprecated": false,
                 "deprecationMessage": "",
                 "args": [],
-                "line": 8
+                "line": 15
             },
             "implements": [
-                "OnInit"
+                "OnInit",
+                "AfterContentInit"
             ],
-            "templateData": "<section>\n  <section class=\"header\">\n    <ng-content select=\"[header]\"></ng-content>\n  </section>\n  <section class=\"content\">\n    <section class=\"side\">\n      <ng-content select=\"[side]\"></ng-content>\n    </section>\n    <ng-content select=\"[main]\"></ng-content>\n  </section>\n  <section class=\"footer\">\n    <ng-content select=\"[footer]\"></ng-content>\n  </section>\n</section>\n"
+            "templateData": "<section>\n  <section class=\"header\">\n    <ng-content select=\"[header]\"></ng-content>\n  </section>\n  <section class=\"content\" [class.without-side]=\"!side\">\n    <div class=\"side\" *ngIf=\"side\">\n      <ng-container [ngTemplateOutlet]=\"side.templateRef\"></ng-container>\n    </div>\n    <div class=\"main\">\n      <ng-content select=\"[main]\"></ng-content>\n    </div>\n  </section>\n  <section class=\"footer\">\n    <ng-content select=\"[footer]\"></ng-content>\n  </section>\n</section>\n"
         },
         {
             "name": "ThumbnailComponent",
@@ -1986,6 +2404,50 @@
             ]
         },
         {
+            "name": "IfBreakpointModule",
+            "id": "module-IfBreakpointModule-7cf6b2d4d07e89f2de0f09201590719c02b8d43b784569cfba48141e3087b01cc2c70384c89f29afcb24805b39228a2e21d3b4339413d7f3a8efd6cc6522b9fe",
+            "description": "",
+            "deprecationMessage": "",
+            "deprecated": false,
+            "file": "src/app/utils/if-breakpoint/if-breakpoint.module.ts",
+            "methods": [],
+            "sourceCode": "import { NgModule } from '@angular/core';\nimport { CommonModule } from '@angular/common';\nimport { IfBreakpointDirective } from './if-breakpoint.directive';\n\n@NgModule({\n  declarations: [IfBreakpointDirective],\n  imports: [CommonModule],\n  exports: [IfBreakpointDirective],\n})\nexport class IfBreakpointModule {}\n",
+            "children": [
+                {
+                    "type": "providers",
+                    "elements": []
+                },
+                {
+                    "type": "declarations",
+                    "elements": [
+                        {
+                            "name": "IfBreakpointDirective"
+                        }
+                    ]
+                },
+                {
+                    "type": "imports",
+                    "elements": []
+                },
+                {
+                    "type": "exports",
+                    "elements": [
+                        {
+                            "name": "IfBreakpointDirective"
+                        }
+                    ]
+                },
+                {
+                    "type": "bootstrap",
+                    "elements": []
+                },
+                {
+                    "type": "classes",
+                    "elements": []
+                }
+            ]
+        },
+        {
             "name": "MessageModule",
             "id": "module-MessageModule-ea8e2afe502e922eb77a9fe9433b2bde88b8868ddd297e2ba4b3fb4dcad15b7798d7dc4fecd81f698a2db4788761eba00ba727d5af7410116fdd9b298d6d1c95",
             "description": "",
@@ -2031,13 +2493,13 @@
         },
         {
             "name": "PageProductsModule",
-            "id": "module-PageProductsModule-d5254d4d29dc9c122f6b0acbe07d6b12a3b7b3824343bba74e4885206ff158f7be323f83163a97fc607133812b663b28d5846173c99d0953be12b04d9d2c4208",
+            "id": "module-PageProductsModule-ce2ce3443e70baeb7f4d35b62d048d16d1d4765a530116a2ab095148797622d1e122d453c70d4c4dfbc4b80acccc6a639baedb6284559bf13dfe4da50cc72a67",
             "description": "",
             "deprecationMessage": "",
             "deprecated": false,
             "file": "src/app/pages/page-products/page-products.module.ts",
             "methods": [],
-            "sourceCode": "import { NgModule } from '@angular/core';\nimport { CommonModule } from '@angular/common';\nimport { PageProductsComponent } from './page-products.component';\nimport { TemplateDefaultModule } from '../../templates/template-default/template-default.module';\nimport { ProductDefaultModule } from '../../organisms/product-default/product-default.module';\nimport { ProductOutOfStockModule } from '../../organisms/product-out-of-stock/product-out-of-stock.module';\nimport { ProductReplacedModule } from 'src/app/organisms/product-replaced/product-replaced.module';\n\n@NgModule({\n  declarations: [PageProductsComponent],\n  imports: [\n    CommonModule,\n    TemplateDefaultModule,\n    ProductDefaultModule,\n    ProductOutOfStockModule,\n    ProductReplacedModule,\n  ],\n  exports: [PageProductsComponent],\n})\nexport class PageProductsModule {}\n",
+            "sourceCode": "import { NgModule } from '@angular/core';\nimport { CommonModule } from '@angular/common';\nimport { PageProductsComponent } from './page-products.component';\nimport { TemplateDefaultModule } from '../../templates/template-default/template-default.module';\nimport { ProductDefaultModule } from '../../organisms/product-default/product-default.module';\nimport { ProductOutOfStockModule } from '../../organisms/product-out-of-stock/product-out-of-stock.module';\nimport { ProductReplacedModule } from 'src/app/organisms/product-replaced/product-replaced.module';\nimport { IfBreakpointModule } from 'src/app/utils/if-breakpoint/if-breakpoint.module';\n\n@NgModule({\n  declarations: [PageProductsComponent],\n  imports: [\n    CommonModule,\n    TemplateDefaultModule,\n    ProductDefaultModule,\n    ProductOutOfStockModule,\n    ProductReplacedModule,\n    IfBreakpointModule,\n  ],\n  exports: [PageProductsComponent],\n})\nexport class PageProductsModule {}\n",
             "children": [
                 {
                     "type": "providers",
@@ -2054,6 +2516,9 @@
                 {
                     "type": "imports",
                     "elements": [
+                        {
+                            "name": "IfBreakpointModule"
+                        },
                         {
                             "name": "ProductDefaultModule"
                         },
@@ -2512,13 +2977,13 @@
         },
         {
             "name": "TemplateDefaultModule",
-            "id": "module-TemplateDefaultModule-6decf0543e28bbacf76e4a0149e48a2dc4f0cc77a4f4335eef861a7e100d838d796cff747e3e0ff29c56986015ecddf3844122c8c71809d77dab36900208d548",
+            "id": "module-TemplateDefaultModule-b6ffffd1fa4eb05b6bb371d30b3bf6bd89fcca75ae50a421454d6d7762849c3ed9f8875cebbfb5c899880b42b3b1fe898a524c3b73a808cb309f793335375242",
             "description": "",
             "deprecationMessage": "",
             "deprecated": false,
             "file": "src/app/templates/template-default/template-default.module.ts",
             "methods": [],
-            "sourceCode": "import { NgModule } from '@angular/core';\nimport { CommonModule } from '@angular/common';\nimport { TemplateDefaultComponent } from './template-default.component';\n\n\n\n@NgModule({\n  declarations: [\n    TemplateDefaultComponent\n  ],\n  imports: [\n    CommonModule\n  ],\n  exports: [\n    TemplateDefaultComponent\n  ]\n})\nexport class TemplateDefaultModule { }\n",
+            "sourceCode": "import { NgModule } from '@angular/core';\nimport { CommonModule } from '@angular/common';\nimport { TemplateDefaultComponent } from './template-default.component';\nimport { SideDirective } from './shared/side.directive';\n\n@NgModule({\n  declarations: [TemplateDefaultComponent, SideDirective],\n  imports: [CommonModule],\n  exports: [TemplateDefaultComponent, SideDirective],\n})\nexport class TemplateDefaultModule {}\n",
             "children": [
                 {
                     "type": "providers",
@@ -2527,6 +2992,9 @@
                 {
                     "type": "declarations",
                     "elements": [
+                        {
+                            "name": "SideDirective"
+                        },
                         {
                             "name": "TemplateDefaultComponent"
                         }
@@ -2539,6 +3007,9 @@
                 {
                     "type": "exports",
                     "elements": [
+                        {
+                            "name": "SideDirective"
+                        },
                         {
                             "name": "TemplateDefaultComponent"
                         }
@@ -2656,6 +3127,16 @@
                 "defaultValue": "5"
             },
             {
+                "name": "BREAKPOINT_CONFIG",
+                "ctype": "miscellaneous",
+                "subtype": "variable",
+                "file": "src/app/utils/breakpoint/breakpoint.service.ts",
+                "deprecated": false,
+                "deprecationMessage": "",
+                "type": "",
+                "defaultValue": "new InjectionToken(\n  'Config of breakpoint widths'\n)"
+            },
+            {
                 "name": "Colors",
                 "ctype": "miscellaneous",
                 "subtype": "variable",
@@ -2684,6 +3165,16 @@
                 "deprecationMessage": "",
                 "type": "Story<Omit<IconComponent, color>>",
                 "defaultValue": "(args) => ({\n  props: args,\n  template: `\n  <ul class=\"sb\">\n  ${Object.keys(COLORS)\n    .map(\n      (color) =>\n        `<li class=\"sb\">\n          <ov-icon icon=\"${args.icon ?? 'star'}\" color=${color} size=${\n          args.size\n        }></ov-icon>\n        <span class=\"sb-label\">${color}</span>\n        </li>`\n    )\n    .join('')}\n  </ul>\n  `,\n})"
+            },
+            {
+                "name": "DEFAULT_CONFIG",
+                "ctype": "miscellaneous",
+                "subtype": "variable",
+                "file": "src/app/utils/breakpoint/breakpoint.service.ts",
+                "deprecated": false,
+                "deprecationMessage": "",
+                "type": "BreakpointConfig",
+                "defaultValue": "{\n  xs: 0,\n  sm: 576,\n  md: 768,\n  lg: 992,\n  xl: 1200,\n}"
             },
             {
                 "name": "Empty",
@@ -2879,7 +3370,7 @@
                 "name": "MaxContent",
                 "ctype": "miscellaneous",
                 "subtype": "variable",
-                "file": "src/app/organisms/product-out-of-stock/product-out-of-stock.component.stories.ts",
+                "file": "src/app/organisms/product-replaced/product-replaced.component.stories.ts",
                 "deprecated": false,
                 "deprecationMessage": "",
                 "type": "",
@@ -2889,7 +3380,7 @@
                 "name": "MaxContent",
                 "ctype": "miscellaneous",
                 "subtype": "variable",
-                "file": "src/app/organisms/product-replaced/product-replaced.component.stories.ts",
+                "file": "src/app/organisms/product-out-of-stock/product-out-of-stock.component.stories.ts",
                 "deprecated": false,
                 "deprecationMessage": "",
                 "type": "",
@@ -2929,7 +3420,7 @@
                 "name": "MinContent",
                 "ctype": "miscellaneous",
                 "subtype": "variable",
-                "file": "src/app/organisms/product-out-of-stock/product-out-of-stock.component.stories.ts",
+                "file": "src/app/organisms/product-replaced/product-replaced.component.stories.ts",
                 "deprecated": false,
                 "deprecationMessage": "",
                 "type": "",
@@ -2939,7 +3430,7 @@
                 "name": "MinContent",
                 "ctype": "miscellaneous",
                 "subtype": "variable",
-                "file": "src/app/organisms/product-replaced/product-replaced.component.stories.ts",
+                "file": "src/app/organisms/product-out-of-stock/product-out-of-stock.component.stories.ts",
                 "deprecated": false,
                 "deprecationMessage": "",
                 "type": "",
@@ -2950,6 +3441,16 @@
                 "ctype": "miscellaneous",
                 "subtype": "variable",
                 "file": "src/app/atoms/thumbnail/thumbnail.component.stories.ts",
+                "deprecated": false,
+                "deprecationMessage": "",
+                "type": "",
+                "defaultValue": "Template.bind({})"
+            },
+            {
+                "name": "Primary",
+                "ctype": "miscellaneous",
+                "subtype": "variable",
+                "file": "src/app/atoms/message/message.component.stories.ts",
                 "deprecated": false,
                 "deprecationMessage": "",
                 "type": "",
@@ -2979,16 +3480,6 @@
                 "name": "Primary",
                 "ctype": "miscellaneous",
                 "subtype": "variable",
-                "file": "src/app/atoms/message/message.component.stories.ts",
-                "deprecated": false,
-                "deprecationMessage": "",
-                "type": "",
-                "defaultValue": "Template.bind({})"
-            },
-            {
-                "name": "Primary",
-                "ctype": "miscellaneous",
-                "subtype": "variable",
                 "file": "src/app/atoms/sub-title/sub-title.component.stories.ts",
                 "deprecated": false,
                 "deprecationMessage": "",
@@ -3009,7 +3500,7 @@
                 "name": "Primary",
                 "ctype": "miscellaneous",
                 "subtype": "variable",
-                "file": "src/app/molecules/product/product.component.stories.ts",
+                "file": "src/app/molecules/quantity-picker/quantity-picker.component.stories.ts",
                 "deprecated": false,
                 "deprecationMessage": "",
                 "type": "",
@@ -3019,7 +3510,7 @@
                 "name": "Primary",
                 "ctype": "miscellaneous",
                 "subtype": "variable",
-                "file": "src/app/molecules/quantity-picker/quantity-picker.component.stories.ts",
+                "file": "src/app/molecules/product/product.component.stories.ts",
                 "deprecated": false,
                 "deprecationMessage": "",
                 "type": "",
@@ -3039,7 +3530,7 @@
                 "name": "Primary",
                 "ctype": "miscellaneous",
                 "subtype": "variable",
-                "file": "src/app/organisms/product-out-of-stock/product-out-of-stock.component.stories.ts",
+                "file": "src/app/organisms/product-replaced/product-replaced.component.stories.ts",
                 "deprecated": false,
                 "deprecationMessage": "",
                 "type": "",
@@ -3049,7 +3540,7 @@
                 "name": "Primary",
                 "ctype": "miscellaneous",
                 "subtype": "variable",
-                "file": "src/app/organisms/product-replaced/product-replaced.component.stories.ts",
+                "file": "src/app/organisms/product-out-of-stock/product-out-of-stock.component.stories.ts",
                 "deprecated": false,
                 "deprecationMessage": "",
                 "type": "",
@@ -3159,21 +3650,21 @@
                 "name": "Template",
                 "ctype": "miscellaneous",
                 "subtype": "variable",
-                "file": "src/app/atoms/button/button.component.stories.ts",
+                "file": "src/app/atoms/message/message.component.stories.ts",
                 "deprecated": false,
                 "deprecationMessage": "",
-                "type": "Story<ButtonComponent>",
-                "defaultValue": "(args) => ({\n  props: args,\n  template: `\n  <ul>\n  ${Object.keys(TYPES)\n    .map(\n      (type) =>\n        `<li style=\"padding-bottom: 4px\">\n          <ov-button type=\"${type}\">${type}</ov-button>\n        </li>`\n    )\n    .join('')}\n  </ul>`,\n})"
+                "type": "Story<MessageComponent>",
+                "defaultValue": "(args) => ({\n  props: args,\n  template: `\n  <ul class=\"sb\">\n  ${Object.keys(TYPES)\n    .map(\n      (type) =>\n        `<li class=\"sb\">\n          <ov-message type=\"${type}\">${type} message!</ov-message>\n        </li>`\n    )\n    .join('<br/>')}\n  </ul>\n  `,\n})"
             },
             {
                 "name": "Template",
                 "ctype": "miscellaneous",
                 "subtype": "variable",
-                "file": "src/app/atoms/icon/icon.component.stories.ts",
+                "file": "src/app/atoms/button/button.component.stories.ts",
                 "deprecated": false,
                 "deprecationMessage": "",
-                "type": "Story<Omit<IconComponent, icon>>",
-                "defaultValue": "(args) => ({\n  props: args,\n  template: `\n  <ul class=\"sb\">\n  ${Object.keys(ICONS)\n    .map(\n      (icon) =>\n        `<li class=\"sb\">\n          <ov-icon icon=\"${icon}\" color=\"${args.color ?? 'black'}\" size=${\n          args.size\n        }></ov-icon>\n          <span class=\"sb-label\">${icon}</span>\n        </li>`\n    )\n    .join('')}\n  </ul>\n  `,\n})"
+                "type": "Story<ButtonComponent>",
+                "defaultValue": "(args) => ({\n  props: args,\n  template: `\n  <ul>\n  ${Object.keys(TYPES)\n    .map(\n      (type) =>\n        `<li style=\"padding-bottom: 4px\">\n          <ov-button type=\"${type}\">${type}</ov-button>\n        </li>`\n    )\n    .join('')}\n  </ul>`,\n})"
             },
             {
                 "name": "Template",
@@ -3189,21 +3680,21 @@
                 "name": "Template",
                 "ctype": "miscellaneous",
                 "subtype": "variable",
-                "file": "src/app/atoms/rating/rating.component.stories.ts",
+                "file": "src/app/atoms/icon/icon.component.stories.ts",
                 "deprecated": false,
                 "deprecationMessage": "",
-                "type": "Story<RatingComponent>",
-                "defaultValue": "(args) => ({\n  props: args,\n})"
+                "type": "Story<Omit<IconComponent, icon>>",
+                "defaultValue": "(args) => ({\n  props: args,\n  template: `\n  <ul class=\"sb\">\n  ${Object.keys(ICONS)\n    .map(\n      (icon) =>\n        `<li class=\"sb\">\n          <ov-icon icon=\"${icon}\" color=\"${args.color ?? 'black'}\" size=${\n          args.size\n        }></ov-icon>\n          <span class=\"sb-label\">${icon}</span>\n        </li>`\n    )\n    .join('')}\n  </ul>\n  `,\n})"
             },
             {
                 "name": "Template",
                 "ctype": "miscellaneous",
                 "subtype": "variable",
-                "file": "src/app/atoms/message/message.component.stories.ts",
+                "file": "src/app/atoms/thumbnail/thumbnail.component.stories.ts",
                 "deprecated": false,
                 "deprecationMessage": "",
-                "type": "Story<MessageComponent>",
-                "defaultValue": "(args) => ({\n  props: args,\n  template: `\n  <ul class=\"sb\">\n  ${Object.keys(TYPES)\n    .map(\n      (type) =>\n        `<li class=\"sb\">\n          <ov-message type=\"${type}\">${type} message!</ov-message>\n        </li>`\n    )\n    .join('<br/>')}\n  </ul>\n  `,\n})"
+                "type": "Story<ThumbnailComponent>",
+                "defaultValue": "(args) => ({\n  props: args,\n})"
             },
             {
                 "name": "Template",
@@ -3219,6 +3710,16 @@
                 "name": "Template",
                 "ctype": "miscellaneous",
                 "subtype": "variable",
+                "file": "src/app/atoms/rating/rating.component.stories.ts",
+                "deprecated": false,
+                "deprecationMessage": "",
+                "type": "Story<RatingComponent>",
+                "defaultValue": "(args) => ({\n  props: args,\n})"
+            },
+            {
+                "name": "Template",
+                "ctype": "miscellaneous",
+                "subtype": "variable",
                 "file": "src/app/atoms/title/title.component.stories.ts",
                 "deprecated": false,
                 "deprecationMessage": "",
@@ -3229,10 +3730,10 @@
                 "name": "Template",
                 "ctype": "miscellaneous",
                 "subtype": "variable",
-                "file": "src/app/atoms/thumbnail/thumbnail.component.stories.ts",
+                "file": "src/app/molecules/quantity-picker/quantity-picker.component.stories.ts",
                 "deprecated": false,
                 "deprecationMessage": "",
-                "type": "Story<ThumbnailComponent>",
+                "type": "Story<QuantityPickerComponent>",
                 "defaultValue": "(args) => ({\n  props: args,\n})"
             },
             {
@@ -3249,16 +3750,6 @@
                 "name": "Template",
                 "ctype": "miscellaneous",
                 "subtype": "variable",
-                "file": "src/app/molecules/quantity-picker/quantity-picker.component.stories.ts",
-                "deprecated": false,
-                "deprecationMessage": "",
-                "type": "Story<QuantityPickerComponent>",
-                "defaultValue": "(args) => ({\n  props: args,\n})"
-            },
-            {
-                "name": "Template",
-                "ctype": "miscellaneous",
-                "subtype": "variable",
                 "file": "src/app/organisms/product-default/product-default.component.stories.ts",
                 "deprecated": false,
                 "deprecationMessage": "",
@@ -3269,20 +3760,20 @@
                 "name": "Template",
                 "ctype": "miscellaneous",
                 "subtype": "variable",
-                "file": "src/app/organisms/product-out-of-stock/product-out-of-stock.component.stories.ts",
+                "file": "src/app/organisms/product-replaced/product-replaced.component.stories.ts",
                 "deprecated": false,
                 "deprecationMessage": "",
-                "type": "Story<ProductOutOfStockComponent>",
+                "type": "Story<ProductReplacedComponent>",
                 "defaultValue": "(args) => ({\n  props: args,\n})"
             },
             {
                 "name": "Template",
                 "ctype": "miscellaneous",
                 "subtype": "variable",
-                "file": "src/app/organisms/product-replaced/product-replaced.component.stories.ts",
+                "file": "src/app/organisms/product-out-of-stock/product-out-of-stock.component.stories.ts",
                 "deprecated": false,
                 "deprecationMessage": "",
-                "type": "Story<ProductReplacedComponent>",
+                "type": "Story<ProductOutOfStockComponent>",
                 "defaultValue": "(args) => ({\n  props: args,\n})"
             },
             {
@@ -3303,17 +3794,17 @@
                 "deprecated": false,
                 "deprecationMessage": "",
                 "type": "Story<TemplateDefaultComponent>",
-                "defaultValue": "(args) => ({\n  props: args,\n  template: `\n    <ov-template-default>\n      <section header class=\"placeholder\" style=\"height: 84px;\">Header</section>\n      <section side class=\"placeholder\" style=\"min-height: 512px\">\n        Side\n      </section>\n      <section main class=\"placeholder\" style=\"min-height: 512px\">\n        Main\n      </section>\n      <section footer class=\"placeholder\" style=\"height: 84px;\">Footer</section>\n    </ov-template-default>\n  `,\n})"
+                "defaultValue": "(args) => ({\n  props: args,\n  template: `\n    <ov-template-default>\n      <section header class=\"placeholder\" style=\"height: 84px;\">Header</section>\n      <section main class=\"placeholder\" style=\"min-height: 512px\">\n        Main\n      </section>\n      <section footer class=\"placeholder\" style=\"height: 84px;\">Footer</section>\n    </ov-template-default>\n  `,\n})"
             },
             {
-                "name": "TYPES",
+                "name": "TemplateComplete",
                 "ctype": "miscellaneous",
                 "subtype": "variable",
-                "file": "src/app/atoms/button/button.component.stories.ts",
+                "file": "src/app/templates/template-default/template-default.component.stories.ts",
                 "deprecated": false,
                 "deprecationMessage": "",
-                "type": "Record<SupportedType, undefined>",
-                "defaultValue": "{\n  primary: true,\n  inverted: true,\n}"
+                "type": "Story<TemplateDefaultComponent>",
+                "defaultValue": "(args) => ({\n  props: args,\n  template: `\n    <ov-template-default>\n      <section header class=\"placeholder\" style=\"height: 84px;\">Header</section>\n      <ng-template ovSide>\n        <section class=\"placeholder\" style=\"min-height: 512px\">\n          Side\n        </section>\n      </ng-template>\n      <section main class=\"placeholder\" style=\"min-height: 512px\">\n        Main\n      </section>\n      <section footer class=\"placeholder\" style=\"height: 84px;\">Footer</section>\n    </ov-template-default>\n  `,\n})"
             },
             {
                 "name": "TYPES",
@@ -3324,6 +3815,16 @@
                 "deprecationMessage": "",
                 "type": "Record<MessageType, undefined>",
                 "defaultValue": "{\n  ok: true,\n  warn: true,\n  error: true,\n}"
+            },
+            {
+                "name": "TYPES",
+                "ctype": "miscellaneous",
+                "subtype": "variable",
+                "file": "src/app/atoms/button/button.component.stories.ts",
+                "deprecated": false,
+                "deprecationMessage": "",
+                "type": "Record<SupportedType, undefined>",
+                "defaultValue": "{\n  primary: true,\n  inverted: true,\n}"
             },
             {
                 "name": "WithInput",
@@ -3346,6 +3847,16 @@
                 "defaultValue": "Template.bind({})"
             },
             {
+                "name": "WithSideContent",
+                "ctype": "miscellaneous",
+                "subtype": "variable",
+                "file": "src/app/templates/template-default/template-default.component.stories.ts",
+                "deprecated": false,
+                "deprecationMessage": "",
+                "type": "",
+                "defaultValue": "TemplateComplete.bind({})"
+            },
+            {
                 "name": "WithSteps",
                 "ctype": "miscellaneous",
                 "subtype": "variable",
@@ -3359,22 +3870,33 @@
         "functions": [],
         "typealiases": [
             {
-                "name": "MessageType",
+                "name": "Breakpoint",
                 "ctype": "miscellaneous",
                 "subtype": "typealias",
-                "rawtype": "\"ok\" | \"warn\" | \"error\"",
-                "file": "src/app/atoms/message/message.component.ts",
+                "rawtype": "\"xs\" | \"sm\" | \"md\" | \"lg\" | \"xl\"",
+                "file": "src/app/utils/breakpoint/breakpoint.service.ts",
                 "deprecated": false,
                 "deprecationMessage": "",
                 "description": "",
                 "kind": 186
             },
             {
-                "name": "MockKeys",
+                "name": "BreakpointConfig",
                 "ctype": "miscellaneous",
                 "subtype": "typealias",
-                "rawtype": "\"PRIMARY\" | \"MAX_CONTENT\" | \"MIN_CONTENT\" | \"LANDSCAPE\"",
-                "file": "src/app/molecules/product/product.component.mocks.ts",
+                "rawtype": "Record<Breakpoint | number>",
+                "file": "src/app/utils/breakpoint/breakpoint.service.ts",
+                "deprecated": false,
+                "deprecationMessage": "",
+                "description": "",
+                "kind": 177
+            },
+            {
+                "name": "MessageType",
+                "ctype": "miscellaneous",
+                "subtype": "typealias",
+                "rawtype": "\"ok\" | \"warn\" | \"error\"",
+                "file": "src/app/atoms/message/message.component.ts",
                 "deprecated": false,
                 "deprecationMessage": "",
                 "description": "",
@@ -3396,6 +3918,17 @@
                 "ctype": "miscellaneous",
                 "subtype": "typealias",
                 "rawtype": "\"PRIMARY\" | \"MAX_CONTENT\" | \"MIN_CONTENT\" | \"LANDSCAPE\"",
+                "file": "src/app/molecules/product/product.component.mocks.ts",
+                "deprecated": false,
+                "deprecationMessage": "",
+                "description": "",
+                "kind": 186
+            },
+            {
+                "name": "MockKeys",
+                "ctype": "miscellaneous",
+                "subtype": "typealias",
+                "rawtype": "\"PRIMARY\" | \"MAX_CONTENT\" | \"MIN_CONTENT\" | \"LANDSCAPE\"",
                 "file": "src/app/organisms/product-default/product-default.component.mocks.ts",
                 "deprecated": false,
                 "deprecationMessage": "",
@@ -3407,7 +3940,7 @@
                 "ctype": "miscellaneous",
                 "subtype": "typealias",
                 "rawtype": "\"PRIMARY\" | \"MAX_CONTENT\" | \"MIN_CONTENT\"",
-                "file": "src/app/organisms/product-out-of-stock/product-out-of-stock.component.mocks.ts",
+                "file": "src/app/organisms/product-replaced/product-replaced.component.mocks.ts",
                 "deprecated": false,
                 "deprecationMessage": "",
                 "description": "",
@@ -3418,7 +3951,7 @@
                 "ctype": "miscellaneous",
                 "subtype": "typealias",
                 "rawtype": "\"PRIMARY\" | \"MAX_CONTENT\" | \"MIN_CONTENT\"",
-                "file": "src/app/organisms/product-replaced/product-replaced.component.mocks.ts",
+                "file": "src/app/organisms/product-out-of-stock/product-out-of-stock.component.mocks.ts",
                 "deprecated": false,
                 "deprecationMessage": "",
                 "description": "",
@@ -3544,6 +4077,28 @@
                     "deprecationMessage": "",
                     "type": "Star",
                     "defaultValue": "0.5"
+                }
+            ],
+            "src/app/utils/breakpoint/breakpoint.service.ts": [
+                {
+                    "name": "BREAKPOINT_CONFIG",
+                    "ctype": "miscellaneous",
+                    "subtype": "variable",
+                    "file": "src/app/utils/breakpoint/breakpoint.service.ts",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "type": "",
+                    "defaultValue": "new InjectionToken(\n  'Config of breakpoint widths'\n)"
+                },
+                {
+                    "name": "DEFAULT_CONFIG",
+                    "ctype": "miscellaneous",
+                    "subtype": "variable",
+                    "file": "src/app/utils/breakpoint/breakpoint.service.ts",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "type": "BreakpointConfig",
+                    "defaultValue": "{\n  xs: 0,\n  sm: 576,\n  md: 768,\n  lg: 992,\n  xl: 1200,\n}"
                 }
             ],
             "src/app/atoms/icon/icon.component.stories.ts": [
@@ -3958,48 +4513,6 @@
                     "defaultValue": "(args) => ({\n  props: args,\n})"
                 }
             ],
-            "src/app/organisms/product-out-of-stock/product-out-of-stock.component.stories.ts": [
-                {
-                    "name": "MaxContent",
-                    "ctype": "miscellaneous",
-                    "subtype": "variable",
-                    "file": "src/app/organisms/product-out-of-stock/product-out-of-stock.component.stories.ts",
-                    "deprecated": false,
-                    "deprecationMessage": "",
-                    "type": "",
-                    "defaultValue": "Template.bind({})"
-                },
-                {
-                    "name": "MinContent",
-                    "ctype": "miscellaneous",
-                    "subtype": "variable",
-                    "file": "src/app/organisms/product-out-of-stock/product-out-of-stock.component.stories.ts",
-                    "deprecated": false,
-                    "deprecationMessage": "",
-                    "type": "",
-                    "defaultValue": "Template.bind({})"
-                },
-                {
-                    "name": "Primary",
-                    "ctype": "miscellaneous",
-                    "subtype": "variable",
-                    "file": "src/app/organisms/product-out-of-stock/product-out-of-stock.component.stories.ts",
-                    "deprecated": false,
-                    "deprecationMessage": "",
-                    "type": "",
-                    "defaultValue": "Template.bind({})"
-                },
-                {
-                    "name": "Template",
-                    "ctype": "miscellaneous",
-                    "subtype": "variable",
-                    "file": "src/app/organisms/product-out-of-stock/product-out-of-stock.component.stories.ts",
-                    "deprecated": false,
-                    "deprecationMessage": "",
-                    "type": "Story<ProductOutOfStockComponent>",
-                    "defaultValue": "(args) => ({\n  props: args,\n})"
-                }
-            ],
             "src/app/organisms/product-replaced/product-replaced.component.stories.ts": [
                 {
                     "name": "MaxContent",
@@ -4042,12 +4555,32 @@
                     "defaultValue": "(args) => ({\n  props: args,\n})"
                 }
             ],
-            "src/app/atoms/button/button.component.stories.ts": [
+            "src/app/organisms/product-out-of-stock/product-out-of-stock.component.stories.ts": [
+                {
+                    "name": "MaxContent",
+                    "ctype": "miscellaneous",
+                    "subtype": "variable",
+                    "file": "src/app/organisms/product-out-of-stock/product-out-of-stock.component.stories.ts",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "type": "",
+                    "defaultValue": "Template.bind({})"
+                },
+                {
+                    "name": "MinContent",
+                    "ctype": "miscellaneous",
+                    "subtype": "variable",
+                    "file": "src/app/organisms/product-out-of-stock/product-out-of-stock.component.stories.ts",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "type": "",
+                    "defaultValue": "Template.bind({})"
+                },
                 {
                     "name": "Primary",
                     "ctype": "miscellaneous",
                     "subtype": "variable",
-                    "file": "src/app/atoms/button/button.component.stories.ts",
+                    "file": "src/app/organisms/product-out-of-stock/product-out-of-stock.component.stories.ts",
                     "deprecated": false,
                     "deprecationMessage": "",
                     "type": "",
@@ -4057,21 +4590,11 @@
                     "name": "Template",
                     "ctype": "miscellaneous",
                     "subtype": "variable",
-                    "file": "src/app/atoms/button/button.component.stories.ts",
+                    "file": "src/app/organisms/product-out-of-stock/product-out-of-stock.component.stories.ts",
                     "deprecated": false,
                     "deprecationMessage": "",
-                    "type": "Story<ButtonComponent>",
-                    "defaultValue": "(args) => ({\n  props: args,\n  template: `\n  <ul>\n  ${Object.keys(TYPES)\n    .map(\n      (type) =>\n        `<li style=\"padding-bottom: 4px\">\n          <ov-button type=\"${type}\">${type}</ov-button>\n        </li>`\n    )\n    .join('')}\n  </ul>`,\n})"
-                },
-                {
-                    "name": "TYPES",
-                    "ctype": "miscellaneous",
-                    "subtype": "variable",
-                    "file": "src/app/atoms/button/button.component.stories.ts",
-                    "deprecated": false,
-                    "deprecationMessage": "",
-                    "type": "Record<SupportedType, undefined>",
-                    "defaultValue": "{\n  primary: true,\n  inverted: true,\n}"
+                    "type": "Story<ProductOutOfStockComponent>",
+                    "defaultValue": "(args) => ({\n  props: args,\n})"
                 }
             ],
             "src/app/atoms/message/message.component.stories.ts": [
@@ -4104,6 +4627,38 @@
                     "deprecationMessage": "",
                     "type": "Record<MessageType, undefined>",
                     "defaultValue": "{\n  ok: true,\n  warn: true,\n  error: true,\n}"
+                }
+            ],
+            "src/app/atoms/button/button.component.stories.ts": [
+                {
+                    "name": "Primary",
+                    "ctype": "miscellaneous",
+                    "subtype": "variable",
+                    "file": "src/app/atoms/button/button.component.stories.ts",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "type": "",
+                    "defaultValue": "Template.bind({})"
+                },
+                {
+                    "name": "Template",
+                    "ctype": "miscellaneous",
+                    "subtype": "variable",
+                    "file": "src/app/atoms/button/button.component.stories.ts",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "type": "Story<ButtonComponent>",
+                    "defaultValue": "(args) => ({\n  props: args,\n  template: `\n  <ul>\n  ${Object.keys(TYPES)\n    .map(\n      (type) =>\n        `<li style=\"padding-bottom: 4px\">\n          <ov-button type=\"${type}\">${type}</ov-button>\n        </li>`\n    )\n    .join('')}\n  </ul>`,\n})"
+                },
+                {
+                    "name": "TYPES",
+                    "ctype": "miscellaneous",
+                    "subtype": "variable",
+                    "file": "src/app/atoms/button/button.component.stories.ts",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "type": "Record<SupportedType, undefined>",
+                    "defaultValue": "{\n  primary: true,\n  inverted: true,\n}"
                 }
             ],
             "src/app/molecules/quantity-picker/quantity-picker.component.stories.ts": [
@@ -4199,7 +4754,27 @@
                     "deprecated": false,
                     "deprecationMessage": "",
                     "type": "Story<TemplateDefaultComponent>",
-                    "defaultValue": "(args) => ({\n  props: args,\n  template: `\n    <ov-template-default>\n      <section header class=\"placeholder\" style=\"height: 84px;\">Header</section>\n      <section side class=\"placeholder\" style=\"min-height: 512px\">\n        Side\n      </section>\n      <section main class=\"placeholder\" style=\"min-height: 512px\">\n        Main\n      </section>\n      <section footer class=\"placeholder\" style=\"height: 84px;\">Footer</section>\n    </ov-template-default>\n  `,\n})"
+                    "defaultValue": "(args) => ({\n  props: args,\n  template: `\n    <ov-template-default>\n      <section header class=\"placeholder\" style=\"height: 84px;\">Header</section>\n      <section main class=\"placeholder\" style=\"min-height: 512px\">\n        Main\n      </section>\n      <section footer class=\"placeholder\" style=\"height: 84px;\">Footer</section>\n    </ov-template-default>\n  `,\n})"
+                },
+                {
+                    "name": "TemplateComplete",
+                    "ctype": "miscellaneous",
+                    "subtype": "variable",
+                    "file": "src/app/templates/template-default/template-default.component.stories.ts",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "type": "Story<TemplateDefaultComponent>",
+                    "defaultValue": "(args) => ({\n  props: args,\n  template: `\n    <ov-template-default>\n      <section header class=\"placeholder\" style=\"height: 84px;\">Header</section>\n      <ng-template ovSide>\n        <section class=\"placeholder\" style=\"min-height: 512px\">\n          Side\n        </section>\n      </ng-template>\n      <section main class=\"placeholder\" style=\"min-height: 512px\">\n        Main\n      </section>\n      <section footer class=\"placeholder\" style=\"height: 84px;\">Footer</section>\n    </ov-template-default>\n  `,\n})"
+                },
+                {
+                    "name": "WithSideContent",
+                    "ctype": "miscellaneous",
+                    "subtype": "variable",
+                    "file": "src/app/templates/template-default/template-default.component.stories.ts",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "type": "",
+                    "defaultValue": "TemplateComplete.bind({})"
                 }
             ],
             "src/app/organisms/product-default/product-default.component.mocks.ts": [
@@ -4266,6 +4841,30 @@
         "groupedFunctions": {},
         "groupedEnumerations": {},
         "groupedTypeAliases": {
+            "src/app/utils/breakpoint/breakpoint.service.ts": [
+                {
+                    "name": "Breakpoint",
+                    "ctype": "miscellaneous",
+                    "subtype": "typealias",
+                    "rawtype": "\"xs\" | \"sm\" | \"md\" | \"lg\" | \"xl\"",
+                    "file": "src/app/utils/breakpoint/breakpoint.service.ts",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "description": "",
+                    "kind": 186
+                },
+                {
+                    "name": "BreakpointConfig",
+                    "ctype": "miscellaneous",
+                    "subtype": "typealias",
+                    "rawtype": "Record<Breakpoint | number>",
+                    "file": "src/app/utils/breakpoint/breakpoint.service.ts",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "description": "",
+                    "kind": 177
+                }
+            ],
             "src/app/atoms/message/message.component.ts": [
                 {
                     "name": "MessageType",
@@ -4273,19 +4872,6 @@
                     "subtype": "typealias",
                     "rawtype": "\"ok\" | \"warn\" | \"error\"",
                     "file": "src/app/atoms/message/message.component.ts",
-                    "deprecated": false,
-                    "deprecationMessage": "",
-                    "description": "",
-                    "kind": 186
-                }
-            ],
-            "src/app/molecules/product/product.component.mocks.ts": [
-                {
-                    "name": "MockKeys",
-                    "ctype": "miscellaneous",
-                    "subtype": "typealias",
-                    "rawtype": "\"PRIMARY\" | \"MAX_CONTENT\" | \"MIN_CONTENT\" | \"LANDSCAPE\"",
-                    "file": "src/app/molecules/product/product.component.mocks.ts",
                     "deprecated": false,
                     "deprecationMessage": "",
                     "description": "",
@@ -4305,6 +4891,19 @@
                     "kind": 186
                 }
             ],
+            "src/app/molecules/product/product.component.mocks.ts": [
+                {
+                    "name": "MockKeys",
+                    "ctype": "miscellaneous",
+                    "subtype": "typealias",
+                    "rawtype": "\"PRIMARY\" | \"MAX_CONTENT\" | \"MIN_CONTENT\" | \"LANDSCAPE\"",
+                    "file": "src/app/molecules/product/product.component.mocks.ts",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "description": "",
+                    "kind": 186
+                }
+            ],
             "src/app/organisms/product-default/product-default.component.mocks.ts": [
                 {
                     "name": "MockKeys",
@@ -4318,19 +4917,6 @@
                     "kind": 186
                 }
             ],
-            "src/app/organisms/product-out-of-stock/product-out-of-stock.component.mocks.ts": [
-                {
-                    "name": "MockKeys",
-                    "ctype": "miscellaneous",
-                    "subtype": "typealias",
-                    "rawtype": "\"PRIMARY\" | \"MAX_CONTENT\" | \"MIN_CONTENT\"",
-                    "file": "src/app/organisms/product-out-of-stock/product-out-of-stock.component.mocks.ts",
-                    "deprecated": false,
-                    "deprecationMessage": "",
-                    "description": "",
-                    "kind": 186
-                }
-            ],
             "src/app/organisms/product-replaced/product-replaced.component.mocks.ts": [
                 {
                     "name": "MockKeys",
@@ -4338,6 +4924,19 @@
                     "subtype": "typealias",
                     "rawtype": "\"PRIMARY\" | \"MAX_CONTENT\" | \"MIN_CONTENT\"",
                     "file": "src/app/organisms/product-replaced/product-replaced.component.mocks.ts",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "description": "",
+                    "kind": 186
+                }
+            ],
+            "src/app/organisms/product-out-of-stock/product-out-of-stock.component.mocks.ts": [
+                {
+                    "name": "MockKeys",
+                    "ctype": "miscellaneous",
+                    "subtype": "typealias",
+                    "rawtype": "\"PRIMARY\" | \"MAX_CONTENT\" | \"MIN_CONTENT\"",
+                    "file": "src/app/organisms/product-out-of-stock/product-out-of-stock.component.mocks.ts",
                     "deprecated": false,
                     "deprecationMessage": "",
                     "description": "",
@@ -4986,7 +5585,7 @@
                 "linktype": "component",
                 "name": "ProductComponent",
                 "coveragePercent": 0,
-                "coverageCount": "0/5",
+                "coverageCount": "0/3",
                 "status": "low"
             },
             {
@@ -5334,7 +5933,16 @@
                 "linktype": "component",
                 "name": "PageProductsComponent",
                 "coveragePercent": 0,
-                "coverageCount": "0/7",
+                "coverageCount": "0/6",
+                "status": "low"
+            },
+            {
+                "filePath": "src/app/templates/template-default/shared/side.directive.ts",
+                "type": "directive",
+                "linktype": "directive",
+                "name": "SideDirective",
+                "coveragePercent": 0,
+                "coverageCount": "0/3",
                 "status": "low"
             },
             {
@@ -5358,10 +5966,86 @@
                 "status": "low"
             },
             {
+                "filePath": "src/app/templates/template-default/template-default.component.stories.ts",
+                "type": "variable",
+                "linktype": "miscellaneous",
+                "linksubtype": "variable",
+                "name": "TemplateComplete",
+                "coveragePercent": 0,
+                "coverageCount": "0/1",
+                "status": "low"
+            },
+            {
+                "filePath": "src/app/templates/template-default/template-default.component.stories.ts",
+                "type": "variable",
+                "linktype": "miscellaneous",
+                "linksubtype": "variable",
+                "name": "WithSideContent",
+                "coveragePercent": 0,
+                "coverageCount": "0/1",
+                "status": "low"
+            },
+            {
                 "filePath": "src/app/templates/template-default/template-default.component.ts",
                 "type": "component",
                 "linktype": "component",
                 "name": "TemplateDefaultComponent",
+                "coveragePercent": 0,
+                "coverageCount": "0/5",
+                "status": "low"
+            },
+            {
+                "filePath": "src/app/utils/breakpoint/breakpoint.service.ts",
+                "type": "injectable",
+                "linktype": "injectable",
+                "name": "BreakpointService",
+                "coveragePercent": 0,
+                "coverageCount": "0/4",
+                "status": "low"
+            },
+            {
+                "filePath": "src/app/utils/breakpoint/breakpoint.service.ts",
+                "type": "variable",
+                "linktype": "miscellaneous",
+                "linksubtype": "variable",
+                "name": "BREAKPOINT_CONFIG",
+                "coveragePercent": 0,
+                "coverageCount": "0/1",
+                "status": "low"
+            },
+            {
+                "filePath": "src/app/utils/breakpoint/breakpoint.service.ts",
+                "type": "variable",
+                "linktype": "miscellaneous",
+                "linksubtype": "variable",
+                "name": "DEFAULT_CONFIG",
+                "coveragePercent": 0,
+                "coverageCount": "0/1",
+                "status": "low"
+            },
+            {
+                "filePath": "src/app/utils/if-breakpoint/if-breakpoint.directive.ts",
+                "type": "directive",
+                "linktype": "directive",
+                "name": "IfBreakpointDirective",
+                "coveragePercent": 9,
+                "coverageCount": "1/11",
+                "status": "low"
+            },
+            {
+                "filePath": "src/app/utils/resize/resize.service.ts",
+                "type": "injectable",
+                "linktype": "injectable",
+                "name": "ResizeService",
+                "coveragePercent": 0,
+                "coverageCount": "0/3",
+                "status": "low"
+            },
+            {
+                "filePath": "src/app/utils/resize/resize.service.ts",
+                "type": "interface",
+                "linktype": "interface",
+                "name": "ResizeEvent",
                 "coveragePercent": 0,
                 "coverageCount": "0/3",
                 "status": "low"

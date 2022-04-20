@@ -2,11 +2,13 @@
   <section class="header">
     <ng-content select="[header]"></ng-content>
   </section>
-  <section class="content">
-    <section class="side">
-      <ng-content select="[side]"></ng-content>
-    </section>
-    <ng-content select="[main]"></ng-content>
+  <section class="content" [class.without-side]="!side">
+    <div class="side" *ngIf="side">
+      <ng-container [ngTemplateOutlet]="side.templateRef"></ng-container>
+    </div>
+    <div class="main">
+      <ng-content select="[main]"></ng-content>
+    </div>
   </section>
   <section class="footer">
     <ng-content select="[footer]"></ng-content>

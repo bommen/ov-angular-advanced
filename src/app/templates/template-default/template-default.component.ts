@@ -1,15 +1,24 @@
-import { Component, OnInit } from '@angular/core';
+import {
+  AfterContentInit,
+  Component,
+  ContentChild,
+  OnInit,
+} from '@angular/core';
+import { SideDirective } from './shared/side.directive';
 
 @Component({
   selector: 'ov-template-default',
   templateUrl: './template-default.component.html',
-  styleUrls: ['./template-default.component.scss']
+  styleUrls: ['./template-default.component.scss'],
 })
-export class TemplateDefaultComponent implements OnInit {
+export class TemplateDefaultComponent implements OnInit, AfterContentInit {
+  @ContentChild(SideDirective) side?: SideDirective;
 
-  constructor() { }
+  constructor() {}
 
-  ngOnInit(): void {
+  ngOnInit(): void {}
+
+  ngAfterContentInit() {
+    console.log(this.side);
   }
-
 }
