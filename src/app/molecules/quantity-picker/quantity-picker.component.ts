@@ -7,6 +7,8 @@ import {
   ViewChild,
   EventEmitter,
 } from '@angular/core';
+import { FormControl, Validators } from '@angular/forms';
+import { QuantityValidator } from './shared/quantity.validator';
 
 export interface Quantity {
   min: number;
@@ -26,23 +28,35 @@ export class QuantityPickerComponent implements OnInit {
 
   @Output() selectQuantity = new EventEmitter<number>();
 
+  /**
+   * The input ViewChild is conditionally rendered so a setter is required to detect its activation.
+   */
   @ViewChild('input', { static: false, read: ElementRef }) set input(element: {
     nativeElement: HTMLInputElement;
   }) {
+    /**
+     * When the input appears we need to focus the input and select the current value.
+     */
     if (element) {
       element.nativeElement.focus();
       element.nativeElement.select();
     }
   }
 
-  value!: number;
+  quantityFormControl!: FormControl;
 
   ngOnInit(): void {
-    this.value = this.quantity.min;
+    this.quantityFormControl = new FormControl(this.quantity.min, [
+      Validators.required,
+      /**
+       * Custom validator to check if the quantity meets the step requirement.
+       */
+      QuantityValidator(this.quantity.step),
+    ]);
   }
 
   submitQuantity() {
-    this.selectQuantity.emit(this.value);
+    this.selectQuantity.emit(parseInt(this.quantityFormControl.value));
   }
 
   selectChangeQuantity(event: Event) {
@@ -50,12 +64,7 @@ export class QuantityPickerComponent implements OnInit {
     if (value === 'More') {
       this.showInput = true;
     } else {
-      this.value = parseInt(value);
+      this.quantityFormControl.setValue(value);
     }
-  }
-
-  inputChangeQuantity(event: Event) {
-    const { value } = event.target as HTMLInputElement;
-    this.value = parseInt(value);
   }
 }

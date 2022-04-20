@@ -1,6 +1,14 @@
-import { Component, Input, OnInit, Pipe, PipeTransform } from '@angular/core';
-import { Product } from '../../molecules/product/product.component';
-import { Quantity } from '../../molecules/quantity-picker/quantity-picker.component';
+import {
+  Component,
+  EventEmitter,
+  Input,
+  OnInit,
+  Output,
+  Pipe,
+  PipeTransform,
+} from '@angular/core';
+import { Product } from '../product/product.component';
+import { Quantity } from '../quantity-picker/quantity-picker.component';
 
 export interface ProductDefault extends Product {
   type: 'product';
@@ -16,11 +24,13 @@ export interface ProductDefault extends Product {
 export class ProductDefaultComponent implements OnInit {
   @Input() product!: ProductDefault;
 
+  @Output() addToCart = new EventEmitter<number>();
+
   constructor() {}
 
   ngOnInit(): void {}
 
   selectQuantity(quantity: number) {
-    console.log('Add to cart', this.product.id, quantity);
+    this.addToCart.emit(quantity);
   }
 }

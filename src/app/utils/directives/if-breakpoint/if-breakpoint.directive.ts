@@ -10,7 +10,9 @@ import { Subscription } from 'rxjs';
 import {
   Breakpoint,
   BreakpointService,
-} from '../breakpoint/breakpoint.service';
+} from '../../services/breakpoint/breakpoint.service';
+
+const BREAKPOINT_ORDER: Breakpoint[] = ['xs', 'sm', 'md', 'lg', 'xl'];
 
 /**
  * Structural directive that shows/hides element based on breakpoint config.
@@ -29,12 +31,12 @@ import {
   selector: '[ovIfBreakpoint]',
 })
 export class IfBreakpointDirective implements OnDestroy {
-  @Input()
-  ovIfBreakpoint!: Breakpoint;
-  @Input()
-  ovIfBreakpointTo?: Breakpoint;
-  @Input()
-  ovIfBreakpointElse?: TemplateRef<any>;
+  @Input('ovIfBreakpoint')
+  breakpoint!: Breakpoint;
+  @Input('ovIfBreakpointTo')
+  to?: Breakpoint;
+  @Input('ovIfBreakpointElse')
+  else?: TemplateRef<unknown>;
 
   private subscription!: Subscription;
   private currentTemplate?: TemplateRef<any>;
@@ -73,7 +75,7 @@ export class IfBreakpointDirective implements OnDestroy {
            */
           if (
             this.currentTemplate !== undefined &&
-            this.currentTemplate === this.ovIfBreakpointElse
+            this.currentTemplate === this.else
           ) {
             return;
           }
@@ -87,28 +89,30 @@ export class IfBreakpointDirective implements OnDestroy {
           /**
            * Show 'else' template if defined
            */
-          if (this.ovIfBreakpointElse) {
-            this.viewContainerRef.createEmbeddedView(this.ovIfBreakpointElse);
-            this.currentTemplate = this.ovIfBreakpointElse;
+          if (this.else) {
+            this.viewContainerRef.createEmbeddedView(this.else);
+            this.currentTemplate = this.else;
           }
         }
       }
     );
   }
+
   private shouldDisplay(breakpoint: Breakpoint) {
     return (
-      breakpoint === this.ovIfBreakpoint ||
-      (this.ovIfBreakpointTo && this.isBetweenBreakpoints(breakpoint))
+      breakpoint === this.breakpoint ||
+      (this.to && this.isBetweenBreakpoints(breakpoint))
     );
   }
+
   private isBetweenBreakpoints(breakpoint: Breakpoint) {
-    if (this.ovIfBreakpointTo === undefined) {
+    if (this.to === undefined) {
       return false;
     }
-    const keys = Object.keys(this.breakpointService.getConfig());
+    const index = BREAKPOINT_ORDER.indexOf(breakpoint);
     return (
-      keys.indexOf(breakpoint) >= keys.indexOf(this.ovIfBreakpoint) &&
-      keys.indexOf(breakpoint) <= keys.indexOf(this.ovIfBreakpointTo)
+      index >= BREAKPOINT_ORDER.indexOf(this.breakpoint) &&
+      index <= BREAKPOINT_ORDER.indexOf(this.to)
     );
   }
   ngOnDestroy(): void {

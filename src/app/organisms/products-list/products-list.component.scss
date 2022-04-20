@@ -1,0 +1,17 @@
+li {
+  border-bottom: 1px solid gray;
+  margin-bottom: var(--space-xs);
+  &:last-child {
+    border-bottom: 0;
+  }
+  transition: opacity 200ms ease;
+  opacity: 0.2;
+}
+
+ul {
+  width: auto;
+}
+
+.visible {
+  opacity: 1;
+}

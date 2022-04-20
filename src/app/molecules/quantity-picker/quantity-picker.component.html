@@ -17,10 +17,14 @@
     #input
     type="number"
     [step]="quantity.step"
-    [value]="value"
-    (change)="inputChangeQuantity($event)"
+    [formControl]="quantityFormControl"
   />
 </ng-template>
-<ov-button type="primary" (click)="submitQuantity()" ariaLabel="add to cart">
+<ov-button
+  type="primary"
+  (click)="submitQuantity()"
+  ariaLabel="add to cart"
+  [disabled]="!quantityFormControl.valid"
+>
   <ov-icon icon="cart-plus" color="white" size="md"></ov-icon>
 </ov-button>

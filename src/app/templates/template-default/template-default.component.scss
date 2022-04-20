@@ -10,16 +10,12 @@
   flex-direction: column;
   gap: var(--space-sm);
 
-  @include breakpoint-lg {
+  @include breakpoint-md {
     flex-direction: row;
   }
 }
 .side {
-  display: none;
-  @include breakpoint-lg {
-    min-width: 340px;
-    display: block;
-  }
+  min-width: 340px;
 }
 
 .footer {
@@ -35,7 +31,7 @@
 
   .main {
     @include breakpoint-lg {
-      max-width: 80%;
+      max-width: 60%;
     }
   }
 }

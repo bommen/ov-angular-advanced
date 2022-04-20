@@ -34,3 +34,21 @@ const Template: Story<ButtonComponent> = (args) => ({
 
 export const Primary = Template.bind({});
 Primary.args = {};
+
+const DisabledTemplate: Story<ButtonComponent> = (args) => ({
+  props: args,
+  template: `
+  <ul>
+  ${Object.keys(TYPES)
+    .map(
+      (type) =>
+        `<li style="padding-bottom: 4px">
+          <ov-button type="${type}" disabled="true">${type}</ov-button>
+        </li>`
+    )
+    .join('')}
+  </ul>`,
+});
+
+export const Disabled = DisabledTemplate.bind({});
+Disabled.args = {};

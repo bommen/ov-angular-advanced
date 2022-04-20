@@ -16,6 +16,8 @@ export const parameters = {
     viewports: INITIAL_VIEWPORTS,
     defaultViewport: "iphone5",
   },
+  // https://github.com/storybookjs/storybook/issues/16916#issuecomment-988303119
+  angularLegacyRendering: true,
   options: {
     storySort: {
       order: ["Atoms", "Molecules", "Organisms", "Templates", "Pages"],

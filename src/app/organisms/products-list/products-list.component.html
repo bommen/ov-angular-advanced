@@ -1,0 +1,28 @@
+<ul>
+  <li
+    *ngFor="let product of products"
+    [ngSwitch]="product.type"
+    [ovIntersectionObserver]="productIntersectionMargin"
+    (intersection)="productIntersect($event)"
+  >
+    <ng-container *ngSwitchCase="'product-out-of-stock'">
+      <ov-product-out-of-stock
+        *ngIf="asProductOutOfStock(product)! as product"
+        [product]="product"
+      ></ov-product-out-of-stock>
+    </ng-container>
+    <ng-container *ngSwitchCase="'product-replaced'">
+      <ov-product-replaced
+        *ngIf="asProductReplaced(product)! as product"
+        [product]="product"
+      ></ov-product-replaced>
+    </ng-container>
+    <ng-container *ngSwitchDefault>
+      <ov-product-default
+        *ngIf="asProduct(product)! as product"
+        [product]="product"
+        (addToCart)="addToCart($event, product)"
+      ></ov-product-default>
+    </ng-container>
+  </li>
+</ul>

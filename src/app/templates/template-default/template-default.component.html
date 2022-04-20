@@ -3,9 +3,11 @@
     <ng-content select="[header]"></ng-content>
   </section>
   <section class="content" [class.without-side]="!side">
-    <div class="side" *ngIf="side">
-      <ng-container [ngTemplateOutlet]="side.templateRef"></ng-container>
-    </div>
+    <ng-container *ovIfBreakpoint="'lg'; to: 'xl'">
+      <div class="side" *ngIf="side">
+        <ng-container [ngTemplateOutlet]="side.templateRef"></ng-container>
+      </div>
+    </ng-container>
     <div class="main">
       <ng-content select="[main]"></ng-content>
     </div>

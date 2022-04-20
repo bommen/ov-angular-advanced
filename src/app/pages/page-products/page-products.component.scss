@@ -4,15 +4,3 @@ h2 {
   padding-bottom: var(--space-xs);
   font-size: 1.4em;
 }
-
-li {
-  border-bottom: 1px solid gray;
-  margin-bottom: var(--space-xs);
-  &:last-child {
-    border-bottom: 0;
-  }
-}
-
-ul {
-  width: auto;
-}

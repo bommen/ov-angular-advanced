@@ -19,6 +19,6 @@ export class TemplateDefaultComponent implements OnInit, AfterContentInit {
   ngOnInit(): void {}
 
   ngAfterContentInit() {
-    console.log(this.side);
+    // console.log(this.side);
   }
 }
