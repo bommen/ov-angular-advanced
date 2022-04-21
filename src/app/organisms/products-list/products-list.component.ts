@@ -1,4 +1,9 @@
-import { Component, Input, OnInit } from '@angular/core';
+import {
+  ChangeDetectionStrategy,
+  Component,
+  Input,
+  OnInit,
+} from '@angular/core';
 import { ProductDefault } from '../../molecules/product-default/product-default.component';
 import { ProductOutOfStock } from '../../molecules/product-out-of-stock/product-out-of-stock.component';
 import { ProductReplaced } from '../../molecules/product-replaced/product-replaced.component';
@@ -8,6 +13,7 @@ export type ProductUnion = ProductDefault | ProductReplaced | ProductOutOfStock;
   selector: 'ov-products-list',
   templateUrl: './products-list.component.html',
   styleUrls: ['./products-list.component.scss'],
+  changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class ProductsListComponent implements OnInit {
   @Input() products!: ProductUnion[];

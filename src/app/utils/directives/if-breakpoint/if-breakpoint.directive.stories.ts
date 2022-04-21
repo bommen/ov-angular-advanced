@@ -33,11 +33,6 @@ export const Primary = Template.bind({});
 const RangeTemplate: Story<void> = () => ({
   template: `
     <section class="sb-breakpoint-example">
-      <span>Current breakpoint:</span>
-      ${BREAKPOINT_ORDER.map(
-        (breakpoint) =>
-          `<span class="breakpoint" *ovIfBreakpoint="'${breakpoint}'">${breakpoint}</span>`
-      ).join('')}
       <ul>
         <li>
           <span class="breakpoint" *ovIfBreakpoint="'sm'; to 'md';">Show on: 'xs'; to 'md';</span>

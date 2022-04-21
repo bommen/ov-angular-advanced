@@ -1,4 +1,11 @@
-import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
+import {
+  ChangeDetectionStrategy,
+  Component,
+  EventEmitter,
+  Input,
+  OnInit,
+  Output,
+} from '@angular/core';
 import { Product } from '../product/product.component';
 import { Quantity } from '../quantity-picker/quantity-picker.component';
 
@@ -16,6 +23,7 @@ export interface ProductDefault extends Product {
   selector: 'ov-product-default',
   templateUrl: './product-default.component.html',
   styleUrls: ['./product-default.component.scss'],
+  changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class ProductDefaultComponent implements OnInit {
   @Input() product!: ProductDefault;
@@ -24,7 +32,7 @@ export class ProductDefaultComponent implements OnInit {
 
   breakpointConfig: ProductBreakpointConfig = {
     small: 0,
-    large: 465,
+    large: 470,
   };
 
   isLarge = false;

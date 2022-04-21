@@ -12,9 +12,8 @@ import {
 })
 export class IntersectionObserverDirective implements OnInit {
   @Input('ovIntersectionObserver') rootMargin: string = '0px';
-  @Input('ovIntersectionObserverRoot') root?: HTMLElement;
 
-  @Output() intersection = new EventEmitter<IntersectionObserverEntry>();
+  @Output() intersect = new EventEmitter<IntersectionObserverEntry>();
 
   private intersectionObserver!: IntersectionObserver;
 
@@ -23,10 +22,9 @@ export class IntersectionObserverDirective implements OnInit {
   ngOnInit(): void {
     this.intersectionObserver = new IntersectionObserver(
       ([entry]) => {
-        this.intersection.next(entry);
+        this.intersect.next(entry);
       },
       {
-        root: this.root,
         rootMargin: this.rootMargin,
       }
     );

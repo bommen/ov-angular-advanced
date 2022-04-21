@@ -1,13 +1,10 @@
-import { Component, OnInit } from '@angular/core';
+import { ChangeDetectionStrategy, Component, OnInit } from '@angular/core';
 
 @Component({
   selector: 'ov-sub-title',
-  template: `
-    <span>
-      <ng-content></ng-content>
-    </span>
-  `,
+  templateUrl: './sub-title.component.html',
   styleUrls: ['./sub-title.component.scss'],
+  changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class SubTitleComponent implements OnInit {
   constructor() {}

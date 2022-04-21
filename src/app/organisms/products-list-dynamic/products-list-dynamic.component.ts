@@ -1,4 +1,5 @@
 import {
+  ChangeDetectionStrategy,
   Component,
   Input,
   OnInit,
@@ -26,6 +27,7 @@ import { ProductsHostDirective } from './shared/products-host.directive';
   selector: 'ov-products-list-dynamic',
   templateUrl: './products-list-dynamic.component.html',
   styleUrls: ['./products-list-dynamic.component.scss'],
+  changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class ProductsListDynamicComponent implements OnInit {
   @Input() products!: ProductUnion[];

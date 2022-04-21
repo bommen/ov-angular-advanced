@@ -6,6 +6,7 @@ import {
   Output,
   ViewChild,
   EventEmitter,
+  ChangeDetectionStrategy,
 } from '@angular/core';
 import { FormControl, Validators } from '@angular/forms';
 import { QuantityValidator } from './shared/quantity.validator';
@@ -20,6 +21,7 @@ export interface Quantity {
   selector: 'ov-quantity-picker',
   templateUrl: './quantity-picker.component.html',
   styleUrls: ['./quantity-picker.component.scss'],
+  changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class QuantityPickerComponent implements OnInit {
   @Input() quantity!: Quantity;

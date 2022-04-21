@@ -1,4 +1,11 @@
-import { Component, ElementRef, Input, OnDestroy, OnInit } from '@angular/core';
+import {
+  ChangeDetectionStrategy,
+  Component,
+  ElementRef,
+  Input,
+  OnDestroy,
+  OnInit,
+} from '@angular/core';
 
 export type SupportedType = 'inverted' | 'primary';
 
@@ -6,6 +13,7 @@ export type SupportedType = 'inverted' | 'primary';
   selector: 'ov-button',
   templateUrl: './button.component.html',
   styleUrls: ['./button.component.scss'],
+  changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class ButtonComponent implements OnInit, OnDestroy {
   @Input() type: SupportedType = 'primary';

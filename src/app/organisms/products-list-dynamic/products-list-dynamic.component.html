@@ -2,7 +2,7 @@
   <li
     *ngFor="let product of products"
     [ovIntersectionObserver]="productIntersectionMargin"
-    (intersection)="productIntersect($event)"
+    (intersect)="productIntersect($event)"
   >
     <ng-template [ovProductsHost]="product"></ng-template>
   </li>

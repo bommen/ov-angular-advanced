@@ -1,4 +1,9 @@
-import { Component, Input, OnInit } from '@angular/core';
+import {
+  ChangeDetectionStrategy,
+  Component,
+  Input,
+  OnInit,
+} from '@angular/core';
 import { Product } from 'src/app/molecules/product/product.component';
 
 export interface ProductReplaced extends Product {
@@ -10,6 +15,7 @@ export interface ProductReplaced extends Product {
   selector: 'ov-product-replaced',
   templateUrl: './product-replaced.component.html',
   styleUrls: ['./product-replaced.component.scss'],
+  changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class ProductReplacedComponent implements OnInit {
   @Input() product!: ProductReplaced;

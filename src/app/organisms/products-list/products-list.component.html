@@ -3,7 +3,7 @@
     *ngFor="let product of products"
     [ngSwitch]="product.type"
     [ovIntersectionObserver]="productIntersectionMargin"
-    (intersection)="productIntersect($event)"
+    (intersect)="productIntersect($event)"
   >
     <ng-container *ngSwitchCase="'product-out-of-stock'">
       <ov-product-out-of-stock

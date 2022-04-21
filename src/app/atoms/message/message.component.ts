@@ -1,4 +1,9 @@
-import { Component, Input, OnInit } from '@angular/core';
+import {
+  ChangeDetectionStrategy,
+  Component,
+  Input,
+  OnInit,
+} from '@angular/core';
 
 export type MessageType = 'ok' | 'warn' | 'error';
 
@@ -6,6 +11,7 @@ export type MessageType = 'ok' | 'warn' | 'error';
   selector: 'ov-message',
   templateUrl: './message.component.html',
   styleUrls: ['./message.component.scss'],
+  changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class MessageComponent implements OnInit {
   @Input() type!: MessageType;

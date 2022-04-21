@@ -72,3 +72,34 @@ li.sb {
     border: 1px solid green;
   }
 }
+
+.sb-intersection-observer-example {
+  overflow-y: scroll;
+  font-size: 2em;
+  font-weight: bold;
+  position: relative;
+
+  li {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    height: 10em;
+    border: 2px solid black;
+    box-sizing: border-box;
+
+    background-color: red;
+
+    transition: background-color 300ms ease;
+
+    &.visible {
+      background-color: green;
+    }
+  }
+
+  h1 {
+    position: absolute;
+    top: 0;
+    color: white;
+  }
+}
