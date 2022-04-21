@@ -100,8 +100,7 @@ export class IfBreakpointDirective implements OnDestroy {
 
   private shouldDisplay(breakpoint: Breakpoint) {
     return (
-      breakpoint === this.breakpoint ||
-      (this.to && this.isBetweenBreakpoints(breakpoint))
+      breakpoint === this.breakpoint || this.isBetweenBreakpoints(breakpoint)
     );
   }
 

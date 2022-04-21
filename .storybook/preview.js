@@ -17,6 +17,9 @@ export const parameters = {
     defaultViewport: "iphone5",
   },
   // https://github.com/storybookjs/storybook/issues/16916#issuecomment-988303119
+  /**
+   * This is a workaround that prevents crashing but breaks the component controls.
+   */
   angularLegacyRendering: true,
   options: {
     storySort: {

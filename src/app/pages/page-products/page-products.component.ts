@@ -12,7 +12,6 @@ import {
   selector: 'ov-page-products',
   templateUrl: './page-products.component.html',
   styleUrls: ['./page-products.component.scss'],
-  changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class PageProductsComponent implements OnInit {
   @Input() products!: ProductUnion[];

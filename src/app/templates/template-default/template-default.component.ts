@@ -11,7 +11,6 @@ import { SideDirective } from './shared/side.directive';
   selector: 'ov-template-default',
   templateUrl: './template-default.component.html',
   styleUrls: ['./template-default.component.scss'],
-  changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class TemplateDefaultComponent implements OnInit, AfterContentInit {
   @ContentChild(SideDirective) side?: SideDirective;

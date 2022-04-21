@@ -32,7 +32,7 @@ export class ProductDefaultComponent implements OnInit {
 
   breakpointConfig: ProductBreakpointConfig = {
     small: 0,
-    large: 470,
+    large: 475,
   };
 
   isLarge = false;
