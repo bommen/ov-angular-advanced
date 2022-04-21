@@ -6,6 +6,7 @@ import { MessageModule } from '../../atoms/message/message.module';
 import { IconModule } from '../../atoms/icon/icon.module';
 import { ButtonModule } from '../../atoms/button/button.module';
 import { QuantityPickerModule } from '../quantity-picker/quantity-picker.module';
+import { ResizeObserverModule } from '../../utils/directives/resize-observer/resize-observer.module';
 
 @NgModule({
   declarations: [ProductDefaultComponent],
@@ -16,6 +17,7 @@ import { QuantityPickerModule } from '../quantity-picker/quantity-picker.module'
     IconModule,
     ButtonModule,
     QuantityPickerModule,
+    ResizeObserverModule,
   ],
   exports: [ProductDefaultComponent],
 })

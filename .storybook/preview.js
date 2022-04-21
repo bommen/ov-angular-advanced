@@ -20,7 +20,7 @@ export const parameters = {
   angularLegacyRendering: true,
   options: {
     storySort: {
-      order: ["Atoms", "Molecules", "Organisms", "Templates", "Pages"],
+      order: ["Atoms", "Molecules", "Organisms", "Templates", "Pages", "Utils"],
     },
   },
 };

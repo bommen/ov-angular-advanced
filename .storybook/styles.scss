@@ -41,3 +41,34 @@ li.sb {
 .sb-label {
   font-size: 0.75em;
 }
+
+.sb-breakpoint-example {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+
+  font-size: 2em;
+  font-weight: bold;
+
+  li {
+    height: 32px;
+    border: 1px solid black;
+    margin-bottom: 4px;
+    margin-top: 4px;
+  }
+}
+
+.sb-resize-observer-example {
+  display: flex;
+  color: red;
+
+  section {
+    flex: 1;
+    border: 1px solid red;
+  }
+
+  .isLarge {
+    color: green;
+    border: 1px solid green;
+  }
+}

@@ -165,12 +165,12 @@
         },
         {
             "name": "ProductDefault",
-            "id": "interface-ProductDefault-e367fb2671303eee09bf6afb5cb5bff57fd16bf1f83284e0fd89ff1f1b7f9ff6563bfad5fc05dff596ff0fc2f375dda8c34573b9150f0392cbc779649de7f866",
+            "id": "interface-ProductDefault-c21a686530b121d8f93dfff898ad3cfda4fde42244f3b93e8a4e1f059b9e5c0d7d9bfe723372d97749f1e9dc6068cad8cc74ae94c7847474d54c886e6e176aeb",
             "file": "src/app/molecules/product-default/product-default.component.ts",
             "deprecated": false,
             "deprecationMessage": "",
             "type": "interface",
-            "sourceCode": "import {\n  Component,\n  EventEmitter,\n  Input,\n  OnInit,\n  Output,\n  Pipe,\n  PipeTransform,\n} from '@angular/core';\nimport { Product } from '../product/product.component';\nimport { Quantity } from '../quantity-picker/quantity-picker.component';\n\nexport interface ProductDefault extends Product {\n  type: 'product';\n  quantity: Quantity;\n  isLimited: boolean;\n}\n\n@Component({\n  selector: 'ov-product-default',\n  templateUrl: './product-default.component.html',\n  styleUrls: ['./product-default.component.scss'],\n})\nexport class ProductDefaultComponent implements OnInit {\n  @Input() product!: ProductDefault;\n\n  @Output() addToCart = new EventEmitter<number>();\n\n  constructor() {}\n\n  ngOnInit(): void {}\n\n  selectQuantity(quantity: number) {\n    this.addToCart.emit(quantity);\n  }\n}\n",
+            "sourceCode": "import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';\nimport { Product } from '../product/product.component';\nimport { Quantity } from '../quantity-picker/quantity-picker.component';\n\ntype ProductBreakpoint = 'small' | 'large';\n\ntype ProductBreakpointConfig = Record<ProductBreakpoint, number>;\n\nexport interface ProductDefault extends Product {\n  type: 'product';\n  quantity: Quantity;\n  isLimited: boolean;\n}\n\n@Component({\n  selector: 'ov-product-default',\n  templateUrl: './product-default.component.html',\n  styleUrls: ['./product-default.component.scss'],\n})\nexport class ProductDefaultComponent implements OnInit {\n  @Input() product!: ProductDefault;\n\n  @Output() addToCart = new EventEmitter<number>();\n\n  breakpointConfig: ProductBreakpointConfig = {\n    small: 0,\n    large: 465,\n  };\n\n  isLarge = false;\n\n  ngOnInit(): void {}\n\n  selectQuantity(quantity: number) {\n    this.addToCart.emit(quantity);\n  }\n\n  onResize(breakpoint: ProductBreakpoint | string) {\n    this.isLarge = breakpoint === 'large';\n  }\n}\n",
             "properties": [
                 {
                     "name": "isLimited",
@@ -179,7 +179,7 @@
                     "type": "boolean",
                     "optional": false,
                     "description": "",
-                    "line": 16
+                    "line": 12
                 },
                 {
                     "name": "quantity",
@@ -188,7 +188,7 @@
                     "type": "Quantity",
                     "optional": false,
                     "description": "",
-                    "line": 15
+                    "line": 11
                 },
                 {
                     "name": "type",
@@ -197,7 +197,7 @@
                     "type": "",
                     "optional": false,
                     "description": "",
-                    "line": 14
+                    "line": 10
                 }
             ],
             "indexSignatures": [],
@@ -1755,7 +1755,7 @@
         },
         {
             "name": "ProductDefaultComponent",
-            "id": "component-ProductDefaultComponent-e367fb2671303eee09bf6afb5cb5bff57fd16bf1f83284e0fd89ff1f1b7f9ff6563bfad5fc05dff596ff0fc2f375dda8c34573b9150f0392cbc779649de7f866",
+            "id": "component-ProductDefaultComponent-c21a686530b121d8f93dfff898ad3cfda4fde42244f3b93e8a4e1f059b9e5c0d7d9bfe723372d97749f1e9dc6068cad8cc74ae94c7847474d54c886e6e176aeb",
             "file": "src/app/molecules/product-default/product-default.component.ts",
             "encapsulation": [],
             "entryComponents": [],
@@ -1776,7 +1776,7 @@
                     "name": "product",
                     "deprecated": false,
                     "deprecationMessage": "",
-                    "line": 25,
+                    "line": 21,
                     "type": "ProductDefault",
                     "decorators": []
                 }
@@ -1787,11 +1787,32 @@
                     "defaultValue": "new EventEmitter<number>()",
                     "deprecated": false,
                     "deprecationMessage": "",
-                    "line": 27,
+                    "line": 23,
                     "type": "EventEmitter"
                 }
             ],
-            "propertiesClass": [],
+            "propertiesClass": [
+                {
+                    "name": "breakpointConfig",
+                    "defaultValue": "{\n    small: 0,\n    large: 465,\n  }",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "type": "ProductBreakpointConfig",
+                    "optional": false,
+                    "description": "",
+                    "line": 25
+                },
+                {
+                    "name": "isLarge",
+                    "defaultValue": "false",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "type": "",
+                    "optional": false,
+                    "description": "",
+                    "line": 30
+                }
+            ],
             "methodsClass": [
                 {
                     "name": "ngOnInit",
@@ -1799,9 +1820,37 @@
                     "optional": false,
                     "returnType": "void",
                     "typeParameters": [],
-                    "line": 31,
+                    "line": 32,
                     "deprecated": false,
                     "deprecationMessage": ""
+                },
+                {
+                    "name": "onResize",
+                    "args": [
+                        {
+                            "name": "breakpoint",
+                            "type": "ProductBreakpoint | string",
+                            "deprecated": false,
+                            "deprecationMessage": ""
+                        }
+                    ],
+                    "optional": false,
+                    "returnType": "void",
+                    "typeParameters": [],
+                    "line": 38,
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "jsdoctags": [
+                        {
+                            "name": "breakpoint",
+                            "type": "ProductBreakpoint | string",
+                            "deprecated": false,
+                            "deprecationMessage": "",
+                            "tagName": {
+                                "text": "param"
+                            }
+                        }
+                    ]
                 },
                 {
                     "name": "selectQuantity",
@@ -1816,7 +1865,7 @@
                     "optional": false,
                     "returnType": "void",
                     "typeParameters": [],
-                    "line": 33,
+                    "line": 34,
                     "deprecated": false,
                     "deprecationMessage": "",
                     "jsdoctags": [
@@ -1839,27 +1888,19 @@
             "description": "",
             "rawdescription": "\n",
             "type": "component",
-            "sourceCode": "import {\n  Component,\n  EventEmitter,\n  Input,\n  OnInit,\n  Output,\n  Pipe,\n  PipeTransform,\n} from '@angular/core';\nimport { Product } from '../product/product.component';\nimport { Quantity } from '../quantity-picker/quantity-picker.component';\n\nexport interface ProductDefault extends Product {\n  type: 'product';\n  quantity: Quantity;\n  isLimited: boolean;\n}\n\n@Component({\n  selector: 'ov-product-default',\n  templateUrl: './product-default.component.html',\n  styleUrls: ['./product-default.component.scss'],\n})\nexport class ProductDefaultComponent implements OnInit {\n  @Input() product!: ProductDefault;\n\n  @Output() addToCart = new EventEmitter<number>();\n\n  constructor() {}\n\n  ngOnInit(): void {}\n\n  selectQuantity(quantity: number) {\n    this.addToCart.emit(quantity);\n  }\n}\n",
+            "sourceCode": "import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';\nimport { Product } from '../product/product.component';\nimport { Quantity } from '../quantity-picker/quantity-picker.component';\n\ntype ProductBreakpoint = 'small' | 'large';\n\ntype ProductBreakpointConfig = Record<ProductBreakpoint, number>;\n\nexport interface ProductDefault extends Product {\n  type: 'product';\n  quantity: Quantity;\n  isLimited: boolean;\n}\n\n@Component({\n  selector: 'ov-product-default',\n  templateUrl: './product-default.component.html',\n  styleUrls: ['./product-default.component.scss'],\n})\nexport class ProductDefaultComponent implements OnInit {\n  @Input() product!: ProductDefault;\n\n  @Output() addToCart = new EventEmitter<number>();\n\n  breakpointConfig: ProductBreakpointConfig = {\n    small: 0,\n    large: 465,\n  };\n\n  isLarge = false;\n\n  ngOnInit(): void {}\n\n  selectQuantity(quantity: number) {\n    this.addToCart.emit(quantity);\n  }\n\n  onResize(breakpoint: ProductBreakpoint | string) {\n    this.isLarge = breakpoint === 'large';\n  }\n}\n",
             "assetsDirs": [],
             "styleUrlsData": [
                 {
-                    "data": "[actions] {\n  height: 100%;\n  ov-quantity-picker {\n    float: right;\n  }\n}\n",
+                    "data": "[actions] {\n  height: 100%;\n  ov-quantity-picker {\n    float: right;\n  }\n  display: flex;\n  align-items: center;\n  justify-content: flex-end;\n\n  p {\n    margin-right: var(--space-xs);\n  }\n}\n",
                     "styleUrl": "./product-default.component.scss"
                 }
             ],
             "stylesData": "",
-            "constructorObj": {
-                "name": "constructor",
-                "description": "",
-                "deprecated": false,
-                "deprecationMessage": "",
-                "args": [],
-                "line": 27
-            },
             "implements": [
                 "OnInit"
             ],
-            "templateData": "<ov-product [product]=\"product\">\n  <section actions>\n    <ov-quantity-picker [quantity]=\"product.quantity\" (selectQuantity)=\"selectQuantity($event)\"></ov-quantity-picker>\n  </section>\n  <section footer>\n    <ov-message type=\"ok\" *ngIf=\"!product.isLimited; else limited\">\n      This product is in stock\n    </ov-message>\n    <ng-template #limited>\n      <ov-message type=\"warn\" #limited\n        >Only {{ product.quantity.max }} left</ov-message\n      >\n    </ng-template>\n  </section>\n</ov-product>\n"
+            "templateData": "<ov-product\n  [product]=\"product\"\n  [ovResizeObserver]=\"breakpointConfig\"\n  (resize)=\"onResize($event)\"\n>\n  <section actions>\n    <p *ngIf=\"isLarge\">Add to cart:</p>\n    <ov-quantity-picker\n      [quantity]=\"product.quantity\"\n      (selectQuantity)=\"selectQuantity($event)\"\n    ></ov-quantity-picker>\n  </section>\n  <section footer>\n    <ov-message type=\"ok\" *ngIf=\"!product.isLimited; else limited\">\n      This product is in stock\n    </ov-message>\n    <ng-template #limited>\n      <ov-message type=\"warn\" #limited>\n        Only {{ product.quantity.max }} left\n      </ov-message>\n    </ng-template>\n  </section>\n</ov-product>\n"
         },
         {
             "name": "ProductOutOfStockComponent",
@@ -2220,7 +2261,7 @@
             "assetsDirs": [],
             "styleUrlsData": [
                 {
-                    "data": "li {\n  border-bottom: 1px solid gray;\n  margin-bottom: var(--space-xs);\n  &:last-child {\n    border-bottom: 0;\n  }\n  transition: opacity 200ms ease;\n  opacity: 0;\n}\n\nul {\n  width: auto;\n}\n\n.visible {\n  opacity: 1;\n}\n",
+                    "data": "li {\n  border-bottom: 1px solid gray;\n  margin-bottom: var(--space-xs);\n  &:last-child {\n    border-bottom: 0;\n  }\n  transition: opacity 200ms ease;\n  opacity: 0.2;\n}\n\nul {\n  width: auto;\n}\n\n.visible {\n  opacity: 1;\n}\n",
                     "styleUrl": "./products-list.component.scss"
                 }
             ],
@@ -2232,7 +2273,7 @@
         },
         {
             "name": "ProductsListDynamicComponent",
-            "id": "component-ProductsListDynamicComponent-b983b28bf30c12c72d525821c3abcffddf9a117d910e190ac51e1ac78a73af1f7e74a69fce586848ccf392658db926a14331b5d303272d42508e5b1a8087b3fe",
+            "id": "component-ProductsListDynamicComponent-3ebf8c07305b6b30469aeb0892f45417cb6aee9325b67de19181b56ed4cf2cfc316b01a8e23b6c094029137b8b56fa9de3edf69af17b424fd28211adcd16220c",
             "file": "src/app/organisms/products-list-dynamic/products-list-dynamic.component.ts",
             "encapsulation": [],
             "entryComponents": [],
@@ -2261,6 +2302,16 @@
             "outputsClass": [],
             "propertiesClass": [
                 {
+                    "name": "productIntersectionMargin",
+                    "defaultValue": "'-200px 0px -350px 0px'",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "type": "string",
+                    "optional": false,
+                    "description": "",
+                    "line": 36
+                },
+                {
                     "name": "productsHosts",
                     "deprecated": false,
                     "deprecationMessage": "",
@@ -2283,7 +2334,7 @@
                     "type": "",
                     "optional": false,
                     "description": "",
-                    "line": 36,
+                    "line": 38,
                     "modifierKind": [
                         121
                     ]
@@ -2309,7 +2360,7 @@
                     "optional": false,
                     "returnType": "void",
                     "typeParameters": [],
-                    "line": 69,
+                    "line": 79,
                     "deprecated": false,
                     "deprecationMessage": "",
                     "modifierKind": [
@@ -2355,7 +2406,7 @@
                     "optional": false,
                     "returnType": "void",
                     "typeParameters": [],
-                    "line": 97,
+                    "line": 107,
                     "deprecated": false,
                     "deprecationMessage": "",
                     "modifierKind": [
@@ -2401,7 +2452,7 @@
                     "optional": false,
                     "returnType": "void",
                     "typeParameters": [],
-                    "line": 86,
+                    "line": 96,
                     "deprecated": false,
                     "deprecationMessage": "",
                     "modifierKind": [
@@ -2434,7 +2485,7 @@
                     "optional": false,
                     "returnType": "void",
                     "typeParameters": [],
-                    "line": 42,
+                    "line": 44,
                     "deprecated": false,
                     "deprecationMessage": ""
                 },
@@ -2444,7 +2495,7 @@
                     "optional": false,
                     "returnType": "void",
                     "typeParameters": [],
-                    "line": 65,
+                    "line": 67,
                     "deprecated": false,
                     "deprecationMessage": ""
                 },
@@ -2454,9 +2505,35 @@
                     "optional": false,
                     "returnType": "void",
                     "typeParameters": [],
-                    "line": 40,
+                    "line": 42,
                     "deprecated": false,
                     "deprecationMessage": ""
+                },
+                {
+                    "name": "productIntersect",
+                    "args": [
+                        {
+                            "type": "IntersectionObserverEntry",
+                            "deprecated": false,
+                            "deprecationMessage": ""
+                        }
+                    ],
+                    "optional": false,
+                    "returnType": "void",
+                    "typeParameters": [],
+                    "line": 71,
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "jsdoctags": [
+                        {
+                            "type": "IntersectionObserverEntry",
+                            "deprecated": false,
+                            "deprecationMessage": "",
+                            "tagName": {
+                                "text": "param"
+                            }
+                        }
+                    ]
                 }
             ],
             "deprecated": false,
@@ -2466,11 +2543,11 @@
             "description": "",
             "rawdescription": "\n",
             "type": "component",
-            "sourceCode": "import {\n  Component,\n  Input,\n  OnInit,\n  QueryList,\n  ViewChildren,\n  ViewContainerRef,\n} from '@angular/core';\nimport { Subscription } from 'rxjs';\nimport {\n  ProductDefault,\n  ProductDefaultComponent,\n} from '../../molecules/product-default/product-default.component';\nimport {\n  ProductOutOfStock,\n  ProductOutOfStockComponent,\n} from '../../molecules/product-out-of-stock/product-out-of-stock.component';\nimport {\n  ProductReplaced,\n  ProductReplacedComponent,\n} from '../../molecules/product-replaced/product-replaced.component';\nimport { ProductUnion } from '../products-list/products-list.component';\nimport { ProductsHostDirective } from './shared/products-host.directive';\n\n@Component({\n  selector: 'ov-products-list-dynamic',\n  templateUrl: './products-list-dynamic.component.html',\n  styleUrls: ['./products-list-dynamic.component.scss'],\n})\nexport class ProductsListDynamicComponent implements OnInit {\n  @Input() products!: ProductUnion[];\n\n  @ViewChildren(ProductsHostDirective)\n  productsHosts!: QueryList<ProductsHostDirective>;\n\n  private subscriptions = new Subscription();\n\n  constructor() {}\n\n  ngOnInit(): void {}\n\n  ngAfterViewInit(): void {\n    this.productsHosts.forEach(\n      ({ viewContainerRef, ovProductsHost: product }) => {\n        viewContainerRef.clear();\n\n        if (product.type === 'product') {\n          this.createProductDefault(viewContainerRef, product);\n          return;\n        }\n\n        if (product.type === 'product-replaced') {\n          this.createProductReplaced(viewContainerRef, product);\n          return;\n        }\n\n        if (product.type === 'product-out-of-stock') {\n          this.createProductOutOfStock(viewContainerRef, product);\n          return;\n        }\n      }\n    );\n  }\n\n  ngOnDestroy(): void {\n    this.subscriptions.unsubscribe();\n  }\n\n  private createProductDefault(ref: ViewContainerRef, product: ProductDefault) {\n    const { instance } = ref.createComponent(ProductDefaultComponent!);\n    /**\n     * Handle inputs\n     */\n    instance.product = product;\n\n    /**\n     * Handle outputs\n     */\n    this.subscriptions.add(\n      instance.addToCart.subscribe((quantity) => {\n        console.log(product, quantity);\n      })\n    );\n  }\n\n  private createProductReplaced(\n    ref: ViewContainerRef,\n    product: ProductReplaced\n  ) {\n    const { instance } = ref.createComponent(ProductReplacedComponent!);\n    /**\n     * Handle inputs\n     */\n    instance.product = product;\n  }\n\n  private createProductOutOfStock(\n    ref: ViewContainerRef,\n    product: ProductOutOfStock\n  ) {\n    const { instance } = ref.createComponent(ProductOutOfStockComponent!);\n    /**\n     * Handle inputs\n     */\n    instance.product = product;\n  }\n}\n",
+            "sourceCode": "import {\n  Component,\n  Input,\n  OnInit,\n  QueryList,\n  ViewChildren,\n  ViewContainerRef,\n} from '@angular/core';\nimport { Subscription } from 'rxjs';\nimport {\n  ProductDefault,\n  ProductDefaultComponent,\n} from '../../molecules/product-default/product-default.component';\nimport {\n  ProductOutOfStock,\n  ProductOutOfStockComponent,\n} from '../../molecules/product-out-of-stock/product-out-of-stock.component';\nimport {\n  ProductReplaced,\n  ProductReplacedComponent,\n} from '../../molecules/product-replaced/product-replaced.component';\nimport { ProductUnion } from '../products-list/products-list.component';\nimport { ProductsHostDirective } from './shared/products-host.directive';\n\n@Component({\n  selector: 'ov-products-list-dynamic',\n  templateUrl: './products-list-dynamic.component.html',\n  styleUrls: ['./products-list-dynamic.component.scss'],\n})\nexport class ProductsListDynamicComponent implements OnInit {\n  @Input() products!: ProductUnion[];\n\n  @ViewChildren(ProductsHostDirective)\n  productsHosts!: QueryList<ProductsHostDirective>;\n\n  productIntersectionMargin = '-200px 0px -350px 0px';\n\n  private subscriptions = new Subscription();\n\n  constructor() {}\n\n  ngOnInit(): void {}\n\n  ngAfterViewInit(): void {\n    this.productsHosts.forEach(\n      ({ viewContainerRef, ovProductsHost: product }) => {\n        viewContainerRef.clear();\n\n        if (product.type === 'product') {\n          this.createProductDefault(viewContainerRef, product);\n          return;\n        }\n\n        if (product.type === 'product-replaced') {\n          this.createProductReplaced(viewContainerRef, product);\n          return;\n        }\n\n        if (product.type === 'product-out-of-stock') {\n          this.createProductOutOfStock(viewContainerRef, product);\n          return;\n        }\n      }\n    );\n  }\n\n  ngOnDestroy(): void {\n    this.subscriptions.unsubscribe();\n  }\n\n  productIntersect({ target, isIntersecting }: IntersectionObserverEntry) {\n    if (isIntersecting) {\n      target.classList.add('visible');\n    } else {\n      target.classList.remove('visible');\n    }\n  }\n\n  private createProductDefault(ref: ViewContainerRef, product: ProductDefault) {\n    const { instance } = ref.createComponent(ProductDefaultComponent!);\n    /**\n     * Handle inputs\n     */\n    instance.product = product;\n\n    /**\n     * Handle outputs\n     */\n    this.subscriptions.add(\n      instance.addToCart.subscribe((quantity) => {\n        console.log(product, quantity);\n      })\n    );\n  }\n\n  private createProductReplaced(\n    ref: ViewContainerRef,\n    product: ProductReplaced\n  ) {\n    const { instance } = ref.createComponent(ProductReplacedComponent!);\n    /**\n     * Handle inputs\n     */\n    instance.product = product;\n  }\n\n  private createProductOutOfStock(\n    ref: ViewContainerRef,\n    product: ProductOutOfStock\n  ) {\n    const { instance } = ref.createComponent(ProductOutOfStockComponent!);\n    /**\n     * Handle inputs\n     */\n    instance.product = product;\n  }\n}\n",
             "assetsDirs": [],
             "styleUrlsData": [
                 {
-                    "data": "\nli {\n    border-bottom: 1px solid gray;\n    margin-bottom: var(--space-xs);\n    &:last-child {\n      border-bottom: 0;\n    }\n    transition: opacity 200ms ease;\n    opacity: 0;\n  }\n  \n  ul {\n    width: auto;\n  }\n  \n  .visible {\n    opacity: 1;\n  }\n  ",
+                    "data": "li {\n  border-bottom: 1px solid gray;\n  margin-bottom: var(--space-xs);\n  &:last-child {\n    border-bottom: 0;\n  }\n  transition: opacity 200ms ease;\n  opacity: 0.2;\n}\n\nul {\n  width: auto;\n}\n\n.visible {\n  opacity: 1;\n}\n",
                     "styleUrl": "./products-list-dynamic.component.scss"
                 }
             ],
@@ -2481,12 +2558,12 @@
                 "deprecated": false,
                 "deprecationMessage": "",
                 "args": [],
-                "line": 36
+                "line": 38
             },
             "implements": [
                 "OnInit"
             ],
-            "templateData": "<ul>\n  <li *ngFor=\"let product of products\">\n    <ng-template [ovProductsHost]=\"product\"></ng-template>\n  </li>\n</ul>\n"
+            "templateData": "<ul>\n  <li\n    *ngFor=\"let product of products\"\n    [ovIntersectionObserver]=\"productIntersectionMargin\"\n    (intersection)=\"productIntersect($event)\"\n  >\n    <ng-template [ovProductsHost]=\"product\"></ng-template>\n  </li>\n</ul>\n"
         },
         {
             "name": "QuantityPickerComponent",
@@ -3476,13 +3553,13 @@
         },
         {
             "name": "ProductDefaultModule",
-            "id": "module-ProductDefaultModule-0994f26b6c049c1f6567ef18863a0b6a97b49ad9f5ed0851837e21bd34c114056f9f7dee346768aa75e25531e688c1f391d51464ba0909d2c05698d3b1db68bc",
+            "id": "module-ProductDefaultModule-d3d75448ac34879e9cfde1020c91a42765f4c59c3c2f01319c3d7173f5fdbe8054e1f4cbdc66d2363a240f6e7bee265d1d44122f717a7178ce48fcfc8388f262",
             "description": "",
             "deprecationMessage": "",
             "deprecated": false,
             "file": "src/app/molecules/product-default/product-default.module.ts",
             "methods": [],
-            "sourceCode": "import { NgModule } from '@angular/core';\nimport { CommonModule } from '@angular/common';\nimport { ProductDefaultComponent } from './product-default.component';\nimport { ProductModule } from '../product/product.module';\nimport { MessageModule } from '../../atoms/message/message.module';\nimport { IconModule } from '../../atoms/icon/icon.module';\nimport { ButtonModule } from '../../atoms/button/button.module';\nimport { QuantityPickerModule } from '../quantity-picker/quantity-picker.module';\n\n@NgModule({\n  declarations: [ProductDefaultComponent],\n  imports: [\n    CommonModule,\n    ProductModule,\n    MessageModule,\n    IconModule,\n    ButtonModule,\n    QuantityPickerModule,\n  ],\n  exports: [ProductDefaultComponent],\n})\nexport class ProductDefaultModule {}\n",
+            "sourceCode": "import { NgModule } from '@angular/core';\nimport { CommonModule } from '@angular/common';\nimport { ProductDefaultComponent } from './product-default.component';\nimport { ProductModule } from '../product/product.module';\nimport { MessageModule } from '../../atoms/message/message.module';\nimport { IconModule } from '../../atoms/icon/icon.module';\nimport { ButtonModule } from '../../atoms/button/button.module';\nimport { QuantityPickerModule } from '../quantity-picker/quantity-picker.module';\nimport { ResizeObserverModule } from '../../utils/directives/resize-observer/resize-observer.module';\n\n@NgModule({\n  declarations: [ProductDefaultComponent],\n  imports: [\n    CommonModule,\n    ProductModule,\n    MessageModule,\n    IconModule,\n    ButtonModule,\n    QuantityPickerModule,\n    ResizeObserverModule,\n  ],\n  exports: [ProductDefaultComponent],\n})\nexport class ProductDefaultModule {}\n",
             "children": [
                 {
                     "type": "providers",
@@ -3513,6 +3590,9 @@
                         },
                         {
                             "name": "QuantityPickerModule"
+                        },
+                        {
+                            "name": "ResizeObserverModule"
                         }
                     ]
                 },
@@ -3707,13 +3787,13 @@
         },
         {
             "name": "ProductsListDynamicModule",
-            "id": "module-ProductsListDynamicModule-0d9d93b48c593065c0357650d4af3201c9e4c80c1e16747adcb0dcc3cfefe953fb0860f609846441c2779ed32770ef0ce155fe08aa50763df0391464f40d0de4",
+            "id": "module-ProductsListDynamicModule-66d32b7fc022d4348529d417961f045ac39a60de131c3cb0219fd24f94cf95a7eafb44572ad37e2671a17f9ac1584c5de7678f6072cd9b9272a699e3cd175f5c",
             "description": "",
             "deprecationMessage": "",
             "deprecated": false,
             "file": "src/app/organisms/products-list-dynamic/products-list-dynamic.module.ts",
             "methods": [],
-            "sourceCode": "import { NgModule } from '@angular/core';\nimport { CommonModule } from '@angular/common';\nimport { ProductsListDynamicComponent } from './products-list-dynamic.component';\n\n\n\n@NgModule({\n  declarations: [\n    ProductsListDynamicComponent\n  ],\n  imports: [\n    CommonModule\n  ],\n  exports: [\n    ProductsListDynamicComponent\n  ]\n})\nexport class ProductsListDynamicModule { }\n",
+            "sourceCode": "import { NgModule } from '@angular/core';\nimport { CommonModule } from '@angular/common';\nimport { ProductsListDynamicComponent } from './products-list-dynamic.component';\nimport { IntersectionObserverModule } from '../../utils/directives/intersection-observer/intersection-observer.module';\nimport { ProductsHostDirective } from './shared/products-host.directive';\n\n@NgModule({\n  declarations: [ProductsListDynamicComponent, ProductsHostDirective],\n  imports: [CommonModule, IntersectionObserverModule],\n  exports: [ProductsListDynamicComponent],\n})\nexport class ProductsListDynamicModule {}\n",
             "children": [
                 {
                     "type": "providers",
@@ -3723,13 +3803,20 @@
                     "type": "declarations",
                     "elements": [
                         {
+                            "name": "ProductsHostDirective"
+                        },
+                        {
                             "name": "ProductsListDynamicComponent"
                         }
                     ]
                 },
                 {
                     "type": "imports",
-                    "elements": []
+                    "elements": [
+                        {
+                            "name": "IntersectionObserverModule"
+                        }
+                    ]
                 },
                 {
                     "type": "exports",
@@ -4245,6 +4332,46 @@
                 "defaultValue": "(args) => ({\n  props: args,\n  template: `\n  <ul>\n  ${Object.keys(TYPES)\n    .map(\n      (type) =>\n        `<li style=\"padding-bottom: 4px\">\n          <ov-button type=\"${type}\" disabled=\"true\">${type}</ov-button>\n        </li>`\n    )\n    .join('')}\n  </ul>`,\n})"
             },
             {
+                "name": "Else",
+                "ctype": "miscellaneous",
+                "subtype": "variable",
+                "file": "src/app/utils/directives/if-breakpoint/if-breakpoint.directive.stories.ts",
+                "deprecated": false,
+                "deprecationMessage": "",
+                "type": "",
+                "defaultValue": "ElseTemplate.bind({})"
+            },
+            {
+                "name": "ElseRange",
+                "ctype": "miscellaneous",
+                "subtype": "variable",
+                "file": "src/app/utils/directives/if-breakpoint/if-breakpoint.directive.stories.ts",
+                "deprecated": false,
+                "deprecationMessage": "",
+                "type": "",
+                "defaultValue": "ElseRangeTemplate.bind({})"
+            },
+            {
+                "name": "ElseRangeTemplate",
+                "ctype": "miscellaneous",
+                "subtype": "variable",
+                "file": "src/app/utils/directives/if-breakpoint/if-breakpoint.directive.stories.ts",
+                "deprecated": false,
+                "deprecationMessage": "",
+                "type": "Story<void>",
+                "defaultValue": "() => ({\n  template: `\n    <section>\n      <span *ovIfBreakpoint=\"'sm'; to 'md'; else other\" style=\"color: green\">We're on xs to md</span>\n      <ng-template #other>\n        <span style=\"color: red\">We're not on xs to md</span>\n      </ng-template>\n    </section>\n  `,\n})"
+            },
+            {
+                "name": "ElseTemplate",
+                "ctype": "miscellaneous",
+                "subtype": "variable",
+                "file": "src/app/utils/directives/if-breakpoint/if-breakpoint.directive.stories.ts",
+                "deprecated": false,
+                "deprecationMessage": "",
+                "type": "Story<void>",
+                "defaultValue": "() => ({\n  template: `\n    <section>\n      <span *ovIfBreakpoint=\"'sm'; else other\" style=\"color: green\">We're on xs</span>\n      <ng-template #other>\n        <span style=\"color: red\">We're not on xs</span>\n      </ng-template>\n    </section>\n  `,\n})"
+            },
+            {
                 "name": "Empty",
                 "ctype": "miscellaneous",
                 "subtype": "variable",
@@ -4268,21 +4395,21 @@
                 "name": "environment",
                 "ctype": "miscellaneous",
                 "subtype": "variable",
-                "file": "src/environments/environment.prod.ts",
-                "deprecated": false,
-                "deprecationMessage": "",
-                "type": "object",
-                "defaultValue": "{\n  production: true\n}"
-            },
-            {
-                "name": "environment",
-                "ctype": "miscellaneous",
-                "subtype": "variable",
                 "file": "src/environments/environment.ts",
                 "deprecated": false,
                 "deprecationMessage": "",
                 "type": "object",
                 "defaultValue": "{\n  production: false\n}"
+            },
+            {
+                "name": "environment",
+                "ctype": "miscellaneous",
+                "subtype": "variable",
+                "file": "src/environments/environment.prod.ts",
+                "deprecated": false,
+                "deprecationMessage": "",
+                "type": "object",
+                "defaultValue": "{\n  production: true\n}"
             },
             {
                 "name": "Full",
@@ -4518,6 +4645,56 @@
                 "name": "Primary",
                 "ctype": "miscellaneous",
                 "subtype": "variable",
+                "file": "src/app/atoms/button/button.component.stories.ts",
+                "deprecated": false,
+                "deprecationMessage": "",
+                "type": "",
+                "defaultValue": "Template.bind({})"
+            },
+            {
+                "name": "Primary",
+                "ctype": "miscellaneous",
+                "subtype": "variable",
+                "file": "src/app/atoms/message/message.component.stories.ts",
+                "deprecated": false,
+                "deprecationMessage": "",
+                "type": "",
+                "defaultValue": "Template.bind({})"
+            },
+            {
+                "name": "Primary",
+                "ctype": "miscellaneous",
+                "subtype": "variable",
+                "file": "src/app/atoms/price/price.component.stories.ts",
+                "deprecated": false,
+                "deprecationMessage": "",
+                "type": "",
+                "defaultValue": "Template.bind({})"
+            },
+            {
+                "name": "Primary",
+                "ctype": "miscellaneous",
+                "subtype": "variable",
+                "file": "src/app/atoms/sub-title/sub-title.component.stories.ts",
+                "deprecated": false,
+                "deprecationMessage": "",
+                "type": "",
+                "defaultValue": "Template.bind({})"
+            },
+            {
+                "name": "Primary",
+                "ctype": "miscellaneous",
+                "subtype": "variable",
+                "file": "src/app/atoms/title/title.component.stories.ts",
+                "deprecated": false,
+                "deprecationMessage": "",
+                "type": "",
+                "defaultValue": "Template.bind({})"
+            },
+            {
+                "name": "Primary",
+                "ctype": "miscellaneous",
+                "subtype": "variable",
                 "file": "src/app/molecules/product/product.component.stories.ts",
                 "deprecated": false,
                 "deprecationMessage": "",
@@ -4568,57 +4745,7 @@
                 "name": "Primary",
                 "ctype": "miscellaneous",
                 "subtype": "variable",
-                "file": "src/app/atoms/button/button.component.stories.ts",
-                "deprecated": false,
-                "deprecationMessage": "",
-                "type": "",
-                "defaultValue": "Template.bind({})"
-            },
-            {
-                "name": "Primary",
-                "ctype": "miscellaneous",
-                "subtype": "variable",
-                "file": "src/app/atoms/price/price.component.stories.ts",
-                "deprecated": false,
-                "deprecationMessage": "",
-                "type": "",
-                "defaultValue": "Template.bind({})"
-            },
-            {
-                "name": "Primary",
-                "ctype": "miscellaneous",
-                "subtype": "variable",
-                "file": "src/app/atoms/message/message.component.stories.ts",
-                "deprecated": false,
-                "deprecationMessage": "",
-                "type": "",
-                "defaultValue": "Template.bind({})"
-            },
-            {
-                "name": "Primary",
-                "ctype": "miscellaneous",
-                "subtype": "variable",
-                "file": "src/app/atoms/sub-title/sub-title.component.stories.ts",
-                "deprecated": false,
-                "deprecationMessage": "",
-                "type": "",
-                "defaultValue": "Template.bind({})"
-            },
-            {
-                "name": "Primary",
-                "ctype": "miscellaneous",
-                "subtype": "variable",
-                "file": "src/app/atoms/title/title.component.stories.ts",
-                "deprecated": false,
-                "deprecationMessage": "",
-                "type": "",
-                "defaultValue": "Template.bind({})"
-            },
-            {
-                "name": "Primary",
-                "ctype": "miscellaneous",
-                "subtype": "variable",
-                "file": "src/app/templates/template-default/template-default.component.stories.ts",
+                "file": "src/app/pages/page-products-dynamic/page-products-dynamic.component.stories.ts",
                 "deprecated": false,
                 "deprecationMessage": "",
                 "type": "",
@@ -4638,7 +4765,17 @@
                 "name": "Primary",
                 "ctype": "miscellaneous",
                 "subtype": "variable",
-                "file": "src/app/pages/page-products-dynamic/page-products-dynamic.component.stories.ts",
+                "file": "src/app/templates/template-default/template-default.component.stories.ts",
+                "deprecated": false,
+                "deprecationMessage": "",
+                "type": "",
+                "defaultValue": "Template.bind({})"
+            },
+            {
+                "name": "Primary",
+                "ctype": "miscellaneous",
+                "subtype": "variable",
+                "file": "src/app/utils/directives/if-breakpoint/if-breakpoint.directive.stories.ts",
                 "deprecated": false,
                 "deprecationMessage": "",
                 "type": "",
@@ -4705,6 +4842,26 @@
                 "defaultValue": "(step: number) =>\n  (control: AbstractControl): ValidationErrors | null => {\n    const number = parseInt(control.value);\n    return isNaN(number) || number <= 0 || number % step !== 0\n      ? { incorrectStep: { value: control.value } }\n      : null;\n  }"
             },
             {
+                "name": "Range",
+                "ctype": "miscellaneous",
+                "subtype": "variable",
+                "file": "src/app/utils/directives/if-breakpoint/if-breakpoint.directive.stories.ts",
+                "deprecated": false,
+                "deprecationMessage": "",
+                "type": "",
+                "defaultValue": "RangeTemplate.bind({})"
+            },
+            {
+                "name": "RangeTemplate",
+                "ctype": "miscellaneous",
+                "subtype": "variable",
+                "file": "src/app/utils/directives/if-breakpoint/if-breakpoint.directive.stories.ts",
+                "deprecated": false,
+                "deprecationMessage": "",
+                "type": "Story<void>",
+                "defaultValue": "() => ({\n  template: `\n    <section class=\"sb-breakpoint-example\">\n      <span>Current breakpoint:</span>\n      ${BREAKPOINT_ORDER.map(\n        (breakpoint) =>\n          `<span class=\"breakpoint\" *ovIfBreakpoint=\"'${breakpoint}'\">${breakpoint}</span>`\n      ).join('')}\n      <ul>\n        <li>\n          <span class=\"breakpoint\" *ovIfBreakpoint=\"'sm'; to 'md';\">Show on: 'xs'; to 'md';</span>\n        </li>\n        <li>\n          <span class=\"breakpoint\" *ovIfBreakpoint=\"'md'; to 'lg';\">Show on: 'md'; to 'lg';</span>\n        </li>\n        <li>\n          <span class=\"breakpoint\" *ovIfBreakpoint=\"'lg'; to 'xl';\">Show on: 'lg'; to 'xl';</span>\n        </li>\n      </ul>\n    </section>\n  `,\n})"
+            },
+            {
                 "name": "Sizes",
                 "ctype": "miscellaneous",
                 "subtype": "variable",
@@ -4733,6 +4890,86 @@
                 "deprecationMessage": "",
                 "type": "Story<Omit<IconComponent, size>>",
                 "defaultValue": "(args) => ({\n  props: args,\n  template: `\n  <ul class=\"sb\">\n  ${Object.keys(SIZES)\n    .map(\n      (size) =>\n        `<li class=\"sb\">\n          <ov-icon icon=\"${args.icon ?? 'star'}\" color=${\n          args.color\n        } size=${size}></ov-icon>\n          <span class=\"sb-label\">${size}</span>\n        </li>`\n    )\n    .join('')}\n  </ul>\n  `,\n})"
+            },
+            {
+                "name": "Template",
+                "ctype": "miscellaneous",
+                "subtype": "variable",
+                "file": "src/app/atoms/button/button.component.stories.ts",
+                "deprecated": false,
+                "deprecationMessage": "",
+                "type": "Story<ButtonComponent>",
+                "defaultValue": "(args) => ({\n  props: args,\n  template: `\n  <ul>\n  ${Object.keys(TYPES)\n    .map(\n      (type) =>\n        `<li style=\"padding-bottom: 4px\">\n          <ov-button type=\"${type}\">${type}</ov-button>\n        </li>`\n    )\n    .join('')}\n  </ul>`,\n})"
+            },
+            {
+                "name": "Template",
+                "ctype": "miscellaneous",
+                "subtype": "variable",
+                "file": "src/app/atoms/icon/icon.component.stories.ts",
+                "deprecated": false,
+                "deprecationMessage": "",
+                "type": "Story<Omit<IconComponent, icon>>",
+                "defaultValue": "(args) => ({\n  props: args,\n  template: `\n  <ul class=\"sb\">\n  ${Object.keys(ICONS)\n    .map(\n      (icon) =>\n        `<li class=\"sb\">\n          <ov-icon icon=\"${icon}\" color=\"${args.color ?? 'black'}\" size=${\n          args.size\n        }></ov-icon>\n          <span class=\"sb-label\">${icon}</span>\n        </li>`\n    )\n    .join('')}\n  </ul>\n  `,\n})"
+            },
+            {
+                "name": "Template",
+                "ctype": "miscellaneous",
+                "subtype": "variable",
+                "file": "src/app/atoms/message/message.component.stories.ts",
+                "deprecated": false,
+                "deprecationMessage": "",
+                "type": "Story<MessageComponent>",
+                "defaultValue": "(args) => ({\n  props: args,\n  template: `\n  <ul class=\"sb\">\n  ${Object.keys(TYPES)\n    .map(\n      (type) =>\n        `<li class=\"sb\">\n          <ov-message type=\"${type}\">${type} message!</ov-message>\n        </li>`\n    )\n    .join('<br/>')}\n  </ul>\n  `,\n})"
+            },
+            {
+                "name": "Template",
+                "ctype": "miscellaneous",
+                "subtype": "variable",
+                "file": "src/app/atoms/rating/rating.component.stories.ts",
+                "deprecated": false,
+                "deprecationMessage": "",
+                "type": "Story<RatingComponent>",
+                "defaultValue": "(args) => ({\n  props: args,\n})"
+            },
+            {
+                "name": "Template",
+                "ctype": "miscellaneous",
+                "subtype": "variable",
+                "file": "src/app/atoms/price/price.component.stories.ts",
+                "deprecated": false,
+                "deprecationMessage": "",
+                "type": "Story<PriceComponent>",
+                "defaultValue": "(args) => ({\n  props: args,\n})"
+            },
+            {
+                "name": "Template",
+                "ctype": "miscellaneous",
+                "subtype": "variable",
+                "file": "src/app/atoms/sub-title/sub-title.component.stories.ts",
+                "deprecated": false,
+                "deprecationMessage": "",
+                "type": "Story<ThumbnailComponent>",
+                "defaultValue": "(args) => ({\n  props: args,\n  template: `<ov-sub-title>Lorem ipsum</ov-sub-title>`,\n})"
+            },
+            {
+                "name": "Template",
+                "ctype": "miscellaneous",
+                "subtype": "variable",
+                "file": "src/app/atoms/thumbnail/thumbnail.component.stories.ts",
+                "deprecated": false,
+                "deprecationMessage": "",
+                "type": "Story<ThumbnailComponent>",
+                "defaultValue": "(args) => ({\n  props: args,\n})"
+            },
+            {
+                "name": "Template",
+                "ctype": "miscellaneous",
+                "subtype": "variable",
+                "file": "src/app/atoms/title/title.component.stories.ts",
+                "deprecated": false,
+                "deprecationMessage": "",
+                "type": "Story<TitleComponent>",
+                "defaultValue": "(args) => ({\n  props: args,\n  template: `<ov-title>Lorem ipsum</ov-title>`,\n})"
             },
             {
                 "name": "Template",
@@ -4788,91 +5025,11 @@
                 "name": "Template",
                 "ctype": "miscellaneous",
                 "subtype": "variable",
-                "file": "src/app/atoms/button/button.component.stories.ts",
+                "file": "src/app/pages/page-products-dynamic/page-products-dynamic.component.stories.ts",
                 "deprecated": false,
                 "deprecationMessage": "",
-                "type": "Story<ButtonComponent>",
-                "defaultValue": "(args) => ({\n  props: args,\n  template: `\n  <ul>\n  ${Object.keys(TYPES)\n    .map(\n      (type) =>\n        `<li style=\"padding-bottom: 4px\">\n          <ov-button type=\"${type}\">${type}</ov-button>\n        </li>`\n    )\n    .join('')}\n  </ul>`,\n})"
-            },
-            {
-                "name": "Template",
-                "ctype": "miscellaneous",
-                "subtype": "variable",
-                "file": "src/app/atoms/icon/icon.component.stories.ts",
-                "deprecated": false,
-                "deprecationMessage": "",
-                "type": "Story<Omit<IconComponent, icon>>",
-                "defaultValue": "(args) => ({\n  props: args,\n  template: `\n  <ul class=\"sb\">\n  ${Object.keys(ICONS)\n    .map(\n      (icon) =>\n        `<li class=\"sb\">\n          <ov-icon icon=\"${icon}\" color=\"${args.color ?? 'black'}\" size=${\n          args.size\n        }></ov-icon>\n          <span class=\"sb-label\">${icon}</span>\n        </li>`\n    )\n    .join('')}\n  </ul>\n  `,\n})"
-            },
-            {
-                "name": "Template",
-                "ctype": "miscellaneous",
-                "subtype": "variable",
-                "file": "src/app/atoms/price/price.component.stories.ts",
-                "deprecated": false,
-                "deprecationMessage": "",
-                "type": "Story<PriceComponent>",
+                "type": "Story<PageProductsDynamicComponent>",
                 "defaultValue": "(args) => ({\n  props: args,\n})"
-            },
-            {
-                "name": "Template",
-                "ctype": "miscellaneous",
-                "subtype": "variable",
-                "file": "src/app/atoms/message/message.component.stories.ts",
-                "deprecated": false,
-                "deprecationMessage": "",
-                "type": "Story<MessageComponent>",
-                "defaultValue": "(args) => ({\n  props: args,\n  template: `\n  <ul class=\"sb\">\n  ${Object.keys(TYPES)\n    .map(\n      (type) =>\n        `<li class=\"sb\">\n          <ov-message type=\"${type}\">${type} message!</ov-message>\n        </li>`\n    )\n    .join('<br/>')}\n  </ul>\n  `,\n})"
-            },
-            {
-                "name": "Template",
-                "ctype": "miscellaneous",
-                "subtype": "variable",
-                "file": "src/app/atoms/rating/rating.component.stories.ts",
-                "deprecated": false,
-                "deprecationMessage": "",
-                "type": "Story<RatingComponent>",
-                "defaultValue": "(args) => ({\n  props: args,\n})"
-            },
-            {
-                "name": "Template",
-                "ctype": "miscellaneous",
-                "subtype": "variable",
-                "file": "src/app/atoms/sub-title/sub-title.component.stories.ts",
-                "deprecated": false,
-                "deprecationMessage": "",
-                "type": "Story<ThumbnailComponent>",
-                "defaultValue": "(args) => ({\n  props: args,\n  template: `<ov-sub-title>Lorem ipsum</ov-sub-title>`,\n})"
-            },
-            {
-                "name": "Template",
-                "ctype": "miscellaneous",
-                "subtype": "variable",
-                "file": "src/app/atoms/thumbnail/thumbnail.component.stories.ts",
-                "deprecated": false,
-                "deprecationMessage": "",
-                "type": "Story<ThumbnailComponent>",
-                "defaultValue": "(args) => ({\n  props: args,\n})"
-            },
-            {
-                "name": "Template",
-                "ctype": "miscellaneous",
-                "subtype": "variable",
-                "file": "src/app/atoms/title/title.component.stories.ts",
-                "deprecated": false,
-                "deprecationMessage": "",
-                "type": "Story<TitleComponent>",
-                "defaultValue": "(args) => ({\n  props: args,\n  template: `<ov-title>Lorem ipsum</ov-title>`,\n})"
-            },
-            {
-                "name": "Template",
-                "ctype": "miscellaneous",
-                "subtype": "variable",
-                "file": "src/app/templates/template-default/template-default.component.stories.ts",
-                "deprecated": false,
-                "deprecationMessage": "",
-                "type": "Story<TemplateDefaultComponent>",
-                "defaultValue": "(args) => ({\n  props: args,\n  template: `\n    <ov-template-default>\n      <section header class=\"placeholder\" style=\"height: 84px;\">Header</section>\n      <section main class=\"placeholder\" style=\"min-height: 512px\">\n        Main\n      </section>\n      <section footer class=\"placeholder\" style=\"height: 84px;\">Footer</section>\n    </ov-template-default>\n  `,\n})"
             },
             {
                 "name": "Template",
@@ -4888,11 +5045,21 @@
                 "name": "Template",
                 "ctype": "miscellaneous",
                 "subtype": "variable",
-                "file": "src/app/pages/page-products-dynamic/page-products-dynamic.component.stories.ts",
+                "file": "src/app/templates/template-default/template-default.component.stories.ts",
                 "deprecated": false,
                 "deprecationMessage": "",
-                "type": "Story<PageProductsDynamicComponent>",
-                "defaultValue": "(args) => ({\n  props: args,\n})"
+                "type": "Story<TemplateDefaultComponent>",
+                "defaultValue": "(args) => ({\n  props: args,\n  template: `\n    <ov-template-default>\n      <section header class=\"placeholder\" style=\"height: 84px;\">Header</section>\n      <section main class=\"placeholder\" style=\"min-height: 512px\">\n        Main\n      </section>\n      <section footer class=\"placeholder\" style=\"height: 84px;\">Footer</section>\n    </ov-template-default>\n  `,\n})"
+            },
+            {
+                "name": "Template",
+                "ctype": "miscellaneous",
+                "subtype": "variable",
+                "file": "src/app/utils/directives/if-breakpoint/if-breakpoint.directive.stories.ts",
+                "deprecated": false,
+                "deprecationMessage": "",
+                "type": "Story<void>",
+                "defaultValue": "() => ({\n  template: `\n    <section class=\"sb-breakpoint-example\">\n      <span>Current breakpoint:</span>\n       ${BREAKPOINT_ORDER.map(\n         (breakpoint) =>\n           `<span class=\"breakpoint\" *ovIfBreakpoint=\"'${breakpoint}'\">${breakpoint}</span>`\n       ).join('')}\n    </section>\n  `,\n})"
             },
             {
                 "name": "TemplateComplete",
@@ -5065,6 +5232,28 @@
                 "deprecationMessage": "",
                 "description": "",
                 "kind": 186
+            },
+            {
+                "name": "ProductBreakpoint",
+                "ctype": "miscellaneous",
+                "subtype": "typealias",
+                "rawtype": "\"small\" | \"large\"",
+                "file": "src/app/molecules/product-default/product-default.component.ts",
+                "deprecated": false,
+                "deprecationMessage": "",
+                "description": "",
+                "kind": 186
+            },
+            {
+                "name": "ProductBreakpointConfig",
+                "ctype": "miscellaneous",
+                "subtype": "typealias",
+                "rawtype": "Record<ProductBreakpoint | number>",
+                "file": "src/app/molecules/product-default/product-default.component.ts",
+                "deprecated": false,
+                "deprecationMessage": "",
+                "description": "",
+                "kind": 177
             },
             {
                 "name": "ProductUnion",
@@ -5376,6 +5565,88 @@
                     "defaultValue": "{\n  primary: true,\n  inverted: true,\n}"
                 }
             ],
+            "src/app/utils/directives/if-breakpoint/if-breakpoint.directive.stories.ts": [
+                {
+                    "name": "Else",
+                    "ctype": "miscellaneous",
+                    "subtype": "variable",
+                    "file": "src/app/utils/directives/if-breakpoint/if-breakpoint.directive.stories.ts",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "type": "",
+                    "defaultValue": "ElseTemplate.bind({})"
+                },
+                {
+                    "name": "ElseRange",
+                    "ctype": "miscellaneous",
+                    "subtype": "variable",
+                    "file": "src/app/utils/directives/if-breakpoint/if-breakpoint.directive.stories.ts",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "type": "",
+                    "defaultValue": "ElseRangeTemplate.bind({})"
+                },
+                {
+                    "name": "ElseRangeTemplate",
+                    "ctype": "miscellaneous",
+                    "subtype": "variable",
+                    "file": "src/app/utils/directives/if-breakpoint/if-breakpoint.directive.stories.ts",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "type": "Story<void>",
+                    "defaultValue": "() => ({\n  template: `\n    <section>\n      <span *ovIfBreakpoint=\"'sm'; to 'md'; else other\" style=\"color: green\">We're on xs to md</span>\n      <ng-template #other>\n        <span style=\"color: red\">We're not on xs to md</span>\n      </ng-template>\n    </section>\n  `,\n})"
+                },
+                {
+                    "name": "ElseTemplate",
+                    "ctype": "miscellaneous",
+                    "subtype": "variable",
+                    "file": "src/app/utils/directives/if-breakpoint/if-breakpoint.directive.stories.ts",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "type": "Story<void>",
+                    "defaultValue": "() => ({\n  template: `\n    <section>\n      <span *ovIfBreakpoint=\"'sm'; else other\" style=\"color: green\">We're on xs</span>\n      <ng-template #other>\n        <span style=\"color: red\">We're not on xs</span>\n      </ng-template>\n    </section>\n  `,\n})"
+                },
+                {
+                    "name": "Primary",
+                    "ctype": "miscellaneous",
+                    "subtype": "variable",
+                    "file": "src/app/utils/directives/if-breakpoint/if-breakpoint.directive.stories.ts",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "type": "",
+                    "defaultValue": "Template.bind({})"
+                },
+                {
+                    "name": "Range",
+                    "ctype": "miscellaneous",
+                    "subtype": "variable",
+                    "file": "src/app/utils/directives/if-breakpoint/if-breakpoint.directive.stories.ts",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "type": "",
+                    "defaultValue": "RangeTemplate.bind({})"
+                },
+                {
+                    "name": "RangeTemplate",
+                    "ctype": "miscellaneous",
+                    "subtype": "variable",
+                    "file": "src/app/utils/directives/if-breakpoint/if-breakpoint.directive.stories.ts",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "type": "Story<void>",
+                    "defaultValue": "() => ({\n  template: `\n    <section class=\"sb-breakpoint-example\">\n      <span>Current breakpoint:</span>\n      ${BREAKPOINT_ORDER.map(\n        (breakpoint) =>\n          `<span class=\"breakpoint\" *ovIfBreakpoint=\"'${breakpoint}'\">${breakpoint}</span>`\n      ).join('')}\n      <ul>\n        <li>\n          <span class=\"breakpoint\" *ovIfBreakpoint=\"'sm'; to 'md';\">Show on: 'xs'; to 'md';</span>\n        </li>\n        <li>\n          <span class=\"breakpoint\" *ovIfBreakpoint=\"'md'; to 'lg';\">Show on: 'md'; to 'lg';</span>\n        </li>\n        <li>\n          <span class=\"breakpoint\" *ovIfBreakpoint=\"'lg'; to 'xl';\">Show on: 'lg'; to 'xl';</span>\n        </li>\n      </ul>\n    </section>\n  `,\n})"
+                },
+                {
+                    "name": "Template",
+                    "ctype": "miscellaneous",
+                    "subtype": "variable",
+                    "file": "src/app/utils/directives/if-breakpoint/if-breakpoint.directive.stories.ts",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "type": "Story<void>",
+                    "defaultValue": "() => ({\n  template: `\n    <section class=\"sb-breakpoint-example\">\n      <span>Current breakpoint:</span>\n       ${BREAKPOINT_ORDER.map(\n         (breakpoint) =>\n           `<span class=\"breakpoint\" *ovIfBreakpoint=\"'${breakpoint}'\">${breakpoint}</span>`\n       ).join('')}\n    </section>\n  `,\n})"
+                }
+            ],
             "src/app/atoms/rating/rating.component.stories.ts": [
                 {
                     "name": "Empty",
@@ -5418,18 +5689,6 @@
                     "defaultValue": "(args) => ({\n  props: args,\n})"
                 }
             ],
-            "src/environments/environment.prod.ts": [
-                {
-                    "name": "environment",
-                    "ctype": "miscellaneous",
-                    "subtype": "variable",
-                    "file": "src/environments/environment.prod.ts",
-                    "deprecated": false,
-                    "deprecationMessage": "",
-                    "type": "object",
-                    "defaultValue": "{\n  production: true\n}"
-                }
-            ],
             "src/environments/environment.ts": [
                 {
                     "name": "environment",
@@ -5440,6 +5699,18 @@
                     "deprecationMessage": "",
                     "type": "object",
                     "defaultValue": "{\n  production: false\n}"
+                }
+            ],
+            "src/environments/environment.prod.ts": [
+                {
+                    "name": "environment",
+                    "ctype": "miscellaneous",
+                    "subtype": "variable",
+                    "file": "src/environments/environment.prod.ts",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "type": "object",
+                    "defaultValue": "{\n  production: true\n}"
                 }
             ],
             "src/app/atoms/thumbnail/thumbnail.component.stories.ts": [
@@ -5780,6 +6051,38 @@
                     "defaultValue": "(args) => ({\n  props: args,\n})"
                 }
             ],
+            "src/app/atoms/message/message.component.stories.ts": [
+                {
+                    "name": "Primary",
+                    "ctype": "miscellaneous",
+                    "subtype": "variable",
+                    "file": "src/app/atoms/message/message.component.stories.ts",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "type": "",
+                    "defaultValue": "Template.bind({})"
+                },
+                {
+                    "name": "Template",
+                    "ctype": "miscellaneous",
+                    "subtype": "variable",
+                    "file": "src/app/atoms/message/message.component.stories.ts",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "type": "Story<MessageComponent>",
+                    "defaultValue": "(args) => ({\n  props: args,\n  template: `\n  <ul class=\"sb\">\n  ${Object.keys(TYPES)\n    .map(\n      (type) =>\n        `<li class=\"sb\">\n          <ov-message type=\"${type}\">${type} message!</ov-message>\n        </li>`\n    )\n    .join('<br/>')}\n  </ul>\n  `,\n})"
+                },
+                {
+                    "name": "TYPES",
+                    "ctype": "miscellaneous",
+                    "subtype": "variable",
+                    "file": "src/app/atoms/message/message.component.stories.ts",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "type": "Record<MessageType, undefined>",
+                    "defaultValue": "{\n  ok: true,\n  warn: true,\n  error: true,\n}"
+                }
+            ],
             "src/app/molecules/quantity-picker/quantity-picker.component.stories.ts": [
                 {
                     "name": "Primary",
@@ -5832,12 +6135,12 @@
                     "defaultValue": "Template.bind({})"
                 }
             ],
-            "src/app/atoms/message/message.component.stories.ts": [
+            "src/app/pages/page-products-dynamic/page-products-dynamic.component.stories.ts": [
                 {
                     "name": "Primary",
                     "ctype": "miscellaneous",
                     "subtype": "variable",
-                    "file": "src/app/atoms/message/message.component.stories.ts",
+                    "file": "src/app/pages/page-products-dynamic/page-products-dynamic.component.stories.ts",
                     "deprecated": false,
                     "deprecationMessage": "",
                     "type": "",
@@ -5847,21 +6150,33 @@
                     "name": "Template",
                     "ctype": "miscellaneous",
                     "subtype": "variable",
-                    "file": "src/app/atoms/message/message.component.stories.ts",
+                    "file": "src/app/pages/page-products-dynamic/page-products-dynamic.component.stories.ts",
                     "deprecated": false,
                     "deprecationMessage": "",
-                    "type": "Story<MessageComponent>",
-                    "defaultValue": "(args) => ({\n  props: args,\n  template: `\n  <ul class=\"sb\">\n  ${Object.keys(TYPES)\n    .map(\n      (type) =>\n        `<li class=\"sb\">\n          <ov-message type=\"${type}\">${type} message!</ov-message>\n        </li>`\n    )\n    .join('<br/>')}\n  </ul>\n  `,\n})"
-                },
+                    "type": "Story<PageProductsDynamicComponent>",
+                    "defaultValue": "(args) => ({\n  props: args,\n})"
+                }
+            ],
+            "src/app/pages/page-products/page-products.component.stories.ts": [
                 {
-                    "name": "TYPES",
+                    "name": "Primary",
                     "ctype": "miscellaneous",
                     "subtype": "variable",
-                    "file": "src/app/atoms/message/message.component.stories.ts",
+                    "file": "src/app/pages/page-products/page-products.component.stories.ts",
                     "deprecated": false,
                     "deprecationMessage": "",
-                    "type": "Record<MessageType, undefined>",
-                    "defaultValue": "{\n  ok: true,\n  warn: true,\n  error: true,\n}"
+                    "type": "",
+                    "defaultValue": "Template.bind({})"
+                },
+                {
+                    "name": "Template",
+                    "ctype": "miscellaneous",
+                    "subtype": "variable",
+                    "file": "src/app/pages/page-products/page-products.component.stories.ts",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "type": "Story<PageProductsComponent>",
+                    "defaultValue": "(args) => ({\n  props: args,\n})"
                 }
             ],
             "src/app/templates/template-default/template-default.component.stories.ts": [
@@ -5904,50 +6219,6 @@
                     "deprecationMessage": "",
                     "type": "",
                     "defaultValue": "TemplateComplete.bind({})"
-                }
-            ],
-            "src/app/pages/page-products/page-products.component.stories.ts": [
-                {
-                    "name": "Primary",
-                    "ctype": "miscellaneous",
-                    "subtype": "variable",
-                    "file": "src/app/pages/page-products/page-products.component.stories.ts",
-                    "deprecated": false,
-                    "deprecationMessage": "",
-                    "type": "",
-                    "defaultValue": "Template.bind({})"
-                },
-                {
-                    "name": "Template",
-                    "ctype": "miscellaneous",
-                    "subtype": "variable",
-                    "file": "src/app/pages/page-products/page-products.component.stories.ts",
-                    "deprecated": false,
-                    "deprecationMessage": "",
-                    "type": "Story<PageProductsComponent>",
-                    "defaultValue": "(args) => ({\n  props: args,\n})"
-                }
-            ],
-            "src/app/pages/page-products-dynamic/page-products-dynamic.component.stories.ts": [
-                {
-                    "name": "Primary",
-                    "ctype": "miscellaneous",
-                    "subtype": "variable",
-                    "file": "src/app/pages/page-products-dynamic/page-products-dynamic.component.stories.ts",
-                    "deprecated": false,
-                    "deprecationMessage": "",
-                    "type": "",
-                    "defaultValue": "Template.bind({})"
-                },
-                {
-                    "name": "Template",
-                    "ctype": "miscellaneous",
-                    "subtype": "variable",
-                    "file": "src/app/pages/page-products-dynamic/page-products-dynamic.component.stories.ts",
-                    "deprecated": false,
-                    "deprecationMessage": "",
-                    "type": "Story<PageProductsDynamicComponent>",
-                    "defaultValue": "(args) => ({\n  props: args,\n})"
                 }
             ],
             "src/app/molecules/product-default/product-default.component.mocks.ts": [
@@ -6139,6 +6410,30 @@
                     "deprecationMessage": "",
                     "description": "",
                     "kind": 186
+                }
+            ],
+            "src/app/molecules/product-default/product-default.component.ts": [
+                {
+                    "name": "ProductBreakpoint",
+                    "ctype": "miscellaneous",
+                    "subtype": "typealias",
+                    "rawtype": "\"small\" | \"large\"",
+                    "file": "src/app/molecules/product-default/product-default.component.ts",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "description": "",
+                    "kind": 186
+                },
+                {
+                    "name": "ProductBreakpointConfig",
+                    "ctype": "miscellaneous",
+                    "subtype": "typealias",
+                    "rawtype": "Record<ProductBreakpoint | number>",
+                    "file": "src/app/molecules/product-default/product-default.component.ts",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "description": "",
+                    "kind": 177
                 }
             ],
             "src/app/organisms/products-list/products-list.component.ts": [
@@ -6803,7 +7098,7 @@
                 "linktype": "component",
                 "name": "ProductDefaultComponent",
                 "coveragePercent": 0,
-                "coverageCount": "0/6",
+                "coverageCount": "0/8",
                 "status": "low"
             },
             {
@@ -7141,7 +7436,7 @@
                 "linktype": "component",
                 "name": "ProductsListDynamicComponent",
                 "coveragePercent": 0,
-                "coverageCount": "0/11",
+                "coverageCount": "0/13",
                 "status": "low"
             },
             {
@@ -7276,6 +7571,86 @@
                 "name": "TemplateDefaultComponent",
                 "coveragePercent": 0,
                 "coverageCount": "0/5",
+                "status": "low"
+            },
+            {
+                "filePath": "src/app/utils/directives/if-breakpoint/if-breakpoint.directive.stories.ts",
+                "type": "variable",
+                "linktype": "miscellaneous",
+                "linksubtype": "variable",
+                "name": "Else",
+                "coveragePercent": 0,
+                "coverageCount": "0/1",
+                "status": "low"
+            },
+            {
+                "filePath": "src/app/utils/directives/if-breakpoint/if-breakpoint.directive.stories.ts",
+                "type": "variable",
+                "linktype": "miscellaneous",
+                "linksubtype": "variable",
+                "name": "ElseRange",
+                "coveragePercent": 0,
+                "coverageCount": "0/1",
+                "status": "low"
+            },
+            {
+                "filePath": "src/app/utils/directives/if-breakpoint/if-breakpoint.directive.stories.ts",
+                "type": "variable",
+                "linktype": "miscellaneous",
+                "linksubtype": "variable",
+                "name": "ElseRangeTemplate",
+                "coveragePercent": 0,
+                "coverageCount": "0/1",
+                "status": "low"
+            },
+            {
+                "filePath": "src/app/utils/directives/if-breakpoint/if-breakpoint.directive.stories.ts",
+                "type": "variable",
+                "linktype": "miscellaneous",
+                "linksubtype": "variable",
+                "name": "ElseTemplate",
+                "coveragePercent": 0,
+                "coverageCount": "0/1",
+                "status": "low"
+            },
+            {
+                "filePath": "src/app/utils/directives/if-breakpoint/if-breakpoint.directive.stories.ts",
+                "type": "variable",
+                "linktype": "miscellaneous",
+                "linksubtype": "variable",
+                "name": "Primary",
+                "coveragePercent": 0,
+                "coverageCount": "0/1",
+                "status": "low"
+            },
+            {
+                "filePath": "src/app/utils/directives/if-breakpoint/if-breakpoint.directive.stories.ts",
+                "type": "variable",
+                "linktype": "miscellaneous",
+                "linksubtype": "variable",
+                "name": "Range",
+                "coveragePercent": 0,
+                "coverageCount": "0/1",
+                "status": "low"
+            },
+            {
+                "filePath": "src/app/utils/directives/if-breakpoint/if-breakpoint.directive.stories.ts",
+                "type": "variable",
+                "linktype": "miscellaneous",
+                "linksubtype": "variable",
+                "name": "RangeTemplate",
+                "coveragePercent": 0,
+                "coverageCount": "0/1",
+                "status": "low"
+            },
+            {
+                "filePath": "src/app/utils/directives/if-breakpoint/if-breakpoint.directive.stories.ts",
+                "type": "variable",
+                "linktype": "miscellaneous",
+                "linksubtype": "variable",
+                "name": "Template",
+                "coveragePercent": 0,
+                "coverageCount": "0/1",
                 "status": "low"
             },
             {

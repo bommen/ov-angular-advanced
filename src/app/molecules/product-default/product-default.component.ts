@@ -1,14 +1,10 @@
-import {
-  Component,
-  EventEmitter,
-  Input,
-  OnInit,
-  Output,
-  Pipe,
-  PipeTransform,
-} from '@angular/core';
+import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
 import { Product } from '../product/product.component';
 import { Quantity } from '../quantity-picker/quantity-picker.component';
+
+type ProductBreakpoint = 'small' | 'large';
+
+type ProductBreakpointConfig = Record<ProductBreakpoint, number>;
 
 export interface ProductDefault extends Product {
   type: 'product';
@@ -26,11 +22,20 @@ export class ProductDefaultComponent implements OnInit {
 
   @Output() addToCart = new EventEmitter<number>();
 
-  constructor() {}
+  breakpointConfig: ProductBreakpointConfig = {
+    small: 0,
+    large: 465,
+  };
+
+  isLarge = false;
 
   ngOnInit(): void {}
 
   selectQuantity(quantity: number) {
     this.addToCart.emit(quantity);
+  }
+
+  onResize(breakpoint: ProductBreakpoint | string) {
+    this.isLarge = breakpoint === 'large';
   }
 }

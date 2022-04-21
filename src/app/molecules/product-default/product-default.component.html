@@ -1,15 +1,23 @@
-<ov-product [product]="product">
+<ov-product
+  [product]="product"
+  [ovResizeObserver]="breakpointConfig"
+  (resize)="onResize($event)"
+>
   <section actions>
-    <ov-quantity-picker [quantity]="product.quantity" (selectQuantity)="selectQuantity($event)"></ov-quantity-picker>
+    <p *ngIf="isLarge">Add to cart:</p>
+    <ov-quantity-picker
+      [quantity]="product.quantity"
+      (selectQuantity)="selectQuantity($event)"
+    ></ov-quantity-picker>
   </section>
   <section footer>
     <ov-message type="ok" *ngIf="!product.isLimited; else limited">
       This product is in stock
     </ov-message>
     <ng-template #limited>
-      <ov-message type="warn" #limited
-        >Only {{ product.quantity.max }} left</ov-message
-      >
+      <ov-message type="warn" #limited>
+        Only {{ product.quantity.max }} left
+      </ov-message>
     </ng-template>
   </section>
 </ov-product>

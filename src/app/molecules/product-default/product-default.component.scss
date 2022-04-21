@@ -3,4 +3,11 @@
   ov-quantity-picker {
     float: right;
   }
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+
+  p {
+    margin-right: var(--space-xs);
+  }
 }
