@@ -4,7 +4,7 @@ import { ProductDefaultMock } from './product-default.component.mocks';
 import { ProductDefaultModule } from './product-default.module';
 
 export default {
-  title: 'Organisms/ProductDefault',
+  title: 'Molecules/ProductDefault',
   component: ProductDefaultComponent,
   decorators: [
     moduleMetadata({

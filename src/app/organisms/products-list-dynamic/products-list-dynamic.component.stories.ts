@@ -2,15 +2,16 @@ import { Meta, moduleMetadata, Story } from '@storybook/angular';
 import { ProductDefaultMock } from '../../molecules/product-default/product-default.component.mocks';
 import { ProductOutOfStockMock } from '../../molecules/product-out-of-stock/product-out-of-stock.component.mocks';
 import { ProductReplacementMock } from '../../molecules/product-replaced/product-replaced.component.mocks';
-import { PageProductsDynamicComponent } from './page-products-dynamic.component';
-import { PageProductsDynamicModule } from './page-products-dynamic.module';
+import { PageProductsComponent } from '../../pages/page-products/page-products.component';
+import { ProductsListDynamicComponent } from './products-list-dynamic.component';
+import { ProductsListDynamicModule } from './products-list-dynamic.module';
 
 export default {
-  title: 'Pages/ProductsDynamic',
-  component: PageProductsDynamicComponent,
+  title: 'Organisms/ProductsListDynamic',
+  component: ProductsListDynamicComponent,
   decorators: [
     moduleMetadata({
-      imports: [PageProductsDynamicModule],
+      imports: [ProductsListDynamicModule],
     }),
   ],
   parameters: {
@@ -18,7 +19,7 @@ export default {
   },
 } as Meta;
 
-const Template: Story<PageProductsDynamicComponent> = (args) => ({
+const Template: Story<PageProductsComponent> = (args) => ({
   props: args,
 });
 

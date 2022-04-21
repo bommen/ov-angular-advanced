@@ -165,12 +165,12 @@
         },
         {
             "name": "ProductDefault",
-            "id": "interface-ProductDefault-edcf8a5f15fb1f5c23955f9f086ce57c433854c2bddf9e66cbe4c4e7157fc3fc7e6b02350f0c05695bc9b1bdd02de06c3a069e8513d26c452e865768b7e537e5",
+            "id": "interface-ProductDefault-bfac3bf616c164985cb0c1b02df761adf365a3e3c61333d68c9f57738117936dfb19874aa1f6101cb23f382295e523b7a739c894862b3f98f77df7e612202706",
             "file": "src/app/molecules/product-default/product-default.component.ts",
             "deprecated": false,
             "deprecationMessage": "",
             "type": "interface",
-            "sourceCode": "import {\n  ChangeDetectionStrategy,\n  Component,\n  EventEmitter,\n  Input,\n  OnInit,\n  Output,\n} from '@angular/core';\nimport { Product } from '../product/product.component';\nimport { Quantity } from '../quantity-picker/quantity-picker.component';\n\ntype ProductBreakpoint = 'small' | 'large';\n\ntype ProductBreakpointConfig = Record<ProductBreakpoint, number>;\n\nexport interface ProductDefault extends Product {\n  type: 'product';\n  quantity: Quantity;\n  isLimited: boolean;\n}\n\n@Component({\n  selector: 'ov-product-default',\n  templateUrl: './product-default.component.html',\n  styleUrls: ['./product-default.component.scss'],\n  changeDetection: ChangeDetectionStrategy.OnPush,\n})\nexport class ProductDefaultComponent implements OnInit {\n  @Input() product!: ProductDefault;\n\n  @Output() addToCart = new EventEmitter<number>();\n\n  breakpointConfig: ProductBreakpointConfig = {\n    small: 0,\n    large: 465,\n  };\n\n  isLarge = false;\n\n  ngOnInit(): void {}\n\n  selectQuantity(quantity: number) {\n    this.addToCart.emit(quantity);\n  }\n\n  onResize(breakpoint: ProductBreakpoint | string) {\n    this.isLarge = breakpoint === 'large';\n  }\n}\n",
+            "sourceCode": "import {\n  ChangeDetectionStrategy,\n  Component,\n  EventEmitter,\n  Input,\n  OnInit,\n  Output,\n} from '@angular/core';\nimport { Product } from '../product/product.component';\nimport { Quantity } from '../quantity-picker/quantity-picker.component';\n\ntype ProductBreakpoint = 'small' | 'large';\n\ntype ProductBreakpointConfig = Record<ProductBreakpoint, number>;\n\nexport interface ProductDefault extends Product {\n  type: 'product';\n  quantity: Quantity;\n  isLimited: boolean;\n}\n\n@Component({\n  selector: 'ov-product-default',\n  templateUrl: './product-default.component.html',\n  styleUrls: ['./product-default.component.scss'],\n  changeDetection: ChangeDetectionStrategy.OnPush,\n})\nexport class ProductDefaultComponent implements OnInit {\n  @Input() product!: ProductDefault;\n\n  @Output() addToCart = new EventEmitter<number>();\n\n  breakpointConfig: ProductBreakpointConfig = {\n    small: 0,\n    large: 470,\n  };\n\n  isLarge = false;\n\n  ngOnInit(): void {}\n\n  selectQuantity(quantity: number) {\n    this.addToCart.emit(quantity);\n  }\n\n  onResize(breakpoint: ProductBreakpoint | string) {\n    this.isLarge = breakpoint === 'large';\n  }\n}\n",
             "properties": [
                 {
                     "name": "isLimited",
@@ -1567,56 +1567,6 @@
             "templateData": "<ov-template-default>\n  <ng-template ovSide>Some side stuff</ng-template>\n  <section main>\n    <h2>Products</h2>\n    <ov-products-list [products]=\"products\"></ov-products-list>\n  </section>\n</ov-template-default>\n"
         },
         {
-            "name": "PageProductsDynamicComponent",
-            "id": "component-PageProductsDynamicComponent-90388472ee8d2566c95587932c6c1b5a7e703bf81e638c6a54fabe9bb356d309cf9947ce335d205be16b54bbd105a988bfeb6ee020eafe7284cd67a18360f7a9",
-            "file": "src/app/pages/page-products-dynamic/page-products-dynamic.component.ts",
-            "changeDetection": "ChangeDetectionStrategy.OnPush",
-            "encapsulation": [],
-            "entryComponents": [],
-            "inputs": [],
-            "outputs": [],
-            "providers": [],
-            "selector": "ov-page-products-dynamic",
-            "styleUrls": [
-                "./page-products-dynamic.component.scss"
-            ],
-            "styles": [],
-            "templateUrl": [
-                "./page-products-dynamic.component.html"
-            ],
-            "viewProviders": [],
-            "inputsClass": [
-                {
-                    "name": "products",
-                    "deprecated": false,
-                    "deprecationMessage": "",
-                    "line": 11,
-                    "type": "ProductUnion[]",
-                    "decorators": []
-                }
-            ],
-            "outputsClass": [],
-            "propertiesClass": [],
-            "methodsClass": [],
-            "deprecated": false,
-            "deprecationMessage": "",
-            "hostBindings": [],
-            "hostListeners": [],
-            "description": "",
-            "rawdescription": "\n",
-            "type": "component",
-            "sourceCode": "import { ChangeDetectionStrategy, Component, Input } from '@angular/core';\nimport { ProductUnion } from '../../organisms/products-list/products-list.component';\n\n@Component({\n  selector: 'ov-page-products-dynamic',\n  templateUrl: './page-products-dynamic.component.html',\n  styleUrls: ['./page-products-dynamic.component.scss'],\n  changeDetection: ChangeDetectionStrategy.OnPush,\n})\nexport class PageProductsDynamicComponent {\n  @Input() products!: ProductUnion[];\n}\n",
-            "assetsDirs": [],
-            "styleUrlsData": [
-                {
-                    "data": "h2 {\n  margin-bottom: var(--space-md);\n  border-bottom: 1px solid black;\n  padding-bottom: var(--space-xs);\n  font-size: 1.4em;\n}\n\nli {\n  border-bottom: 1px solid gray;\n  margin-bottom: var(--space-xs);\n  &:last-child {\n    border-bottom: 0;\n  }\n}\n\nul {\n  width: auto;\n}\n",
-                    "styleUrl": "./page-products-dynamic.component.scss"
-                }
-            ],
-            "stylesData": "",
-            "templateData": "<ov-template-default>\n  <ng-template ovSide>Some side stuff</ng-template>\n  <section main>\n    <h2>Products</h2>\n    <ov-products-list-dynamic [products]=\"products\"></ov-products-list-dynamic>\n  </section>\n</ov-template-default>\n"
-        },
-        {
             "name": "PriceComponent",
             "id": "component-PriceComponent-619ec53a788b16af55ad747fc13b68def08b328c29a38db09227b77a70b79ce96c5937d4bd80dc6eaf447d0147a2f3f56dbe3936fdf8fee2cbb4421c1783e860",
             "file": "src/app/atoms/price/price.component.ts",
@@ -1754,7 +1704,7 @@
         },
         {
             "name": "ProductDefaultComponent",
-            "id": "component-ProductDefaultComponent-edcf8a5f15fb1f5c23955f9f086ce57c433854c2bddf9e66cbe4c4e7157fc3fc7e6b02350f0c05695bc9b1bdd02de06c3a069e8513d26c452e865768b7e537e5",
+            "id": "component-ProductDefaultComponent-bfac3bf616c164985cb0c1b02df761adf365a3e3c61333d68c9f57738117936dfb19874aa1f6101cb23f382295e523b7a739c894862b3f98f77df7e612202706",
             "file": "src/app/molecules/product-default/product-default.component.ts",
             "changeDetection": "ChangeDetectionStrategy.OnPush",
             "encapsulation": [],
@@ -1794,7 +1744,7 @@
             "propertiesClass": [
                 {
                     "name": "breakpointConfig",
-                    "defaultValue": "{\n    small: 0,\n    large: 465,\n  }",
+                    "defaultValue": "{\n    small: 0,\n    large: 470,\n  }",
                     "deprecated": false,
                     "deprecationMessage": "",
                     "type": "ProductBreakpointConfig",
@@ -1888,7 +1838,7 @@
             "description": "",
             "rawdescription": "\n",
             "type": "component",
-            "sourceCode": "import {\n  ChangeDetectionStrategy,\n  Component,\n  EventEmitter,\n  Input,\n  OnInit,\n  Output,\n} from '@angular/core';\nimport { Product } from '../product/product.component';\nimport { Quantity } from '../quantity-picker/quantity-picker.component';\n\ntype ProductBreakpoint = 'small' | 'large';\n\ntype ProductBreakpointConfig = Record<ProductBreakpoint, number>;\n\nexport interface ProductDefault extends Product {\n  type: 'product';\n  quantity: Quantity;\n  isLimited: boolean;\n}\n\n@Component({\n  selector: 'ov-product-default',\n  templateUrl: './product-default.component.html',\n  styleUrls: ['./product-default.component.scss'],\n  changeDetection: ChangeDetectionStrategy.OnPush,\n})\nexport class ProductDefaultComponent implements OnInit {\n  @Input() product!: ProductDefault;\n\n  @Output() addToCart = new EventEmitter<number>();\n\n  breakpointConfig: ProductBreakpointConfig = {\n    small: 0,\n    large: 465,\n  };\n\n  isLarge = false;\n\n  ngOnInit(): void {}\n\n  selectQuantity(quantity: number) {\n    this.addToCart.emit(quantity);\n  }\n\n  onResize(breakpoint: ProductBreakpoint | string) {\n    this.isLarge = breakpoint === 'large';\n  }\n}\n",
+            "sourceCode": "import {\n  ChangeDetectionStrategy,\n  Component,\n  EventEmitter,\n  Input,\n  OnInit,\n  Output,\n} from '@angular/core';\nimport { Product } from '../product/product.component';\nimport { Quantity } from '../quantity-picker/quantity-picker.component';\n\ntype ProductBreakpoint = 'small' | 'large';\n\ntype ProductBreakpointConfig = Record<ProductBreakpoint, number>;\n\nexport interface ProductDefault extends Product {\n  type: 'product';\n  quantity: Quantity;\n  isLimited: boolean;\n}\n\n@Component({\n  selector: 'ov-product-default',\n  templateUrl: './product-default.component.html',\n  styleUrls: ['./product-default.component.scss'],\n  changeDetection: ChangeDetectionStrategy.OnPush,\n})\nexport class ProductDefaultComponent implements OnInit {\n  @Input() product!: ProductDefault;\n\n  @Output() addToCart = new EventEmitter<number>();\n\n  breakpointConfig: ProductBreakpointConfig = {\n    small: 0,\n    large: 470,\n  };\n\n  isLarge = false;\n\n  ngOnInit(): void {}\n\n  selectQuantity(quantity: number) {\n    this.addToCart.emit(quantity);\n  }\n\n  onResize(breakpoint: ProductBreakpoint | string) {\n    this.isLarge = breakpoint === 'large';\n  }\n}\n",
             "assetsDirs": [],
             "styleUrlsData": [
                 {
@@ -3418,57 +3368,6 @@
             ]
         },
         {
-            "name": "PageProductsDynamicModule",
-            "id": "module-PageProductsDynamicModule-1391fcb90a9a7c3aa9be38f5396b6802fdfe01777c74474ca242cca0d27aea6da6bdf1359a0f163cbccfbb505aa61363fe79779ab7110e39d77ddc9a90503dd1",
-            "description": "",
-            "deprecationMessage": "",
-            "deprecated": false,
-            "file": "src/app/pages/page-products-dynamic/page-products-dynamic.module.ts",
-            "methods": [],
-            "sourceCode": "import { NgModule } from '@angular/core';\nimport { CommonModule } from '@angular/common';\nimport { PageProductsDynamicComponent } from './page-products-dynamic.component';\nimport { TemplateDefaultModule } from '../../templates/template-default/template-default.module';\nimport { ProductsListDynamicModule } from '../../organisms/products-list-dynamic/products-list-dynamic.module';\n\n@NgModule({\n  declarations: [PageProductsDynamicComponent],\n  imports: [CommonModule, TemplateDefaultModule, ProductsListDynamicModule],\n  exports: [PageProductsDynamicComponent],\n})\nexport class PageProductsDynamicModule {}\n",
-            "children": [
-                {
-                    "type": "providers",
-                    "elements": []
-                },
-                {
-                    "type": "declarations",
-                    "elements": [
-                        {
-                            "name": "PageProductsDynamicComponent"
-                        }
-                    ]
-                },
-                {
-                    "type": "imports",
-                    "elements": [
-                        {
-                            "name": "ProductsListDynamicModule"
-                        },
-                        {
-                            "name": "TemplateDefaultModule"
-                        }
-                    ]
-                },
-                {
-                    "type": "exports",
-                    "elements": [
-                        {
-                            "name": "PageProductsDynamicComponent"
-                        }
-                    ]
-                },
-                {
-                    "type": "bootstrap",
-                    "elements": []
-                },
-                {
-                    "type": "classes",
-                    "elements": []
-                }
-            ]
-        },
-        {
             "name": "PageProductsModule",
             "id": "module-PageProductsModule-9594121403b0073d83114657504716de8279d8174f5daafe3221f6f2301de4bd8f971d15d42d657a7b32e18af33e2ef116226db4042ce6757b8c67f422d508b0",
             "description": "",
@@ -4697,66 +4596,6 @@
                 "name": "Primary",
                 "ctype": "miscellaneous",
                 "subtype": "variable",
-                "file": "src/app/molecules/product/product.component.stories.ts",
-                "deprecated": false,
-                "deprecationMessage": "",
-                "type": "",
-                "defaultValue": "Template.bind({})"
-            },
-            {
-                "name": "Primary",
-                "ctype": "miscellaneous",
-                "subtype": "variable",
-                "file": "src/app/molecules/product-default/product-default.component.stories.ts",
-                "deprecated": false,
-                "deprecationMessage": "",
-                "type": "",
-                "defaultValue": "Template.bind({})"
-            },
-            {
-                "name": "Primary",
-                "ctype": "miscellaneous",
-                "subtype": "variable",
-                "file": "src/app/molecules/product-out-of-stock/product-out-of-stock.component.stories.ts",
-                "deprecated": false,
-                "deprecationMessage": "",
-                "type": "",
-                "defaultValue": "Template.bind({})"
-            },
-            {
-                "name": "Primary",
-                "ctype": "miscellaneous",
-                "subtype": "variable",
-                "file": "src/app/molecules/quantity-picker/quantity-picker.component.stories.ts",
-                "deprecated": false,
-                "deprecationMessage": "",
-                "type": "",
-                "defaultValue": "Template.bind({})"
-            },
-            {
-                "name": "Primary",
-                "ctype": "miscellaneous",
-                "subtype": "variable",
-                "file": "src/app/molecules/product-replaced/product-replaced.component.stories.ts",
-                "deprecated": false,
-                "deprecationMessage": "",
-                "type": "",
-                "defaultValue": "Template.bind({})"
-            },
-            {
-                "name": "Primary",
-                "ctype": "miscellaneous",
-                "subtype": "variable",
-                "file": "src/app/atoms/button/button.component.stories.ts",
-                "deprecated": false,
-                "deprecationMessage": "",
-                "type": "",
-                "defaultValue": "Template.bind({})"
-            },
-            {
-                "name": "Primary",
-                "ctype": "miscellaneous",
-                "subtype": "variable",
                 "file": "src/app/atoms/message/message.component.stories.ts",
                 "deprecated": false,
                 "deprecationMessage": "",
@@ -4787,7 +4626,57 @@
                 "name": "Primary",
                 "ctype": "miscellaneous",
                 "subtype": "variable",
+                "file": "src/app/atoms/button/button.component.stories.ts",
+                "deprecated": false,
+                "deprecationMessage": "",
+                "type": "",
+                "defaultValue": "Template.bind({})"
+            },
+            {
+                "name": "Primary",
+                "ctype": "miscellaneous",
+                "subtype": "variable",
                 "file": "src/app/atoms/title/title.component.stories.ts",
+                "deprecated": false,
+                "deprecationMessage": "",
+                "type": "",
+                "defaultValue": "Template.bind({})"
+            },
+            {
+                "name": "Primary",
+                "ctype": "miscellaneous",
+                "subtype": "variable",
+                "file": "src/app/organisms/products-list-dynamic/products-list-dynamic.component.stories.ts",
+                "deprecated": false,
+                "deprecationMessage": "",
+                "type": "",
+                "defaultValue": "Template.bind({})"
+            },
+            {
+                "name": "Primary",
+                "ctype": "miscellaneous",
+                "subtype": "variable",
+                "file": "src/app/organisms/products-list/products-list.component.stories.ts",
+                "deprecated": false,
+                "deprecationMessage": "",
+                "type": "",
+                "defaultValue": "Template.bind({})"
+            },
+            {
+                "name": "Primary",
+                "ctype": "miscellaneous",
+                "subtype": "variable",
+                "file": "src/app/molecules/product/product.component.stories.ts",
+                "deprecated": false,
+                "deprecationMessage": "",
+                "type": "",
+                "defaultValue": "Template.bind({})"
+            },
+            {
+                "name": "Primary",
+                "ctype": "miscellaneous",
+                "subtype": "variable",
+                "file": "src/app/molecules/product-default/product-default.component.stories.ts",
                 "deprecated": false,
                 "deprecationMessage": "",
                 "type": "",
@@ -4807,7 +4696,27 @@
                 "name": "Primary",
                 "ctype": "miscellaneous",
                 "subtype": "variable",
-                "file": "src/app/pages/page-products-dynamic/page-products-dynamic.component.stories.ts",
+                "file": "src/app/molecules/product-out-of-stock/product-out-of-stock.component.stories.ts",
+                "deprecated": false,
+                "deprecationMessage": "",
+                "type": "",
+                "defaultValue": "Template.bind({})"
+            },
+            {
+                "name": "Primary",
+                "ctype": "miscellaneous",
+                "subtype": "variable",
+                "file": "src/app/molecules/product-replaced/product-replaced.component.stories.ts",
+                "deprecated": false,
+                "deprecationMessage": "",
+                "type": "",
+                "defaultValue": "Template.bind({})"
+            },
+            {
+                "name": "Primary",
+                "ctype": "miscellaneous",
+                "subtype": "variable",
+                "file": "src/app/molecules/quantity-picker/quantity-picker.component.stories.ts",
                 "deprecated": false,
                 "deprecationMessage": "",
                 "type": "",
@@ -4827,7 +4736,7 @@
                 "name": "Primary",
                 "ctype": "miscellaneous",
                 "subtype": "variable",
-                "file": "src/app/utils/directives/if-breakpoint/if-breakpoint.directive.stories.ts",
+                "file": "src/app/utils/directives/resize-observer/resize-observer.directive.stories.ts",
                 "deprecated": false,
                 "deprecationMessage": "",
                 "type": "",
@@ -4837,7 +4746,7 @@
                 "name": "Primary",
                 "ctype": "miscellaneous",
                 "subtype": "variable",
-                "file": "src/app/utils/directives/resize-observer/resize-observer.directive.stories.ts",
+                "file": "src/app/utils/directives/if-breakpoint/if-breakpoint.directive.stories.ts",
                 "deprecated": false,
                 "deprecationMessage": "",
                 "type": "",
@@ -4977,76 +4886,6 @@
                 "name": "Template",
                 "ctype": "miscellaneous",
                 "subtype": "variable",
-                "file": "src/app/molecules/product/product.component.stories.ts",
-                "deprecated": false,
-                "deprecationMessage": "",
-                "type": "Story<ProductComponent>",
-                "defaultValue": "(args) => ({\n  props: args,\n  template: `\n  <ov-product [product]=\"product\">\n\n  </ov-product>`,\n})"
-            },
-            {
-                "name": "Template",
-                "ctype": "miscellaneous",
-                "subtype": "variable",
-                "file": "src/app/molecules/product-default/product-default.component.stories.ts",
-                "deprecated": false,
-                "deprecationMessage": "",
-                "type": "Story<ProductDefaultComponent>",
-                "defaultValue": "(args) => ({\n  props: args,\n})"
-            },
-            {
-                "name": "Template",
-                "ctype": "miscellaneous",
-                "subtype": "variable",
-                "file": "src/app/molecules/product-out-of-stock/product-out-of-stock.component.stories.ts",
-                "deprecated": false,
-                "deprecationMessage": "",
-                "type": "Story<ProductOutOfStockComponent>",
-                "defaultValue": "(args) => ({\n  props: args,\n})"
-            },
-            {
-                "name": "Template",
-                "ctype": "miscellaneous",
-                "subtype": "variable",
-                "file": "src/app/molecules/quantity-picker/quantity-picker.component.stories.ts",
-                "deprecated": false,
-                "deprecationMessage": "",
-                "type": "Story<QuantityPickerComponent>",
-                "defaultValue": "(args) => ({\n  props: args,\n})"
-            },
-            {
-                "name": "Template",
-                "ctype": "miscellaneous",
-                "subtype": "variable",
-                "file": "src/app/molecules/product-replaced/product-replaced.component.stories.ts",
-                "deprecated": false,
-                "deprecationMessage": "",
-                "type": "Story<ProductReplacedComponent>",
-                "defaultValue": "(args) => ({\n  props: args,\n})"
-            },
-            {
-                "name": "Template",
-                "ctype": "miscellaneous",
-                "subtype": "variable",
-                "file": "src/app/atoms/icon/icon.component.stories.ts",
-                "deprecated": false,
-                "deprecationMessage": "",
-                "type": "Story<Omit<IconComponent, icon>>",
-                "defaultValue": "(args) => ({\n  props: args,\n  template: `\n  <ul class=\"sb\">\n  ${Object.keys(ICONS)\n    .map(\n      (icon) =>\n        `<li class=\"sb\">\n          <ov-icon icon=\"${icon}\" color=\"${args.color ?? 'black'}\" size=${\n          args.size\n        }></ov-icon>\n          <span class=\"sb-label\">${icon}</span>\n        </li>`\n    )\n    .join('')}\n  </ul>\n  `,\n})"
-            },
-            {
-                "name": "Template",
-                "ctype": "miscellaneous",
-                "subtype": "variable",
-                "file": "src/app/atoms/button/button.component.stories.ts",
-                "deprecated": false,
-                "deprecationMessage": "",
-                "type": "Story<ButtonComponent>",
-                "defaultValue": "(args) => ({\n  props: args,\n  template: `\n  <ul>\n  ${Object.keys(TYPES)\n    .map(\n      (type) =>\n        `<li style=\"padding-bottom: 4px\">\n          <ov-button type=\"${type}\">${type}</ov-button>\n        </li>`\n    )\n    .join('')}\n  </ul>`,\n})"
-            },
-            {
-                "name": "Template",
-                "ctype": "miscellaneous",
-                "subtype": "variable",
                 "file": "src/app/atoms/message/message.component.stories.ts",
                 "deprecated": false,
                 "deprecationMessage": "",
@@ -5097,11 +4936,71 @@
                 "name": "Template",
                 "ctype": "miscellaneous",
                 "subtype": "variable",
+                "file": "src/app/atoms/button/button.component.stories.ts",
+                "deprecated": false,
+                "deprecationMessage": "",
+                "type": "Story<ButtonComponent>",
+                "defaultValue": "(args) => ({\n  props: args,\n  template: `\n  <ul>\n  ${Object.keys(TYPES)\n    .map(\n      (type) =>\n        `<li style=\"padding-bottom: 4px\">\n          <ov-button type=\"${type}\">${type}</ov-button>\n        </li>`\n    )\n    .join('')}\n  </ul>`,\n})"
+            },
+            {
+                "name": "Template",
+                "ctype": "miscellaneous",
+                "subtype": "variable",
                 "file": "src/app/atoms/title/title.component.stories.ts",
                 "deprecated": false,
                 "deprecationMessage": "",
                 "type": "Story<TitleComponent>",
                 "defaultValue": "(args) => ({\n  props: args,\n  template: `<ov-title>Lorem ipsum</ov-title>`,\n})"
+            },
+            {
+                "name": "Template",
+                "ctype": "miscellaneous",
+                "subtype": "variable",
+                "file": "src/app/organisms/products-list-dynamic/products-list-dynamic.component.stories.ts",
+                "deprecated": false,
+                "deprecationMessage": "",
+                "type": "Story<PageProductsComponent>",
+                "defaultValue": "(args) => ({\n  props: args,\n})"
+            },
+            {
+                "name": "Template",
+                "ctype": "miscellaneous",
+                "subtype": "variable",
+                "file": "src/app/organisms/products-list/products-list.component.stories.ts",
+                "deprecated": false,
+                "deprecationMessage": "",
+                "type": "Story<PageProductsComponent>",
+                "defaultValue": "(args) => ({\n  props: args,\n})"
+            },
+            {
+                "name": "Template",
+                "ctype": "miscellaneous",
+                "subtype": "variable",
+                "file": "src/app/atoms/icon/icon.component.stories.ts",
+                "deprecated": false,
+                "deprecationMessage": "",
+                "type": "Story<Omit<IconComponent, icon>>",
+                "defaultValue": "(args) => ({\n  props: args,\n  template: `\n  <ul class=\"sb\">\n  ${Object.keys(ICONS)\n    .map(\n      (icon) =>\n        `<li class=\"sb\">\n          <ov-icon icon=\"${icon}\" color=\"${args.color ?? 'black'}\" size=${\n          args.size\n        }></ov-icon>\n          <span class=\"sb-label\">${icon}</span>\n        </li>`\n    )\n    .join('')}\n  </ul>\n  `,\n})"
+            },
+            {
+                "name": "Template",
+                "ctype": "miscellaneous",
+                "subtype": "variable",
+                "file": "src/app/molecules/product/product.component.stories.ts",
+                "deprecated": false,
+                "deprecationMessage": "",
+                "type": "Story<ProductComponent>",
+                "defaultValue": "(args) => ({\n  props: args,\n  template: `\n  <ov-product [product]=\"product\">\n\n  </ov-product>`,\n})"
+            },
+            {
+                "name": "Template",
+                "ctype": "miscellaneous",
+                "subtype": "variable",
+                "file": "src/app/molecules/product-default/product-default.component.stories.ts",
+                "deprecated": false,
+                "deprecationMessage": "",
+                "type": "Story<ProductDefaultComponent>",
+                "defaultValue": "(args) => ({\n  props: args,\n})"
             },
             {
                 "name": "Template",
@@ -5117,10 +5016,30 @@
                 "name": "Template",
                 "ctype": "miscellaneous",
                 "subtype": "variable",
-                "file": "src/app/pages/page-products-dynamic/page-products-dynamic.component.stories.ts",
+                "file": "src/app/molecules/product-out-of-stock/product-out-of-stock.component.stories.ts",
                 "deprecated": false,
                 "deprecationMessage": "",
-                "type": "Story<PageProductsDynamicComponent>",
+                "type": "Story<ProductOutOfStockComponent>",
+                "defaultValue": "(args) => ({\n  props: args,\n})"
+            },
+            {
+                "name": "Template",
+                "ctype": "miscellaneous",
+                "subtype": "variable",
+                "file": "src/app/molecules/product-replaced/product-replaced.component.stories.ts",
+                "deprecated": false,
+                "deprecationMessage": "",
+                "type": "Story<ProductReplacedComponent>",
+                "defaultValue": "(args) => ({\n  props: args,\n})"
+            },
+            {
+                "name": "Template",
+                "ctype": "miscellaneous",
+                "subtype": "variable",
+                "file": "src/app/molecules/quantity-picker/quantity-picker.component.stories.ts",
+                "deprecated": false,
+                "deprecationMessage": "",
+                "type": "Story<QuantityPickerComponent>",
                 "defaultValue": "(args) => ({\n  props: args,\n})"
             },
             {
@@ -5137,21 +5056,21 @@
                 "name": "Template",
                 "ctype": "miscellaneous",
                 "subtype": "variable",
-                "file": "src/app/utils/directives/if-breakpoint/if-breakpoint.directive.stories.ts",
-                "deprecated": false,
-                "deprecationMessage": "",
-                "type": "Story<void>",
-                "defaultValue": "() => ({\n  template: `\n    <section class=\"sb-breakpoint-example\">\n      <span>Current breakpoint:</span>\n       ${BREAKPOINT_ORDER.map(\n         (breakpoint) =>\n           `<span class=\"breakpoint\" *ovIfBreakpoint=\"'${breakpoint}'\">${breakpoint}</span>`\n       ).join('')}\n    </section>\n  `,\n})"
-            },
-            {
-                "name": "Template",
-                "ctype": "miscellaneous",
-                "subtype": "variable",
                 "file": "src/app/utils/directives/resize-observer/resize-observer.directive.stories.ts",
                 "deprecated": false,
                 "deprecationMessage": "",
                 "type": "Story<void>",
                 "defaultValue": "() => ({\n  template: `\n    <section class=\"sb-resize-observer-example\">\n      <section [ovResizeObserver]=\"{ small: 0, large: 460 }\" (resize)=\"isLarge1 = $event === 'large'\" [class.isLarge]=\"isLarge1\">\n        {{ isLarge1 ? \"I'm larger than 460\" : \"I'm smaller than 460\" }}\n      </section>\n  `,\n})"
+            },
+            {
+                "name": "Template",
+                "ctype": "miscellaneous",
+                "subtype": "variable",
+                "file": "src/app/utils/directives/if-breakpoint/if-breakpoint.directive.stories.ts",
+                "deprecated": false,
+                "deprecationMessage": "",
+                "type": "Story<void>",
+                "defaultValue": "() => ({\n  template: `\n    <section class=\"sb-breakpoint-example\">\n      <span>Current breakpoint:</span>\n       ${BREAKPOINT_ORDER.map(\n         (breakpoint) =>\n           `<span class=\"breakpoint\" *ovIfBreakpoint=\"'${breakpoint}'\">${breakpoint}</span>`\n       ).join('')}\n    </section>\n  `,\n})"
             },
             {
                 "name": "TemplateComplete",
@@ -5167,21 +5086,21 @@
                 "name": "TYPES",
                 "ctype": "miscellaneous",
                 "subtype": "variable",
-                "file": "src/app/atoms/button/button.component.stories.ts",
-                "deprecated": false,
-                "deprecationMessage": "",
-                "type": "Record<SupportedType, undefined>",
-                "defaultValue": "{\n  primary: true,\n  inverted: true,\n}"
-            },
-            {
-                "name": "TYPES",
-                "ctype": "miscellaneous",
-                "subtype": "variable",
                 "file": "src/app/atoms/message/message.component.stories.ts",
                 "deprecated": false,
                 "deprecationMessage": "",
                 "type": "Record<MessageType, undefined>",
                 "defaultValue": "{\n  ok: true,\n  warn: true,\n  error: true,\n}"
+            },
+            {
+                "name": "TYPES",
+                "ctype": "miscellaneous",
+                "subtype": "variable",
+                "file": "src/app/atoms/button/button.component.stories.ts",
+                "deprecated": false,
+                "deprecationMessage": "",
+                "type": "Record<SupportedType, undefined>",
+                "defaultValue": "{\n  primary: true,\n  inverted: true,\n}"
             },
             {
                 "name": "WithInput",
@@ -5296,8 +5215,8 @@
                 "name": "MockKeys",
                 "ctype": "miscellaneous",
                 "subtype": "typealias",
-                "rawtype": "\"PRIMARY\" | \"WITH_STEPS\" | \"MIN_QUANTITY\"",
-                "file": "src/app/molecules/quantity-picker/quantity-picker.component.mocks.ts",
+                "rawtype": "\"PRIMARY\" | \"MAX_CONTENT\" | \"MIN_CONTENT\"",
+                "file": "src/app/molecules/product-replaced/product-replaced.component.mocks.ts",
                 "deprecated": false,
                 "deprecationMessage": "",
                 "description": "",
@@ -5307,8 +5226,8 @@
                 "name": "MockKeys",
                 "ctype": "miscellaneous",
                 "subtype": "typealias",
-                "rawtype": "\"PRIMARY\" | \"MAX_CONTENT\" | \"MIN_CONTENT\"",
-                "file": "src/app/molecules/product-replaced/product-replaced.component.mocks.ts",
+                "rawtype": "\"PRIMARY\" | \"WITH_STEPS\" | \"MIN_QUANTITY\"",
+                "file": "src/app/molecules/quantity-picker/quantity-picker.component.mocks.ts",
                 "deprecated": false,
                 "deprecationMessage": "",
                 "description": "",
@@ -6185,6 +6104,104 @@
                     "defaultValue": "() => ({\n  template: `\n    <ul class=\"sb-intersection-observer-example\" #list>\n      <h1>Margin: '-250px 0px -400px 0px'</h1>\n      <li *ngFor=\"let i of [1, 2, 3, 4, 5, 6, 7, 8, 9, 10]\" \n          [ovIntersectionObserver]=\"'-250px 0px -400px 0px'\" \n          (intersect)=\"isVisibles = isVisibles ?? []; isVisibles[i] = $event.isIntersecting\" \n          [class.visible]=\"isVisibles ? isVisibles[i] : false\">\n        {{ i }}\n      </li>\n    </ul>\n  `,\n})"
                 }
             ],
+            "src/app/atoms/message/message.component.stories.ts": [
+                {
+                    "name": "Primary",
+                    "ctype": "miscellaneous",
+                    "subtype": "variable",
+                    "file": "src/app/atoms/message/message.component.stories.ts",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "type": "",
+                    "defaultValue": "Template.bind({})"
+                },
+                {
+                    "name": "Template",
+                    "ctype": "miscellaneous",
+                    "subtype": "variable",
+                    "file": "src/app/atoms/message/message.component.stories.ts",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "type": "Story<MessageComponent>",
+                    "defaultValue": "(args) => ({\n  props: args,\n  template: `\n  <ul class=\"sb\">\n  ${Object.keys(TYPES)\n    .map(\n      (type) =>\n        `<li class=\"sb\">\n          <ov-message type=\"${type}\">${type} message!</ov-message>\n        </li>`\n    )\n    .join('<br/>')}\n  </ul>\n  `,\n})"
+                },
+                {
+                    "name": "TYPES",
+                    "ctype": "miscellaneous",
+                    "subtype": "variable",
+                    "file": "src/app/atoms/message/message.component.stories.ts",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "type": "Record<MessageType, undefined>",
+                    "defaultValue": "{\n  ok: true,\n  warn: true,\n  error: true,\n}"
+                }
+            ],
+            "src/app/organisms/products-list-dynamic/products-list-dynamic.component.stories.ts": [
+                {
+                    "name": "Primary",
+                    "ctype": "miscellaneous",
+                    "subtype": "variable",
+                    "file": "src/app/organisms/products-list-dynamic/products-list-dynamic.component.stories.ts",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "type": "",
+                    "defaultValue": "Template.bind({})"
+                },
+                {
+                    "name": "Template",
+                    "ctype": "miscellaneous",
+                    "subtype": "variable",
+                    "file": "src/app/organisms/products-list-dynamic/products-list-dynamic.component.stories.ts",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "type": "Story<PageProductsComponent>",
+                    "defaultValue": "(args) => ({\n  props: args,\n})"
+                }
+            ],
+            "src/app/organisms/products-list/products-list.component.stories.ts": [
+                {
+                    "name": "Primary",
+                    "ctype": "miscellaneous",
+                    "subtype": "variable",
+                    "file": "src/app/organisms/products-list/products-list.component.stories.ts",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "type": "",
+                    "defaultValue": "Template.bind({})"
+                },
+                {
+                    "name": "Template",
+                    "ctype": "miscellaneous",
+                    "subtype": "variable",
+                    "file": "src/app/organisms/products-list/products-list.component.stories.ts",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "type": "Story<PageProductsComponent>",
+                    "defaultValue": "(args) => ({\n  props: args,\n})"
+                }
+            ],
+            "src/app/pages/page-products/page-products.component.stories.ts": [
+                {
+                    "name": "Primary",
+                    "ctype": "miscellaneous",
+                    "subtype": "variable",
+                    "file": "src/app/pages/page-products/page-products.component.stories.ts",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "type": "",
+                    "defaultValue": "Template.bind({})"
+                },
+                {
+                    "name": "Template",
+                    "ctype": "miscellaneous",
+                    "subtype": "variable",
+                    "file": "src/app/pages/page-products/page-products.component.stories.ts",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "type": "Story<PageProductsComponent>",
+                    "defaultValue": "(args) => ({\n  props: args,\n})"
+                }
+            ],
             "src/app/molecules/quantity-picker/quantity-picker.component.stories.ts": [
                 {
                     "name": "Primary",
@@ -6235,82 +6252,6 @@
                     "deprecationMessage": "",
                     "type": "",
                     "defaultValue": "Template.bind({})"
-                }
-            ],
-            "src/app/atoms/message/message.component.stories.ts": [
-                {
-                    "name": "Primary",
-                    "ctype": "miscellaneous",
-                    "subtype": "variable",
-                    "file": "src/app/atoms/message/message.component.stories.ts",
-                    "deprecated": false,
-                    "deprecationMessage": "",
-                    "type": "",
-                    "defaultValue": "Template.bind({})"
-                },
-                {
-                    "name": "Template",
-                    "ctype": "miscellaneous",
-                    "subtype": "variable",
-                    "file": "src/app/atoms/message/message.component.stories.ts",
-                    "deprecated": false,
-                    "deprecationMessage": "",
-                    "type": "Story<MessageComponent>",
-                    "defaultValue": "(args) => ({\n  props: args,\n  template: `\n  <ul class=\"sb\">\n  ${Object.keys(TYPES)\n    .map(\n      (type) =>\n        `<li class=\"sb\">\n          <ov-message type=\"${type}\">${type} message!</ov-message>\n        </li>`\n    )\n    .join('<br/>')}\n  </ul>\n  `,\n})"
-                },
-                {
-                    "name": "TYPES",
-                    "ctype": "miscellaneous",
-                    "subtype": "variable",
-                    "file": "src/app/atoms/message/message.component.stories.ts",
-                    "deprecated": false,
-                    "deprecationMessage": "",
-                    "type": "Record<MessageType, undefined>",
-                    "defaultValue": "{\n  ok: true,\n  warn: true,\n  error: true,\n}"
-                }
-            ],
-            "src/app/pages/page-products/page-products.component.stories.ts": [
-                {
-                    "name": "Primary",
-                    "ctype": "miscellaneous",
-                    "subtype": "variable",
-                    "file": "src/app/pages/page-products/page-products.component.stories.ts",
-                    "deprecated": false,
-                    "deprecationMessage": "",
-                    "type": "",
-                    "defaultValue": "Template.bind({})"
-                },
-                {
-                    "name": "Template",
-                    "ctype": "miscellaneous",
-                    "subtype": "variable",
-                    "file": "src/app/pages/page-products/page-products.component.stories.ts",
-                    "deprecated": false,
-                    "deprecationMessage": "",
-                    "type": "Story<PageProductsComponent>",
-                    "defaultValue": "(args) => ({\n  props: args,\n})"
-                }
-            ],
-            "src/app/pages/page-products-dynamic/page-products-dynamic.component.stories.ts": [
-                {
-                    "name": "Primary",
-                    "ctype": "miscellaneous",
-                    "subtype": "variable",
-                    "file": "src/app/pages/page-products-dynamic/page-products-dynamic.component.stories.ts",
-                    "deprecated": false,
-                    "deprecationMessage": "",
-                    "type": "",
-                    "defaultValue": "Template.bind({})"
-                },
-                {
-                    "name": "Template",
-                    "ctype": "miscellaneous",
-                    "subtype": "variable",
-                    "file": "src/app/pages/page-products-dynamic/page-products-dynamic.component.stories.ts",
-                    "deprecated": false,
-                    "deprecationMessage": "",
-                    "type": "Story<PageProductsDynamicComponent>",
-                    "defaultValue": "(args) => ({\n  props: args,\n})"
                 }
             ],
             "src/app/templates/template-default/template-default.component.stories.ts": [
@@ -6549,19 +6490,6 @@
                     "kind": 186
                 }
             ],
-            "src/app/molecules/quantity-picker/quantity-picker.component.mocks.ts": [
-                {
-                    "name": "MockKeys",
-                    "ctype": "miscellaneous",
-                    "subtype": "typealias",
-                    "rawtype": "\"PRIMARY\" | \"WITH_STEPS\" | \"MIN_QUANTITY\"",
-                    "file": "src/app/molecules/quantity-picker/quantity-picker.component.mocks.ts",
-                    "deprecated": false,
-                    "deprecationMessage": "",
-                    "description": "",
-                    "kind": 186
-                }
-            ],
             "src/app/molecules/product-replaced/product-replaced.component.mocks.ts": [
                 {
                     "name": "MockKeys",
@@ -6569,6 +6497,19 @@
                     "subtype": "typealias",
                     "rawtype": "\"PRIMARY\" | \"MAX_CONTENT\" | \"MIN_CONTENT\"",
                     "file": "src/app/molecules/product-replaced/product-replaced.component.mocks.ts",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "description": "",
+                    "kind": 186
+                }
+            ],
+            "src/app/molecules/quantity-picker/quantity-picker.component.mocks.ts": [
+                {
+                    "name": "MockKeys",
+                    "ctype": "miscellaneous",
+                    "subtype": "typealias",
+                    "rawtype": "\"PRIMARY\" | \"WITH_STEPS\" | \"MIN_QUANTITY\"",
+                    "file": "src/app/molecules/quantity-picker/quantity-picker.component.mocks.ts",
                     "deprecated": false,
                     "deprecationMessage": "",
                     "description": "",
@@ -7607,6 +7548,26 @@
                 "status": "low"
             },
             {
+                "filePath": "src/app/organisms/products-list-dynamic/products-list-dynamic.component.stories.ts",
+                "type": "variable",
+                "linktype": "miscellaneous",
+                "linksubtype": "variable",
+                "name": "Primary",
+                "coveragePercent": 0,
+                "coverageCount": "0/1",
+                "status": "low"
+            },
+            {
+                "filePath": "src/app/organisms/products-list-dynamic/products-list-dynamic.component.stories.ts",
+                "type": "variable",
+                "linktype": "miscellaneous",
+                "linksubtype": "variable",
+                "name": "Template",
+                "coveragePercent": 0,
+                "coverageCount": "0/1",
+                "status": "low"
+            },
+            {
                 "filePath": "src/app/organisms/products-list-dynamic/products-list-dynamic.component.ts",
                 "type": "component",
                 "linktype": "component",
@@ -7625,16 +7586,7 @@
                 "status": "low"
             },
             {
-                "filePath": "src/app/organisms/products-list/products-list.component.ts",
-                "type": "component",
-                "linktype": "component",
-                "name": "ProductsListComponent",
-                "coveragePercent": 0,
-                "coverageCount": "0/9",
-                "status": "low"
-            },
-            {
-                "filePath": "src/app/pages/page-products-dynamic/page-products-dynamic.component.stories.ts",
+                "filePath": "src/app/organisms/products-list/products-list.component.stories.ts",
                 "type": "variable",
                 "linktype": "miscellaneous",
                 "linksubtype": "variable",
@@ -7644,7 +7596,7 @@
                 "status": "low"
             },
             {
-                "filePath": "src/app/pages/page-products-dynamic/page-products-dynamic.component.stories.ts",
+                "filePath": "src/app/organisms/products-list/products-list.component.stories.ts",
                 "type": "variable",
                 "linktype": "miscellaneous",
                 "linksubtype": "variable",
@@ -7654,12 +7606,12 @@
                 "status": "low"
             },
             {
-                "filePath": "src/app/pages/page-products-dynamic/page-products-dynamic.component.ts",
+                "filePath": "src/app/organisms/products-list/products-list.component.ts",
                 "type": "component",
                 "linktype": "component",
-                "name": "PageProductsDynamicComponent",
+                "name": "ProductsListComponent",
                 "coveragePercent": 0,
-                "coverageCount": "0/2",
+                "coverageCount": "0/9",
                 "status": "low"
             },
             {

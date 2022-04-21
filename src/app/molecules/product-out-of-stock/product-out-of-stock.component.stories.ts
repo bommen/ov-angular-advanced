@@ -4,7 +4,7 @@ import { ProductOutOfStockMock } from './product-out-of-stock.component.mocks';
 import { ProductOutOfStockModule } from './product-out-of-stock.module';
 
 export default {
-  title: 'Organisms/ProductOutOfStock',
+  title: 'Molecules/ProductOutOfStock',
   component: ProductOutOfStockComponent,
   decorators: [
     moduleMetadata({
