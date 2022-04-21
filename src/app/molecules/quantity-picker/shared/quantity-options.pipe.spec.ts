@@ -1,8 +1,8 @@
-import { ToQuantityOptionsPipe } from './to-quantity-options.pipe';
+import { QuantityOptionsPipe } from './quantity-options.pipe';
 
 describe('ToQuantityOptionsPipe', () => {
   it('create an instance', () => {
-    const pipe = new ToQuantityOptionsPipe();
+    const pipe = new QuantityOptionsPipe();
     expect(pipe).toBeTruthy();
   });
 });

@@ -6,9 +6,9 @@ const MAX_AMOUNT_OF_OPTIONS = 8;
 export type Option = number | 'More';
 
 @Pipe({
-  name: 'toQuantityOptions',
+  name: 'quantityOptions',
 })
-export class ToQuantityOptionsPipe implements PipeTransform {
+export class QuantityOptionsPipe implements PipeTransform {
   transform({ min, max, step }: Quantity): Option[] {
     const options: Option[] = [];
     for (let i = min; i <= max; i += step) {

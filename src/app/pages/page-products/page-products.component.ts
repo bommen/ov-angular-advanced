@@ -4,7 +4,10 @@ import {
   Input,
   OnInit,
 } from '@angular/core';
-import { ProductUnion } from '../../organisms/products-list/products-list.component';
+import {
+  AddToCartEvent,
+  ProductUnion,
+} from '../../organisms/products-list/products-list.component';
 @Component({
   selector: 'ov-page-products',
   templateUrl: './page-products.component.html',
@@ -15,4 +18,8 @@ export class PageProductsComponent implements OnInit {
   @Input() products!: ProductUnion[];
 
   ngOnInit(): void {}
+
+  addProductToCart({ product, quantity }: AddToCartEvent) {
+    console.log(`Add  ${quantity}x ${product.id} to cart`);
+  }
 }

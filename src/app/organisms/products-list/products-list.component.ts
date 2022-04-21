@@ -3,12 +3,20 @@ import {
   Component,
   Input,
   OnInit,
+  Output,
+  EventEmitter,
 } from '@angular/core';
 import { ProductDefault } from '../../molecules/product-default/product-default.component';
 import { ProductOutOfStock } from '../../molecules/product-out-of-stock/product-out-of-stock.component';
 import { ProductReplaced } from '../../molecules/product-replaced/product-replaced.component';
 
 export type ProductUnion = ProductDefault | ProductReplaced | ProductOutOfStock;
+
+export interface AddToCartEvent {
+  product: ProductDefault;
+  quantity: number;
+}
+
 @Component({
   selector: 'ov-products-list',
   templateUrl: './products-list.component.html',
@@ -17,6 +25,8 @@ export type ProductUnion = ProductDefault | ProductReplaced | ProductOutOfStock;
 })
 export class ProductsListComponent implements OnInit {
   @Input() products!: ProductUnion[];
+
+  @Output() addToCart = new EventEmitter<AddToCartEvent>();
 
   productIntersectionMargin = '-200px 0px -350px 0px';
 
@@ -34,8 +44,11 @@ export class ProductsListComponent implements OnInit {
     return product.type === 'product-replaced' ? product : undefined;
   }
 
-  addToCart(quantity: number, product: ProductDefault) {
-    console.log(product, quantity);
+  addProductToCart(quantity: number, product: ProductDefault) {
+    this.addToCart.emit({
+      product,
+      quantity,
+    });
   }
 
   productIntersect({ target, isIntersecting }: IntersectionObserverEntry) {

@@ -7,7 +7,7 @@
   <option value="" selected disabled hidden>
     {{ quantity.min }}
   </option>
-  <option *ngFor="let option of quantity | toQuantityOptions">
+  <option *ngFor="let option of quantity | quantityOptions">
     {{ option }}
   </option>
 </select>

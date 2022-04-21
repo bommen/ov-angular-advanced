@@ -21,7 +21,7 @@
       <ov-product-default
         *ngIf="asProduct(product)! as product"
         [product]="product"
-        (addToCart)="addToCart($event, product)"
+        (addToCart)="addProductToCart($event, product)"
       ></ov-product-default>
     </ng-container>
   </li>

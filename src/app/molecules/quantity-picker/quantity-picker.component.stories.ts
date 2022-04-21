@@ -27,6 +27,11 @@ WithSteps.args = {
   quantity: QuantityPickerMocks.WITH_STEPS,
 };
 
+export const WithMax = Template.bind({});
+WithMax.args = {
+  quantity: QuantityPickerMocks.WITH_MAX,
+};
+
 export const WithInput = Template.bind({});
 WithInput.args = {
   quantity: QuantityPickerMocks.PRIMARY,

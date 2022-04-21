@@ -1,8 +1,10 @@
 import {
   ChangeDetectionStrategy,
   Component,
+  EventEmitter,
   Input,
   OnInit,
+  Output,
   QueryList,
   ViewChildren,
   ViewContainerRef,
@@ -23,6 +25,11 @@ import {
 import { ProductUnion } from '../products-list/products-list.component';
 import { ProductsHostDirective } from './shared/products-host.directive';
 
+interface AddToCartEvent {
+  product: ProductDefault;
+  quantity: number;
+}
+
 @Component({
   selector: 'ov-products-list-dynamic',
   templateUrl: './products-list-dynamic.component.html',
@@ -31,6 +38,8 @@ import { ProductsHostDirective } from './shared/products-host.directive';
 })
 export class ProductsListDynamicComponent implements OnInit {
   @Input() products!: ProductUnion[];
+
+  @Output() addToCart = new EventEmitter<AddToCartEvent>();
 
   @ViewChildren(ProductsHostDirective)
   productsHosts!: QueryList<ProductsHostDirective>;
@@ -89,9 +98,12 @@ export class ProductsListDynamicComponent implements OnInit {
      * Handle outputs
      */
     this.subscriptions.add(
-      instance.addToCart.subscribe((quantity) => {
-        console.log(product, quantity);
-      })
+      instance.addToCart.subscribe((quantity) =>
+        this.addToCart.emit({
+          product,
+          quantity,
+        })
+      )
     );
   }
 
