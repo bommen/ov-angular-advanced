@@ -1,8 +1,8 @@
 import { CommonModule } from '@angular/common';
 import { NgModule } from '@angular/core';
 import { ReactiveFormsModule } from '@angular/forms';
-import { ButtonModule } from 'src/app/atoms/button/button.module';
-import { IconModule } from 'src/app/atoms/icon/icon.module';
+import { ButtonModule } from '../../atoms/button/button.module';
+import { IconModule } from '../../atoms/icon/icon.module';
 import { QuantityPickerComponent } from './quantity-picker.component';
 import { QuantityOptionsPipe } from './shared/quantity-options.pipe';
 

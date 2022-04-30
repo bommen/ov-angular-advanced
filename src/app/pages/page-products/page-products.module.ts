@@ -1,12 +1,12 @@
 import { CommonModule } from '@angular/common';
 import { NgModule } from '@angular/core';
-import { ProductsListModule } from '../../organisms/products-list/products-list.module';
-import { TemplateDefaultModule } from '../../templates/template-default/template-default.module';
+import { SmartProductsListModule } from '../../smart-components/smart-products-list/smart-products-list.module';
+import { TemplateDefaultModule } from '../../ui-components/templates/template-default/template-default.module';
 import { PageProductsComponent } from './page-products.component';
 
 @NgModule({
   declarations: [PageProductsComponent],
-  imports: [CommonModule, TemplateDefaultModule, ProductsListModule],
+  imports: [CommonModule, TemplateDefaultModule, SmartProductsListModule],
   exports: [PageProductsComponent],
 })
 export class PageProductsModule {}

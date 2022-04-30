@@ -13,7 +13,7 @@ import { ProductsListComponent } from './products-list.component';
     ProductDefaultModule,
     ProductReplacedModule,
     ProductOutOfStockModule,
-    IntersectionObserverModule
+    IntersectionObserverModule,
   ],
   exports: [ProductsListComponent],
 })

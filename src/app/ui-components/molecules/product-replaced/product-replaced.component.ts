@@ -4,7 +4,7 @@ import {
   Input,
   OnInit,
 } from '@angular/core';
-import { Product } from 'src/app/molecules/product/product.component';
+import { Product } from '../../molecules/product/product.component';
 
 export interface ProductReplaced extends Product {
   type: 'product-replaced';

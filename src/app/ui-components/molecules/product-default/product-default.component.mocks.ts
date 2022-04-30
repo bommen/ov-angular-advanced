@@ -1,5 +1,4 @@
-import { QuantityPickerMocks } from 'src/app/molecules/quantity-picker/quantity-picker.component.mocks';
-import { Product } from '../product/product.component';
+import { QuantityPickerMocks } from '../../molecules/quantity-picker/quantity-picker.component.mocks';
 import { ProductMock } from '../product/product.component.mocks';
 import { ProductDefault } from './product-default.component';
 
