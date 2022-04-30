@@ -31,3 +31,8 @@ export const MinContent = Template.bind({});
 MinContent.args = {
   product: ProductDefaultMock.MIN_CONTENT,
 };
+
+export const InCart = Template.bind({});
+InCart.args = {
+  product: ProductDefaultMock.IN_CART,
+};

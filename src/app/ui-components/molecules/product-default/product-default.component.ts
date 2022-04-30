@@ -17,6 +17,7 @@ export interface ProductDefault extends Product {
   type: 'product';
   quantity: Quantity;
   isLimited: boolean;
+  inCart: boolean;
 }
 
 @Component({
