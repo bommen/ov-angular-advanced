@@ -4,8 +4,8 @@
   (resize)="onResize($event)"
 >
   <section actions>
-    <ov-message type="ok" *ngIf="product.inCart; else notInCart">
-      In cart
+    <ov-message type="ok" *ngIf="product.cartInfo as cartInfo; else notInCart">
+      {{ cartInfo.quantity }}x €{{ cartInfo.total }}
     </ov-message>
     <ng-template #notInCart>
       <p *ngIf="isLarge">Add to cart:</p>

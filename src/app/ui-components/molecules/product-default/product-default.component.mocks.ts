@@ -15,34 +15,33 @@ export const ProductDefaultMock: Record<MockKeys, ProductDefault> = {
     type: 'product',
     quantity: QuantityPickerMocks.PRIMARY,
     isLimited: false,
-    inCart: false,
   },
   IN_CART: {
     ...ProductMock.PRIMARY,
     type: 'product',
     quantity: QuantityPickerMocks.PRIMARY,
     isLimited: false,
-    inCart: true,
+    cartInfo: {
+      quantity: 6,
+      total: ProductMock.PRIMARY.price * 6,
+    },
   },
   MAX_CONTENT: {
     ...ProductMock.MAX_CONTENT,
     type: 'product',
     quantity: QuantityPickerMocks.WITH_STEPS,
     isLimited: false,
-    inCart: false,
   },
   MIN_CONTENT: {
     ...ProductMock.MIN_CONTENT,
     type: 'product',
     quantity: QuantityPickerMocks.MIN_QUANTITY,
     isLimited: true,
-    inCart: false,
   },
   LANDSCAPE: {
     ...ProductMock.LANDSCAPE,
     type: 'product',
     quantity: QuantityPickerMocks.PRIMARY,
     isLimited: false,
-    inCart: false,
   },
 };

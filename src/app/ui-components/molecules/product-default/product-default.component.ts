@@ -17,7 +17,12 @@ export interface ProductDefault extends Product {
   type: 'product';
   quantity: Quantity;
   isLimited: boolean;
-  inCart: boolean;
+  cartInfo?: CartInfo;
+}
+
+interface CartInfo {
+  quantity: number;
+  total: number;
 }
 
 @Component({

@@ -10,7 +10,7 @@ export interface Product {
   title: string;
   price: number;
   description: string;
-  category: string;
+  subtitle: string;
   image: string;
   rating: Rating;
 }
