@@ -6,7 +6,7 @@ import {
 } from '@angular/core';
 
 export interface Product {
-  id: number;
+  id: string;
   title: string;
   price: number;
   description: string;
