@@ -1,9 +1,9 @@
 import { Injectable } from '@angular/core';
-import { BehaviorSubject, Observable, startWith, Subject } from 'rxjs';
+import { BehaviorSubject, Observable } from 'rxjs';
 import { Product } from '../../ui-components/molecules/product/product.component';
 
 interface CartItem {
-  product: Product;
+  product: number;
   quantity: number;
   total: number;
 }
@@ -32,7 +32,7 @@ export class CartService {
 
   add(product: Product, quantity: number) {
     const cartItem = {
-      product,
+      product: product.id,
       quantity,
       total: quantity * product.price,
     };

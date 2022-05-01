@@ -1,7 +1,11 @@
 import { AfterViewInit, Component, OnInit } from '@angular/core';
-import { Observable, tap } from 'rxjs';
-import { CartService } from '../../services/cart/cart.service';
-import { ProductService } from '../../services/product/product.service';
+import { combineLatest, map, Observable, tap } from 'rxjs';
+import { Cart, CartService } from '../../services/cart/cart.service';
+import {
+  ApiProduct,
+  ProductService,
+} from '../../services/product/product.service';
+import { ProductDefault } from '../../ui-components/molecules/product-default/product-default.component';
 import {
   AddToCartEvent,
   ProductUnion,
@@ -21,7 +25,13 @@ export class SmartProductsListComponent implements OnInit, AfterViewInit {
   ) {}
 
   ngOnInit(): void {
-    this.products$ = this.productService.products$.pipe(tap(console.log));
+    this.products$ = combineLatest(
+      [
+        this.productService.products$.pipe(map(apiProductsToProductUnions)),
+        this.cartService.cart$,
+      ],
+      combineProductsAndCart
+    );
   }
 
   ngAfterViewInit(): void {
@@ -32,3 +42,28 @@ export class SmartProductsListComponent implements OnInit, AfterViewInit {
     this.cartService.add(product, quantity);
   }
 }
+
+const combineProductsAndCart = (
+  products: ProductUnion[],
+  cart: Cart
+): ProductUnion[] =>
+  products.map((product: ProductUnion) => {
+    if (product.type === 'product') {
+      product.cartInfo = cart.items.find(
+        ({ product: id }) => product.id === id
+      );
+    }
+    return product;
+  });
+
+const apiProductsToProductUnions = (
+  apiProducts: ApiProduct[]
+): ProductUnion[] =>
+  apiProducts.map(
+    ({ category, ...apiProduct }): ProductDefault => ({
+      ...apiProduct,
+      subtitle: category,
+      type: 'product',
+      isLimited: apiProduct.quantity.max / apiProduct.quantity.step < 6,
+    })
+  );
