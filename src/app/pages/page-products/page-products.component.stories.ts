@@ -1,22 +1,11 @@
 import { Meta, moduleMetadata, Story } from '@storybook/angular';
+import { delay, of } from 'rxjs';
+import { ProductService } from '../../services/product/product.service';
 import { ProductDefaultMock } from '../../ui-components/molecules/product-default/product-default.component.mocks';
 import { ProductOutOfStockMock } from '../../ui-components/molecules/product-out-of-stock/product-out-of-stock.component.mocks';
 import { ProductReplacementMock } from '../../ui-components/molecules/product-replaced/product-replaced.component.mocks';
 import { PageProductsComponent } from './page-products.component';
 import { PageProductsModule } from './page-products.module';
-
-export default {
-  title: 'Pages/Products',
-  component: PageProductsComponent,
-  decorators: [
-    moduleMetadata({
-      imports: [PageProductsModule],
-    }),
-  ],
-  parameters: {
-    layout: 'fullscreen',
-  },
-} as Meta;
 
 const products = [
   ProductDefaultMock.PRIMARY,
@@ -25,6 +14,28 @@ const products = [
   ProductReplacementMock.MAX_CONTENT,
   ProductDefaultMock.MAX_CONTENT,
 ];
+
+export default {
+  title: 'Pages/Products',
+  component: PageProductsComponent,
+  decorators: [
+    moduleMetadata({
+      imports: [PageProductsModule],
+      providers: [
+        {
+          provide: ProductService,
+          useValue: {
+            products$: of(products).pipe(delay(0)),
+            get: () => {},
+          },
+        },
+      ],
+    }),
+  ],
+  parameters: {
+    layout: 'fullscreen',
+  },
+} as Meta;
 
 const Template: Story<PageProductsComponent> = (args) => ({
   props: args,

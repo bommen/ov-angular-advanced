@@ -1,4 +1,5 @@
 <ov-products-list
+  *ngIf="products$ | async as products"
   [products]="products"
   (addToCart)="addProductToCart($event)"
 ></ov-products-list>

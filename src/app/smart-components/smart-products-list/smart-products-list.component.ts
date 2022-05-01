@@ -1,5 +1,7 @@
-import { Component, Input, OnInit } from '@angular/core';
-import { ProductDefaultMock } from '../../ui-components/molecules/product-default/product-default.component.mocks';
+import { AfterViewInit, Component, OnInit } from '@angular/core';
+import { Observable, tap } from 'rxjs';
+import { CartService } from '../../services/cart/cart.service';
+import { ProductService } from '../../services/product/product.service';
 import {
   AddToCartEvent,
   ProductUnion,
@@ -10,12 +12,23 @@ import {
   templateUrl: './smart-products-list.component.html',
   styleUrls: ['./smart-products-list.component.scss'],
 })
-export class SmartProductsListComponent implements OnInit {
-  products: ProductUnion[] = [ProductDefaultMock.MAX_CONTENT];
+export class SmartProductsListComponent implements OnInit, AfterViewInit {
+  products$!: Observable<ProductUnion[]>;
 
-  ngOnInit(): void {}
+  constructor(
+    private productService: ProductService,
+    private cartService: CartService
+  ) {}
+
+  ngOnInit(): void {
+    this.products$ = this.productService.products$.pipe(tap(console.log));
+  }
+
+  ngAfterViewInit(): void {
+    this.productService.get();
+  }
 
   addProductToCart({ product, quantity }: AddToCartEvent) {
-    console.log(`Add  ${quantity}x ${product.id} to cart`);
+    this.cartService.add(product, quantity);
   }
 }
