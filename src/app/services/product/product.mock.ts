@@ -4,7 +4,7 @@ type MockKeys = 'PRIMARY' | 'MAX_CONTENT' | 'MIN_CONTENT' | 'LANDSCAPE';
 
 export const ApiProductMock: Record<MockKeys, ApiProduct> = {
   PRIMARY: {
-    id: 1,
+    id: '1',
     title: 'Fjallraven - Foldsack No. 1 Backpack, Fits 15 Laptops',
     price: 109.95,
     description:
@@ -22,7 +22,7 @@ export const ApiProductMock: Record<MockKeys, ApiProduct> = {
     },
   },
   MAX_CONTENT: {
-    id: 2,
+    id: '2',
     title:
       'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nunc ut sodales augue, eget pellentesque urna. Duis eleifend enim quis velit posuere porttitor. Nam facilisis metus id turpis vehicula fermentum. Nunc sollicitudin blandit molestie. Vestibulum varius massa euismod massa egestas tincidunt. Proin laoreet odio vel sollicitudin imperdiet. Cras volutpat id odio id ultrices. Suspendisse sodales rutrum tortor, ultrices consectetur ante tincidunt sit amet. Donec laoreet arcu metus, at efficitur nibh placerat ac.',
     price: 10000,
@@ -42,7 +42,7 @@ export const ApiProductMock: Record<MockKeys, ApiProduct> = {
     },
   },
   MIN_CONTENT: {
-    id: 3,
+    id: '3',
     title: 'Ring',
     price: 0.01,
     description:
@@ -60,7 +60,7 @@ export const ApiProductMock: Record<MockKeys, ApiProduct> = {
     },
   },
   LANDSCAPE: {
-    id: 4,
+    id: '4',
     title:
       'Silicon Power 256GB SSD 3D NAND A55 SLC Cache Performance Boost SATA III 2.5',
     price: 109,

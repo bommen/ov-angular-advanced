@@ -1,20 +1,24 @@
 import { Injectable } from '@angular/core';
 import { BehaviorSubject, Observable } from 'rxjs';
 import { Product } from '../../ui-components/molecules/product/product.component';
+import { Normalized } from '../../utils/normalization.utils';
 
-interface CartItem {
-  product: number;
+export interface CartItem {
+  id: string;
   quantity: number;
   total: number;
 }
 
 export interface Cart {
   total: number;
-  items: CartItem[];
+  items: Normalized<CartItem>;
 }
 
 const EMPTY_CART: Cart = {
-  items: [],
+  items: {
+    byId: {},
+    allIds: [],
+  },
   total: 0,
 };
 
@@ -31,8 +35,8 @@ export class CartService {
   }
 
   add(product: Product, quantity: number) {
-    const cartItem = {
-      product: product.id,
+    const cartItem: CartItem = {
+      id: product.id,
       quantity,
       total: quantity * product.price,
     };
@@ -40,7 +44,13 @@ export class CartService {
     const cart = this.cartSubject.getValue();
 
     this.cartSubject.next({
-      items: [...cart.items, cartItem],
+      items: {
+        byId: {
+          ...cart.items.byId,
+          [cartItem.id]: cartItem,
+        },
+        allIds: [...cart.items.allIds, cartItem.id],
+      },
       total: cart.total + cartItem.total,
     });
   }
