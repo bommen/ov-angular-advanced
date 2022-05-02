@@ -58,4 +58,8 @@ export class ProductsListComponent implements OnInit {
       target.classList.remove('visible');
     }
   }
+
+  trackById(_index: number, product: ProductUnion) {
+    return product.id;
+  }
 }

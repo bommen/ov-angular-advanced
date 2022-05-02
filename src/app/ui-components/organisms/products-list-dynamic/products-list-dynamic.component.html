@@ -1,6 +1,6 @@
 <ul>
   <li
-    *ngFor="let product of products"
+    *ngFor="let product of products; trackBy: trackById"
     [ovIntersectionObserver]="productIntersectionMargin"
     (intersect)="productIntersect($event)"
   >
