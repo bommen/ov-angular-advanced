@@ -128,4 +128,8 @@ export class ProductsListDynamicComponent implements OnInit {
      */
     instance.product = product;
   }
+
+  trackById(_index: number, product: ProductUnion) {
+    return product.id;
+  }
 }
