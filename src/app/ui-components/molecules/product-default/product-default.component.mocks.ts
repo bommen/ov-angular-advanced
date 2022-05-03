@@ -13,6 +13,7 @@ export const ProductDefaultMock: Record<MockKeys, ProductDefault> = {
   PRIMARY: {
     ...ProductMock.PRIMARY,
     type: 'product',
+    id: '1',
     quantity: QuantityPickerMocks.PRIMARY,
     isLimited: false,
   },
@@ -20,6 +21,7 @@ export const ProductDefaultMock: Record<MockKeys, ProductDefault> = {
     ...ProductMock.PRIMARY,
     type: 'product',
     quantity: QuantityPickerMocks.PRIMARY,
+    id: '2',
     isLimited: false,
     cartInfo: {
       quantity: 6,
@@ -29,6 +31,7 @@ export const ProductDefaultMock: Record<MockKeys, ProductDefault> = {
   MAX_CONTENT: {
     ...ProductMock.MAX_CONTENT,
     type: 'product',
+    id: '3',
     quantity: QuantityPickerMocks.WITH_STEPS,
     isLimited: false,
   },
@@ -37,6 +40,7 @@ export const ProductDefaultMock: Record<MockKeys, ProductDefault> = {
     type: 'product',
     quantity: QuantityPickerMocks.MIN_QUANTITY,
     isLimited: true,
+    id: '4',
   },
   LANDSCAPE: {
     ...ProductMock.LANDSCAPE,

@@ -3,7 +3,7 @@ import { BehaviorSubject, Observable } from 'rxjs';
 import { Product } from '../../ui-components/molecules/product/product.component';
 import { Normalized } from '../../utils/normalization.utils';
 
-export interface CartItem {
+export interface CartProduct {
   id: string;
   quantity: number;
   total: number;
@@ -11,11 +11,11 @@ export interface CartItem {
 
 export interface Cart {
   total: number;
-  items: Normalized<CartItem>;
+  products: Normalized<CartProduct>;
 }
 
 const EMPTY_CART: Cart = {
-  items: {
+  products: {
     byId: {},
     allIds: [],
   },
@@ -35,7 +35,7 @@ export class CartService {
   }
 
   add(product: Product, quantity: number) {
-    const cartItem: CartItem = {
+    const cartItem: CartProduct = {
       id: product.id,
       quantity,
       total: quantity * product.price,
@@ -44,12 +44,12 @@ export class CartService {
     const cart = this.cartSubject.getValue();
 
     this.cartSubject.next({
-      items: {
+      products: {
         byId: {
-          ...cart.items.byId,
+          ...cart.products.byId,
           [cartItem.id]: cartItem,
         },
-        allIds: [...cart.items.allIds, cartItem.id],
+        allIds: [...cart.products.allIds, cartItem.id],
       },
       total: cart.total + cartItem.total,
     });

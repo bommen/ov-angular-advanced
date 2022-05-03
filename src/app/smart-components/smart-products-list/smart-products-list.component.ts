@@ -43,7 +43,7 @@ export class SmartProductsListComponent implements OnInit, AfterViewInit {
         ['1', '2', '3', '4'].map((id) => {
           const apiProduct = products.byId[id];
           const product = apiProductToProduct(apiProduct);
-          product.cartInfo = cart.items.byId[product.id];
+          product.cartInfo = cart.products.byId[product.id];
           return product;
         })
       )
