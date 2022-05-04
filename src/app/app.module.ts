@@ -6,6 +6,7 @@ import { StoreDevtoolsModule } from '@ngrx/store-devtools';
 import { environment } from '../environments/environment';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
+import { SpinnerModule } from './ui-components/atoms/spinner/spinner.module';
 
 /**
  * AppState is empty because we rely on lazy loading pages/features.
@@ -24,6 +25,7 @@ export interface AppState {}
       logOnly: environment.production,
     }),
     AppRoutingModule,
+    SpinnerModule,
   ],
   providers: [],
   bootstrap: [AppComponent],
