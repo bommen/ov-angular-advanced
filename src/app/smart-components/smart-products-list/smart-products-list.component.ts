@@ -19,9 +19,7 @@ export class SmartProductsListComponent implements OnInit {
   constructor(private store: Store<Record<'product', ProductState>>) {}
 
   ngOnInit(): void {
-    this.state$ = this.store.select(({ product }) =>
-      selectProductsList(product)
-    );
+    this.state$ = this.store.select(selectProductsList);
   }
 
   addProductToCart({ product, quantity }: AddToCartEvent) {}

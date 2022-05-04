@@ -1,5 +1,6 @@
+import { createSelector } from '@ngrx/store';
+import { selectProductsState } from '../../../state/product/product.selector';
 import { ApiProduct } from '../../../state/product/product.service';
-import { ProductState } from '../../../state/product/product.reducer';
 import { ProductDefault } from '../../../ui-components/molecules/product-default/product-default.component';
 import { ProductUnion } from '../../../ui-components/organisms/products-list/products-list.component';
 import { AsyncState } from '../../../utils/async-state.utils';
@@ -15,14 +16,16 @@ export type ProductsListState = AsyncState<ProductUnion[]>;
  * @param state State coming from the store.
  * @returns AsyncState with parsed UI ProductUnions instead of raw ApiProducts.
  */
-export const selectProductsList = (state: ProductState): ProductsListState => ({
-  ...state,
-  data:
-    !state.loading && state.data
-      ? toArray(state.data).map(apiProductToProduct)
-      : [],
-});
-
+export const selectProductsList = createSelector(
+  selectProductsState,
+  (state) => ({
+    ...state,
+    data:
+      !state.loading && state.data
+        ? toArray(state.data).map(apiProductToProduct)
+        : [],
+  })
+);
 /**
  * Mapper function that acts as the integration between App and UI state.
  * @param param0 Product coming directly from an API.
