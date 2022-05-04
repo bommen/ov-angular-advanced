@@ -1,1 +1,21 @@
-<ov-page-products></ov-page-products>
+<ul>
+  <li>
+    <a routerLink="">Home</a>
+  </li>
+  <li>
+    <a routerLink="products">Products</a>
+  </li>
+  <li>
+    <a [routerLink]="['products', 'resolved']">Products resolved</a>
+  </li>
+</ul>
+<ng-container *ngIf="loading; else outlet">
+  <div class="loader-container">
+    <div class="loader">Loading page...</div>
+  </div>
+  <p class="loader-text">{{ loadingText }}</p>
+</ng-container>
+
+<ng-template #outlet>
+  <router-outlet></router-outlet>
+</ng-template>

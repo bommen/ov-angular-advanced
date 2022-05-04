@@ -1,10 +1,21 @@
 import { NgModule } from '@angular/core';
-import { RouterModule, Routes } from '@angular/router';
-
-const routes: Routes = [];
+import { CommonModule } from '@angular/common';
+import { RouterModule } from '@angular/router';
 
 @NgModule({
-  imports: [RouterModule.forRoot(routes)],
-  exports: [RouterModule]
+  declarations: [],
+  imports: [
+    CommonModule,
+    RouterModule.forRoot([
+      {
+        path: 'products',
+        loadChildren: () =>
+          import('./pages/page-products/page-products.module').then(
+            (m) => m.PageProductsModule
+          ),
+      },
+    ]),
+  ],
+  exports: [RouterModule],
 })
-export class AppRoutingModule { }
+export class AppRoutingModule {}

@@ -50,6 +50,6 @@ export class ProductService {
             count === mockProductsArray.length - 1 ? (count = 0) : ++count
           ]
       )
-    ).pipe(delay(1000));
+    ).pipe(delay(5000));
   }
 }

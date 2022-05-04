@@ -6,7 +6,6 @@ import { StoreDevtoolsModule } from '@ngrx/store-devtools';
 import { environment } from '../environments/environment';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
-import { PageProductsModule } from './pages/page-products/page-products.module';
 
 /**
  * AppState is empty because we rely on lazy loading pages/features.
@@ -24,7 +23,7 @@ export interface AppState {}
       name: 'Fake webshop',
       logOnly: environment.production,
     }),
-    PageProductsModule,
+    AppRoutingModule,
   ],
   providers: [],
   bootstrap: [AppComponent],
