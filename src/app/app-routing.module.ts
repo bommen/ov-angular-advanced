@@ -1,6 +1,7 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { RouterModule } from '@angular/router';
+import { PageChildRoutesModule } from './pages/page-child-routes/page-child-routes.module';
 
 @NgModule({
   declarations: [],
@@ -15,6 +16,7 @@ import { RouterModule } from '@angular/router';
           ),
       },
     ]),
+    PageChildRoutesModule,
   ],
   exports: [RouterModule],
 })

@@ -8,6 +8,23 @@
   <li>
     <a [routerLink]="['products', 'resolved']">Products resolved</a>
   </li>
+  <li>
+    <a [routerLink]="['child-routes']">Child routes</a>
+  </li>
+  <li>
+    <a
+      [routerLink]="[
+        'child-routes',
+        {
+          outlets: {
+            main: ['flipped'],
+            side: ['flipped']
+          }
+        }
+      ]"
+      >Child routes flipped</a
+    >
+  </li>
 </ul>
 <ov-spinner *ngIf="loading; else outlet" [text]="loadingText"></ov-spinner>
 
