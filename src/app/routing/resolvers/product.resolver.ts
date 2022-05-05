@@ -10,7 +10,7 @@ import { ProductState } from '../../state/product/product.reducer';
 import { selectProductsState } from '../../state/product/product.selector';
 
 @Injectable({ providedIn: 'root' })
-export class HeroResolver implements Resolve<ProductState> {
+export class ProductResolver implements Resolve<ProductState> {
   constructor(private store: Store) {}
 
   resolve(

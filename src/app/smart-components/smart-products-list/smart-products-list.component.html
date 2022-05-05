@@ -1,5 +1,5 @@
 <ng-container *ngIf="state$ | async as state">
-  <p *ngIf="state.loading; else content">Loading...</p>
+  <ov-spinner *ngIf="state.loading; else content"></ov-spinner>
 
   <ng-template #content>
     <p *ngIf="state.error; else list">
