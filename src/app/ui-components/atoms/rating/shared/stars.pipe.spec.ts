@@ -1,6 +1,6 @@
 import { StarsPipe } from './stars.pipe';
 
-fdescribe('StarsPipe', () => {
+describe('StarsPipe', () => {
   it('covert a rating to stars', () => {
     const createStars = jasmine.createSpy();
     const pipe = new StarsPipe({ createStars } as any);

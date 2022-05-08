@@ -1,5 +1,5 @@
 import { createSelector } from '@ngrx/store';
-import { selectProductsState } from '../../../state/product/product.selector';
+import { selectProductState } from '../../../state/product/product.selector';
 import { ApiProduct } from '../../../state/product/product.service';
 import { ProductDefault } from '../../../ui-components/molecules/product-default/product-default.component';
 import { ProductUnion } from '../../../ui-components/organisms/products-list/products-list.component';
@@ -17,7 +17,7 @@ export type ProductsListState = AsyncState<ProductUnion[]>;
  * @returns AsyncState with parsed UI ProductUnions instead of raw ApiProducts.
  */
 export const selectProductsList = createSelector(
-  selectProductsState,
+  selectProductState,
   (state) => ({
     ...state,
     data:
