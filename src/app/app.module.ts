@@ -6,7 +6,6 @@ import { StoreDevtoolsModule } from '@ngrx/store-devtools';
 import { environment } from '../environments/environment';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
-import { AuthModule } from './state/auth/auth.module';
 import { SpinnerModule } from './ui-components/atoms/spinner/spinner.module';
 
 /**
@@ -25,7 +24,6 @@ export interface AppState {}
       name: 'Fake webshop',
       logOnly: environment.production,
     }),
-    AuthModule,
     AppRoutingModule,
     SpinnerModule,
   ],
