@@ -25,7 +25,7 @@ export type BreakpointConfig = Record<Breakpoint, number>;
 
 export const BREAKPOINT_ORDER: Breakpoint[] = ['xs', 'sm', 'md', 'lg', 'xl'];
 
-const DEFAULT_CONFIG: BreakpointConfig = {
+export const DEFAULT_CONFIG: BreakpointConfig = {
   xs: 0,
   sm: 576,
   md: 768,
