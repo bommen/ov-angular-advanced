@@ -7,7 +7,7 @@ import { AppComponent } from './app.component';
 import { SpinnerComponent } from './ui-components/atoms/spinner/spinner.component';
 import { LoadingEvent, PageLoaderService } from './utils/page-loader.service';
 
-fdescribe('AppComponent', () => {
+describe('AppComponent', () => {
   let component: AppComponent;
   let fixture: ComponentFixture<AppComponent>;
   let loadingEvents: Subject<LoadingEvent>;
@@ -31,14 +31,14 @@ fdescribe('AppComponent', () => {
     fixture.detectChanges();
   });
 
-  const getSpinner = (): SpinnerComponent =>
+  const spinner = (): SpinnerComponent =>
     fixture.debugElement.query(By.directive(SpinnerComponent))
       ?.componentInstance ?? null;
 
-  const getRouter = () => fixture.nativeElement.querySelector('router-outlet');
+  const router = () => fixture.nativeElement.querySelector('router-outlet');
 
   it('should render a component', () => {
-    expect(getRouter()).not.toBeNull();
+    expect(router()).not.toBeNull();
   });
 
   describe('When loading', () => {
@@ -48,25 +48,25 @@ fdescribe('AppComponent', () => {
     });
 
     it('should not render a component', () => {
-      expect(getRouter()).toBeNull();
+      expect(router()).toBeNull();
     });
 
     it('should show a spinner', () => {
-      expect(getSpinner()).not.toBeNull();
+      expect(spinner()).not.toBeNull();
     });
 
     it("should render text if it's taking too long", () => {
       loadingEvents.next('timeout');
       fixture.detectChanges();
 
-      expect(getSpinner().text).toEqual(component.loadingText);
+      expect(spinner().text).toEqual(component.loadingText);
     });
 
     it('should stop loading when the page is ready', () => {
       loadingEvents.next('end');
       fixture.detectChanges();
-      expect(getSpinner()).toBeNull();
-      expect(getRouter()).not.toBeNull();
+      expect(spinner()).toBeNull();
+      expect(router()).not.toBeNull();
     });
   });
 });

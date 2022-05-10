@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { Store } from '@ngrx/store';
-import { Observable } from 'rxjs';
+import { Observable, tap } from 'rxjs';
 import { AddToCartEvent } from '../../ui-components/organisms/products-list/products-list.component';
 import {
   ProductsListState,
@@ -21,5 +21,7 @@ export class SmartProductsListComponent implements OnInit {
     this.state$ = this.store.select(selectProductsList);
   }
 
-  addProductToCart({ product, quantity }: AddToCartEvent) {}
+  addProductToCart({ product, quantity }: AddToCartEvent) {
+    console.log(product, quantity);
+  }
 }

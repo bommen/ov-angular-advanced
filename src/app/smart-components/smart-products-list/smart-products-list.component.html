@@ -2,19 +2,14 @@
   <ov-spinner *ngIf="state.loading; else content"></ov-spinner>
 
   <ng-template #content>
-    <p *ngIf="state.error; else list">
+    <p *ngIf="state.error; else list" date-testid="error-message">
       An error has occured: {{ state.error }}
     </p>
     <ng-template #list>
       <ov-products-list
-        *ngIf="state.data as products; else noData"
-        [products]="products"
+        [products]="state.data!"
         (addToCart)="addProductToCart($event)"
       ></ov-products-list>
-    </ng-template>
-
-    <ng-template #noData>
-      <p>Nothing is being loaded, there's no error and there's no data?</p>
     </ng-template>
   </ng-template>
 </ng-container>

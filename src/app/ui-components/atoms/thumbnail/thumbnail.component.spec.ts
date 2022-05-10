@@ -1,5 +1,4 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
-
 import { ThumbnailComponent } from './thumbnail.component';
 
 describe('ThumbnailComponent', () => {
@@ -8,9 +7,8 @@ describe('ThumbnailComponent', () => {
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      declarations: [ ThumbnailComponent ]
-    })
-    .compileComponents();
+      declarations: [ThumbnailComponent],
+    }).compileComponents();
   });
 
   beforeEach(() => {

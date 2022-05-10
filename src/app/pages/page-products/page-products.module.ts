@@ -23,7 +23,7 @@ import { PageProductsComponent } from './page-products.component';
         path: 'resolved',
         component: PageProductsComponent,
         resolve: {
-          product: ProductResolver,
+          products: ProductResolver,
         },
       },
     ]),

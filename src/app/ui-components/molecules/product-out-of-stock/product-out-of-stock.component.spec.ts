@@ -1,5 +1,9 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
-
+import { MockComponents } from 'ng-mocks';
+import { ButtonComponent } from '../../atoms/button/button.component';
+import { IconComponent } from '../../atoms/icon/icon.component';
+import { MessageComponent } from '../../atoms/message/message.component';
+import { ProductComponent } from '../product/product.component';
 import { ProductOutOfStockComponent } from './product-out-of-stock.component';
 
 describe('ProductOutOfStockComponent', () => {
@@ -8,9 +12,16 @@ describe('ProductOutOfStockComponent', () => {
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      declarations: [ ProductOutOfStockComponent ]
-    })
-    .compileComponents();
+      declarations: [
+        ProductOutOfStockComponent,
+        MockComponents(
+          ProductComponent,
+          ButtonComponent,
+          IconComponent,
+          MessageComponent
+        ),
+      ],
+    }).compileComponents();
   });
 
   beforeEach(() => {

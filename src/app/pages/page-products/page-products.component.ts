@@ -11,8 +11,8 @@ export class PageProductsComponent implements OnInit {
   constructor(private store: Store, private route: ActivatedRoute) {}
 
   ngOnInit(): void {
-    const { product } = this.route.snapshot.data;
-    if (!product) {
+    const { products } = this.route.snapshot.data;
+    if (!products) {
       this.store.dispatch(getProducts({ limit: 6 }));
     }
   }
